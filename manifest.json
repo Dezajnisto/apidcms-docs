@@ -393,6 +393,20 @@
   },
   "changelog": [
     {
+      "version": "v1.4.0",
+      "release_date": "2026-07-28",
+      "title": "i18n панели администрирования — языковые пакеты, {{ lang() }} в Twig, выбор языка в настройках",
+      "summary": "Мультиязычность админки: JSON-пакеты ru/en, функция {{ lang() }} в Twig, настройка admin_language, выпадашка выбора языка на вкладке Основные.",
+      "slug": "v1-4-0",
+      "badge_type": "feature",
+      "tags": "i18n,admin,lang,twig",
+      "order": 157,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-4-0.md",
+      "intro": "Панель администрирования apidcms получила поддержку мультиязычности: JSON-пакеты, функция lang() в Twig и выбор языка в настройках.",
+      "whats_new": "- **Языковые пакеты:** core_lib/admin/lang/ru.json + en.json (80+ ключей)\n- **Класс Lang:** Admin\\Core\\Lang — синглтон, загрузка JSON, fallback на русский\n- **Twig-функция {{ lang('key') }}** доступна во всех шаблонах админки\n- **Сайдбар и хедер** переведены на lang() — 19 замен в base.html.twig\n- **Системная настройка admin_language** (ru по умолчанию)\n- **Выпадашка выбора языка** в Настройки → Основные",
+      "improvements": "- Минимальная архитектура: 1 класс, 2 JSON-файла, 1 настройка в БД\n- Fallback на русский для любых отсутствующих ключей\n- Новые языки добавляются одним JSON-файлом + опцией в select\n- Lang::reload() для смены языка без перезагрузки (готово на будущее)"
+    },
+    {
       "version": "v1.3.30",
       "release_date": "2026-07-28",
       "title": "CSV импорт и экспорт для таблиц",
