@@ -312,7 +312,7 @@
       "section": "ai",
       "section_title": "AI Ассистент",
       "order": 300,
-      "description": "Встроенный AI на базе DeepSeek: генерация шаблонов, создание таблиц, заполнение контентом, настройка промтов.",
+      "description": "Встроенный AI на базе DeepSeek: генерация шаблонов, создание таблиц, заполнение контентом, настройка промтов, база знаний документации.",
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/ai/ai-assistent.md"
     },
     {
@@ -323,6 +323,15 @@
       "order": 60,
       "description": "",
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/plugins-dev/obzor-plaginov.md"
+    },
+    {
+      "slug": "baza-znanij-ai-dokumentaciya",
+      "title": "База знаний AI — документация apidcms",
+      "section": "ai",
+      "section_title": "AI Ассистент",
+      "order": 310,
+      "description": "Как AI-ассистент использует документацию apidcms как knowledge base: архитектура, кэширование, DocsFetcher.",
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/ai/baza-znanij-ai-dokumentaciya.md"
     }
   ],
   "sections": {
