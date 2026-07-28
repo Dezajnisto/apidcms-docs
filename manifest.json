@@ -1,0 +1,37 @@
+{
+  "site_sections": {
+    "quickstart": {
+      "title": "Быстрый старт",
+      "order": 10
+    },
+    "content": {
+      "title": "Контент и данные",
+      "order": 20
+    },
+    "forms": {
+      "title": "Формы и файлы",
+      "order": 30
+    },
+    "templates": {
+      "title": "Шаблоны и Twig",
+      "order": 40
+    },
+    "settings": {
+      "title": "Настройки",
+      "order": 50
+    },
+    "ai": {
+      "title": "AI Ассистент",
+      "order": 60
+    },
+    "plugins-dev": {
+      "title": "Разработка плагинов",
+      "order": 70
+    },
+    "guide": {
+      "title": "Руководство",
+      "order": 80
+    }
+  },
+  "admin_routes": {}
+}
