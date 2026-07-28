@@ -355,5 +355,31 @@
       "order": 70
     }
   },
-  "updated": "2026-07-28"
+  "updated": "2026-07-28-v2",
+  "admin_routes": {
+    "/": "quickstart/obzor-paneli-upravleniya.md",
+    "/tables": "content/obzor-tablic.md",
+    "/table/{table}": "content/obzor-tablic.md",
+    "/table/{table}/create": "content/sozdanie-tablicy.md",
+    "/table/{table}/edit/{id}": "content/crud-zapisi.md",
+    "/table/{table}/structure": "content/izmenenie-struktury.md",
+    "/table/{table}/add-column": "content/izmenenie-struktury.md",
+    "/create-table": "content/sozdanie-tablicy.md",
+    "/templates": "templates/obzor-shablonov.md",
+    "/templates/edit/{name}": "templates/redaktirovanie-shablonov.md",
+    "/templates/create": "templates/redaktirovanie-shablonov.md",
+    "/filemanager": "forms/fajlovyj-menedzher.md",
+    "/notifications": "forms/uvedomleniya.md",
+    "/notifications/form/{formName}": "forms/prosmotr-zayavok.md",
+    "/forms": "forms/sozdanie-formy.md",
+    "/forms/create": "forms/sozdanie-formy.md",
+    "/forms/edit/{name}": "forms/sozdanie-formy.md",
+    "/plugins": "plugins-dev/obzor-plaginov.md",
+    "/plugins/{name}": "plugins-dev/obzor-plaginov.md",
+    "/stats": "settings/statistika-poseshchenij.md",
+    "/cache": "settings/keshirovanie.md",
+    "/design/css": "templates/obzor-shablonov.md",
+    "/settings": "settings/nastrojki-sajta.md",
+    "/ai/assistant": "ai/ai-assistent.md"
+  }
 }
