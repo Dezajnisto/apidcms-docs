@@ -9,6 +9,7 @@ description: "Главная страница админки: таблицы, ш
 # 📊 Обзор панели управления
 
 После входа вы видите главную страницу админки. Вот основные разделы:
+![Панель управления apidcms](https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/images/admin-dashboard.png)
 
 ---
 
