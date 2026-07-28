@@ -7,7 +7,7 @@
       "section_title": "Быстрый старт",
       "order": 10,
       "description": "Как зайти в админку apidcms, решение проблем со входом, выход из системы.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/quickstart/vhod-v-panel-upravleniya.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/vhod-v-panel-upravleniya.md"
     },
     {
       "slug": "obzor-paneli-upravleniya",
@@ -16,7 +16,7 @@
       "section_title": "Быстрый старт",
       "order": 20,
       "description": "Главная страница админки: таблицы, шаблоны, файлы, уведомления, AI-ассистент.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/quickstart/obzor-paneli-upravleniya.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/obzor-paneli-upravleniya.md"
     },
     {
       "slug": "ustanovka-i-trebovaniya",
@@ -25,7 +25,7 @@
       "section_title": "Быстрый старт",
       "order": 30,
       "description": "Установка и требования",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/quickstart/ustanovka-i-trebovaniya.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/ustanovka-i-trebovaniya.md"
     },
     {
       "slug": "license",
@@ -34,7 +34,7 @@
       "section_title": "Быстрый старт",
       "order": 40,
       "description": "MIT License для apidcms",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/quickstart/license.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/license.md"
     },
     {
       "slug": "bezopasnost",
@@ -43,7 +43,7 @@
       "section_title": "Быстрый старт",
       "order": 50,
       "description": "Где находится база данных, как защитить её от скачивания через прямую ссылку. Настройка .htaccess и nginx, проверка защиты, регулярный аудит.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/quickstart/bezopasnost.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/bezopasnost.md"
     },
     {
       "slug": "staticheskie-stranicy",
@@ -52,7 +52,7 @@
       "section_title": "Контент и данные",
       "order": 70,
       "description": "Статические страницы (тип page)",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/staticheskie-stranicy.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/staticheskie-stranicy.md"
     },
     {
       "slug": "dinamicheskie-stranicy",
@@ -61,7 +61,7 @@
       "section_title": "Контент и данные",
       "order": 80,
       "description": "Универсальный тип dynamic",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/dinamicheskie-stranicy.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/dinamicheskie-stranicy.md"
     },
     {
       "slug": "navigaciya-i-menu",
@@ -70,7 +70,7 @@
       "section_title": "Контент и данные",
       "order": 90,
       "description": "Навигация и меню",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/navigaciya-i-menu.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/navigaciya-i-menu.md"
     },
     {
       "slug": "page-config-spravochnik",
@@ -79,7 +79,7 @@
       "section_title": "Контент и данные",
       "order": 100,
       "description": "page_config — справочник",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/page-config-spravochnik.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/page-config-spravochnik.md"
     },
     {
       "slug": "external-page-type",
@@ -88,7 +88,7 @@
       "section_title": "Контент и данные",
       "order": 110,
       "description": "",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/external-page-type.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/external-page-type.md"
     },
     {
       "slug": "multi-column-sort",
@@ -97,7 +97,7 @@
       "section_title": "Контент и данные",
       "order": 115,
       "description": "Как задать цепочку полей для ORDER BY через sort.then в page_config",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/multi-column-sort.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/multi-column-sort.md"
     },
     {
       "slug": "obzor-tablic",
@@ -106,7 +106,7 @@
       "section_title": "Контент и данные",
       "order": 120,
       "description": "Что такое таблица, системные таблицы, пользовательские таблицы, как создавать.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/obzor-tablic.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/obzor-tablic.md"
     },
     {
       "slug": "sozdanie-tablicy",
@@ -115,7 +115,7 @@
       "section_title": "Контент и данные",
       "order": 130,
       "description": "Создание таблицы",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/sozdanie-tablicy.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/sozdanie-tablicy.md"
     },
     {
       "slug": "crud-zapisi",
@@ -124,7 +124,7 @@
       "section_title": "Контент и данные",
       "order": 140,
       "description": "CRUD — записи",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/crud-zapisi.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/crud-zapisi.md"
     },
     {
       "slug": "inline-cell-editing",
@@ -133,7 +133,7 @@
       "section_title": "Контент и данные",
       "order": 145,
       "description": "Двойной клик по ячейке — модальное окно с EasyMDE Markdown-редактором. Тулбар, превью, горячие клавиши.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/inline-cell-editing.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/inline-cell-editing.md"
     },
     {
       "slug": "izmenenie-struktury",
@@ -142,7 +142,7 @@
       "section_title": "Контент и данные",
       "order": 150,
       "description": "Изменение структуры",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/izmenenie-struktury.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/izmenenie-struktury.md"
     },
     {
       "slug": "poisk-po-sajtu",
@@ -151,7 +151,7 @@
       "section_title": "Контент и данные",
       "order": 160,
       "description": "",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/content/poisk-po-sajtu.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/poisk-po-sajtu.md"
     },
     {
       "slug": "sozdanie-formy",
@@ -160,7 +160,7 @@
       "section_title": "Формы и файлы",
       "order": 170,
       "description": "Пошаговое руководство: создание таблицы, настройка form_config, поля, уведомления, встраивание через Twig.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/forms/sozdanie-formy.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/sozdanie-formy.md"
     },
     {
       "slug": "uvedomleniya",
@@ -169,7 +169,7 @@
       "section_title": "Формы и файлы",
       "order": 180,
       "description": "Уведомления",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/forms/uvedomleniya.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/uvedomleniya.md"
     },
     {
       "slug": "prosmotr-zayavok",
@@ -178,7 +178,7 @@
       "section_title": "Формы и файлы",
       "order": 190,
       "description": "Просмотр заявок",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/forms/prosmotr-zayavok.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/prosmotr-zayavok.md"
     },
     {
       "slug": "vstraivanie-formy",
@@ -187,7 +187,7 @@
       "section_title": "Формы и файлы",
       "order": 200,
       "description": "Встраивание формы",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/forms/vstraivanie-formy.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/vstraivanie-formy.md"
     },
     {
       "slug": "fajlovyj-menedzher",
@@ -196,7 +196,7 @@
       "section_title": "Формы и файлы",
       "order": 210,
       "description": "Загрузка, просмотр, переименование, удаление файлов. Режимы отображения, пагинация, превью изображений.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/forms/fajlovyj-menedzher.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/fajlovyj-menedzher.md"
     },
     {
       "slug": "obrabotka-personalnyh-dannyh",
@@ -205,7 +205,7 @@
       "section_title": "Формы и файлы",
       "order": 220,
       "description": "Чекбокс согласия на ПД, способы включения, хранение логов, требования закона.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/forms/obrabotka-personalnyh-dannyh.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/obrabotka-personalnyh-dannyh.md"
     },
     {
       "slug": "obzor-shablonov",
@@ -214,7 +214,7 @@
       "section_title": "Шаблоны и Twig",
       "order": 230,
       "description": "Обзор шаблонов",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/templates/obzor-shablonov.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/obzor-shablonov.md"
     },
     {
       "slug": "redaktirovanie-shablonov",
@@ -223,7 +223,7 @@
       "section_title": "Шаблоны и Twig",
       "order": 240,
       "description": "Редактирование шаблонов",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/templates/redaktirovanie-shablonov.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/redaktirovanie-shablonov.md"
     },
     {
       "slug": "privyazka-shablona",
@@ -232,7 +232,7 @@
       "section_title": "Шаблоны и Twig",
       "order": 250,
       "description": "Привязка шаблона к странице",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/templates/privyazka-shablona.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/privyazka-shablona.md"
     },
     {
       "slug": "twig-funkcii-i-filtry",
@@ -241,7 +241,7 @@
       "section_title": "Шаблоны и Twig",
       "order": 260,
       "description": "Twig-функции и фильтры",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/templates/twig-funkcii-i-filtry.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/twig-funkcii-i-filtry.md"
     },
     {
       "slug": "peremennye-v-shablonah",
@@ -250,7 +250,7 @@
       "section_title": "Шаблоны и Twig",
       "order": 270,
       "description": "Переменные в шаблонах",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/templates/peremennye-v-shablonah.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/peremennye-v-shablonah.md"
     },
     {
       "slug": "huki-sobytiya",
@@ -259,7 +259,7 @@
       "section_title": "Шаблоны и Twig",
       "order": 280,
       "description": "Хуки (события)",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/templates/huki-sobytiya.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/huki-sobytiya.md"
     },
     {
       "slug": "nastrojki-sajta",
@@ -268,7 +268,7 @@
       "section_title": "Настройки",
       "order": 310,
       "description": "Основные настройки, AI (DeepSeek), системные параметры: email, интеграции.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/settings/nastrojki-sajta.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/nastrojki-sajta.md"
     },
     {
       "slug": "sistemnye-nastrojki-spravochnik",
@@ -277,7 +277,7 @@
       "section_title": "Настройки",
       "order": 320,
       "description": "Системные настройки — справочник",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/settings/sistemnye-nastrojki-spravochnik.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/sistemnye-nastrojki-spravochnik.md"
     },
     {
       "slug": "keshirovanie",
@@ -286,7 +286,7 @@
       "section_title": "Настройки",
       "order": 330,
       "description": "Кэширование",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/settings/keshirovanie.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/keshirovanie.md"
     },
     {
       "slug": "statistika-poseshchenij",
@@ -295,7 +295,7 @@
       "section_title": "Настройки",
       "order": 340,
       "description": "Статистика посещений",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/settings/statistika-poseshchenij.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/statistika-poseshchenij.md"
     },
     {
       "slug": "vajb-koding-i-ii-razrabotka",
@@ -304,7 +304,7 @@
       "section_title": "AI Ассистент",
       "order": 290,
       "description": "Как человек и ИИ вместе создают apidcms: ценности, видение и приглашение к участию.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/ai/vajb-koding-i-ii-razrabotka.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/vajb-koding-i-ii-razrabotka.md"
     },
     {
       "slug": "ai-assistent",
@@ -313,7 +313,7 @@
       "section_title": "AI Ассистент",
       "order": 300,
       "description": "Встроенный AI на базе DeepSeek: генерация шаблонов, создание таблиц, заполнение контентом, настройка промтов, база знаний документации.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/ai/ai-assistent.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/ai-assistent.md"
     },
     {
       "slug": "obzor-plaginov",
@@ -322,7 +322,7 @@
       "section_title": "Разработка плагинов",
       "order": 60,
       "description": "",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/plugins-dev/obzor-plaginov.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/plugins-dev/obzor-plaginov.md"
     },
     {
       "slug": "baza-znanij-ai-dokumentaciya",
@@ -331,7 +331,7 @@
       "section_title": "AI Ассистент",
       "order": 310,
       "description": "Как AI-ассистент использует документацию apidcms как knowledge base: архитектура, кэширование, DocsFetcher.",
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/ai/baza-znanij-ai-dokumentaciya.md"
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/baza-znanij-ai-dokumentaciya.md"
     }
   ],
   "sections": {
@@ -366,30 +366,30 @@
   },
   "updated": "2026-07-28-v2",
   "admin_routes": {
-    "/": "quickstart/obzor-paneli-upravleniya.md",
-    "/tables": "content/obzor-tablic.md",
-    "/table/{table}": "content/obzor-tablic.md",
-    "/table/{table}/create": "content/sozdanie-tablicy.md",
-    "/table/{table}/edit/{id}": "content/crud-zapisi.md",
-    "/table/{table}/structure": "content/izmenenie-struktury.md",
-    "/table/{table}/add-column": "content/izmenenie-struktury.md",
-    "/create-table": "content/sozdanie-tablicy.md",
-    "/templates": "templates/obzor-shablonov.md",
-    "/templates/edit/{name}": "templates/redaktirovanie-shablonov.md",
-    "/templates/create": "templates/redaktirovanie-shablonov.md",
-    "/filemanager": "forms/fajlovyj-menedzher.md",
-    "/notifications": "forms/uvedomleniya.md",
-    "/notifications/form/{formName}": "forms/prosmotr-zayavok.md",
-    "/forms": "forms/sozdanie-formy.md",
-    "/forms/create": "forms/sozdanie-formy.md",
-    "/forms/edit/{name}": "forms/sozdanie-formy.md",
-    "/plugins": "plugins-dev/obzor-plaginov.md",
-    "/plugins/{name}": "plugins-dev/obzor-plaginov.md",
-    "/stats": "settings/statistika-poseshchenij.md",
-    "/cache": "settings/keshirovanie.md",
-    "/design/css": "templates/obzor-shablonov.md",
-    "/settings": "settings/nastrojki-sajta.md",
-    "/ai/assistant": "ai/ai-assistent.md"
+    "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
+    "/tables": "{lang}/content/obzor-tablic.md",
+    "/table/{table}": "{lang}/content/obzor-tablic.md",
+    "/table/{table}/create": "{lang}/content/sozdanie-tablicy.md",
+    "/table/{table}/edit/{id}": "{lang}/content/crud-zapisi.md",
+    "/table/{table}/structure": "{lang}/content/izmenenie-struktury.md",
+    "/table/{table}/add-column": "{lang}/content/izmenenie-struktury.md",
+    "/create-table": "{lang}/content/sozdanie-tablicy.md",
+    "/templates": "{lang}/templates/obzor-shablonov.md",
+    "/templates/edit/{name}": "{lang}/templates/redaktirovanie-shablonov.md",
+    "/templates/create": "{lang}/templates/redaktirovanie-shablonov.md",
+    "/filemanager": "{lang}/forms/fajlovyj-menedzher.md",
+    "/notifications": "{lang}/forms/uvedomleniya.md",
+    "/notifications/form/{formName}": "{lang}/forms/prosmotr-zayavok.md",
+    "/forms": "{lang}/forms/sozdanie-formy.md",
+    "/forms/create": "{lang}/forms/sozdanie-formy.md",
+    "/forms/edit/{name}": "{lang}/forms/sozdanie-formy.md",
+    "/plugins": "{lang}/plugins-dev/obzor-plaginov.md",
+    "/plugins/{name}": "{lang}/plugins-dev/obzor-plaginov.md",
+    "/stats": "{lang}/settings/statistika-poseshchenij.md",
+    "/cache": "{lang}/settings/keshirovanie.md",
+    "/design/css": "{lang}/templates/obzor-shablonov.md",
+    "/settings": "{lang}/settings/nastrojki-sajta.md",
+    "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
     {
