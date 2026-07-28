@@ -393,6 +393,72 @@
   },
   "changelog": [
     {
+      "version": "v1.3.30",
+      "release_date": "2026-07-28",
+      "title": "CSV импорт и экспорт для таблиц",
+      "summary": "",
+      "slug": "csv-import-export",
+      "badge_type": "release",
+      "tags": "",
+      "order": 156,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/csv-import-export.md"
+    },
+    {
+      "version": "v1.3.29",
+      "release_date": "2026-07-28",
+      "title": "Кнопка копирования для блоков кода в AI-чате",
+      "summary": "",
+      "slug": "v1-3-29",
+      "badge_type": "release",
+      "tags": "",
+      "order": 155,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-29.md"
+    },
+    {
+      "version": "v1.3.28",
+      "release_date": "2026-07-28",
+      "title": "Стилизация таблиц в AI-чате",
+      "summary": "",
+      "slug": "v1-3-28",
+      "badge_type": "release",
+      "tags": "",
+      "order": 154,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-28.md"
+    },
+    {
+      "version": "v1.3.27",
+      "release_date": "2026-07-28",
+      "title": "Исправление namespace Parsedown в AI-контроллере",
+      "summary": "",
+      "slug": "v1-3-27",
+      "badge_type": "release",
+      "tags": "",
+      "order": 153,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-27.md"
+    },
+    {
+      "version": "v1.3.26",
+      "release_date": "2026-07-28",
+      "title": "Исправление рендеринга Markdown в AI-чате",
+      "summary": "",
+      "slug": "v1-3-26",
+      "badge_type": "release",
+      "tags": "",
+      "order": 152,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-26.md"
+    },
+    {
+      "version": "v1.3.25",
+      "release_date": "2026-07-28",
+      "title": "Интеграция документации в AI-ассистент и панель справки",
+      "summary": "",
+      "slug": "v1-3-25",
+      "badge_type": "release",
+      "tags": "",
+      "order": 151,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-25.md"
+    },
+    {
       "version": "v1.3.24",
       "release_date": "2026-07-28",
       "title": "Контекстная справка в панели администрирования",
@@ -783,72 +849,6 @@
       "order": 10,
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-0-0.md",
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
-    },
-    {
-      "version": "v1.3.30",
-      "release_date": "2026-07-28",
-      "title": "CSV импорт и экспорт для таблиц",
-      "summary": "",
-      "slug": "csv-import-export",
-      "badge_type": "release",
-      "tags": "",
-      "order": 0,
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/csv-import-export.md"
-    },
-    {
-      "version": "v1.3.25",
-      "release_date": "2026-07-28",
-      "title": "Интеграция документации в AI-ассистент и панель справки",
-      "summary": "",
-      "slug": "v1-3-25",
-      "badge_type": "release",
-      "tags": "",
-      "order": 0,
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-25.md"
-    },
-    {
-      "version": "v1.3.26",
-      "release_date": "2026-07-28",
-      "title": "Исправление рендеринга Markdown в AI-чате",
-      "summary": "",
-      "slug": "v1-3-26",
-      "badge_type": "release",
-      "tags": "",
-      "order": 0,
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-26.md"
-    },
-    {
-      "version": "v1.3.27",
-      "release_date": "2026-07-28",
-      "title": "Исправление namespace Parsedown в AI-контроллере",
-      "summary": "",
-      "slug": "v1-3-27",
-      "badge_type": "release",
-      "tags": "",
-      "order": 0,
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-27.md"
-    },
-    {
-      "version": "v1.3.28",
-      "release_date": "2026-07-28",
-      "title": "Стилизация таблиц в AI-чате",
-      "summary": "",
-      "slug": "v1-3-28",
-      "badge_type": "release",
-      "tags": "",
-      "order": 0,
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-28.md"
-    },
-    {
-      "version": "v1.3.29",
-      "release_date": "2026-07-28",
-      "title": "Кнопка копирования для блоков кода в AI-чате",
-      "summary": "",
-      "slug": "v1-3-29",
-      "badge_type": "release",
-      "tags": "",
-      "order": 0,
-      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-29.md"
     }
   ]
 }
