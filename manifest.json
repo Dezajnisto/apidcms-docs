@@ -683,6 +683,23 @@
         "en": "Adding new languages to the apidcms admin panel. JSON language packs, lang() in Twig, __t() helper in JavaScript."
       },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/internatsionalizatsiya.md"
+    },
+    {
+      "slug": "multilingual-sites",
+      "title": {
+        "ru": "Мультиязычные сайты",
+        "en": "Multilingual Sites"
+      },
+      "section": "features",
+      "section_title": {
+        "ru": "Возможности",
+        "en": "Features"
+      },
+      "order": 55,
+      "description": {
+        "ru": "Как создать сайт на нескольких языках: настройки, URL-префиксы, _t объект, класс Core\\I18n.",
+        "en": "How to build a multilingual site: settings, URL prefixes, _t object, Core\\I18n class."
+      }
     }
   ],
   "sections": {
@@ -736,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-29-v1.5.0",
+  "updated": "2026-07-29-v1.5.2",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -764,6 +781,30 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v1.5.2",
+      "release_date": "2026-07-29",
+      "slug": "v1-5-2",
+      "badge_type": "feature",
+      "tags": "i18n,multilingual,frontend,json,core,templates",
+      "title": {
+        "ru": "Мультиязычный фронтенд — опциональная локализация, URL-префиксы, Core\\I18n",
+        "en": "Multilingual Frontend — optional localization, URL prefixes, Core\\I18n"
+      },
+      "summary": {
+        "ru": "Фронтенд получил опциональную мультиязычность: site_language/site_languages, URL-префиксы, кука, Core\\I18n, перевод всех шаблонов.",
+        "en": "Optional multilingual frontend: site_language/site_languages, URL prefixes, cookie, Core\\I18n, all templates translated."
+      },
+      "intro": {
+        "ru": "Для 90% сайтов ничего не меняется. Для apidcms.dezajno.ru — полноценный английский на всех страницах.",
+        "en": "Nothing changes for 90% of sites. apidcms.dezajno.ru now fully available in English."
+      },
+      "whats_new": "- **site_language + site_languages** — базовый и дополнительные языки фронтенда\n- **URL-префиксы** — /en/page, авто-редирект по куке site_lang\n- **Core\\I18n** — resolve(), resolveArray(), encode(), searchExpr()\n- **Auto-resolve** в FrontController::render() — i18n-поля из БД\n- **100+ ключей в _t** — переведены home, docs, changelog, plugins, 404, success\n- **Переключатель RU/EN** в хедере\n- **Фикс: exit; перед http_response_code(500)** — честный 500 вместо 200 OK",
+      "improvements": {
+        "ru": "init.php: убран мёртвый exit; перед http_response_code(500).",
+        "en": "init.php: removed dead exit; before http_response_code(500)."
+      }
+    },
     {
       "version": "v1.5.0",
       "release_date": "2026-07-29",
