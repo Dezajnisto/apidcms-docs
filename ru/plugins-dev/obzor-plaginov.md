@@ -56,11 +56,16 @@ order: 60
 **Маршруты:**
 - `/register` — регистрация
 - `/login` — вход
+- `/account/forgot` — восстановление доступа (magic-link)
+- `/account/reset?token=***` — вход по magic-link
 - `/profile` — профиль
+- `/account/change-password` — смена пароля
 - `/logout` — выход
 
 **Особенности:**
 - Remember-me (cookie на 30 дней)
+- Magic-link: восстановление доступа без пароля, одноразовый токен
+- Смена пароля для авторизованных
 - Twig-функции: `is_logged_in()`, `current_user()`
 
 **Таблицы:** `users`, `user_tokens`

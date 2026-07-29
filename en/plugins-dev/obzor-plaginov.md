@@ -57,11 +57,16 @@ Registration, login, and user profile.
 **Routes:**
 - `/register` — registration
 - `/login` — login
+- `/account/forgot` — password recovery (magic-link)
+- `/account/reset?token=***` — magic-link login
 - `/profile` — profile
+- `/account/change-password` — change password
 - `/logout` — logout
 
 **Features:**
 - Remember-me (30-day cookie)
+- Magic-link: passwordless login, one-time token
+- Password change for authenticated users
 - Twig functions: `is_logged_in()`, `current_user()`
 
 **Tables:** `users`, `user_tokens`

@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-29-v1.5.2",
+  "updated": "2026-07-29-account-v1.1.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,22 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v1.1.0",
+      "release_date": "2026-07-29",
+      "slug": "account-v1-1-0",
+      "badge_type": "feature",
+      "tags": "plugin,account,password-reset,magic-link,security",
+      "title": {
+        "ru": "Плагин Account v1.1.0 — magic-link вход и смена пароля",
+        "en": "Account Plugin v1.1.0 — magic-link login & password change"
+      },
+      "summary": {
+        "ru": "Восстановление доступа через magic-link на почту, смена пароля для авторизованных, настраиваемый TTL токена.",
+        "en": "Magic-link password recovery, password change for authenticated users, configurable token TTL."
+      },
+      "order": 159
+    },
     {
       "version": "v1.5.2",
       "release_date": "2026-07-29",
