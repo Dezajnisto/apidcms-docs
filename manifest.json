@@ -2,365 +2,719 @@
   "docs": [
     {
       "slug": "vhod-v-panel-upravleniya",
-      "title": "Вход в панель управления",
+      "title": {
+        "ru": "Вход в панель управления",
+        "en": "Admin Panel Login"
+      },
       "section": "quickstart",
-      "section_title": "Быстрый старт",
+      "section_title": {
+        "ru": "Быстрый старт",
+        "en": "Quick Start"
+      },
       "order": 10,
-      "description": "Как зайти в админку apidcms, решение проблем со входом, выход из системы.",
+      "description": {
+        "ru": "Как зайти в админку apidcms, решение проблем со входом, выход из системы.",
+        "en": "How to log in to apidcms admin panel, troubleshooting login issues, logging out."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/vhod-v-panel-upravleniya.md"
     },
     {
       "slug": "obzor-paneli-upravleniya",
-      "title": "Обзор панели управления",
+      "title": {
+        "ru": "Обзор панели управления",
+        "en": "Admin Panel Overview"
+      },
       "section": "quickstart",
-      "section_title": "Быстрый старт",
+      "section_title": {
+        "ru": "Быстрый старт",
+        "en": "Quick Start"
+      },
       "order": 20,
-      "description": "Главная страница админки: таблицы, шаблоны, файлы, уведомления, AI-ассистент.",
+      "description": {
+        "ru": "Главная страница админки: таблицы, шаблоны, файлы, уведомления, AI-ассистент.",
+        "en": "Dashboard, navigation menu, main sections and features of the admin panel."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/obzor-paneli-upravleniya.md"
     },
     {
       "slug": "ustanovka-i-trebovaniya",
-      "title": "Установка и требования",
+      "title": {
+        "ru": "Установка и требования",
+        "en": "Installation & Requirements"
+      },
       "section": "quickstart",
-      "section_title": "Быстрый старт",
+      "section_title": {
+        "ru": "Быстрый старт",
+        "en": "Quick Start"
+      },
       "order": 30,
-      "description": "Установка и требования",
+      "description": {
+        "ru": "Установка и требования",
+        "en": "System requirements, installing apidcms on hosting, initial setup and configuration."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/ustanovka-i-trebovaniya.md"
     },
     {
       "slug": "license",
-      "title": "Лицензия",
+      "title": {
+        "ru": "Лицензия",
+        "en": "License"
+      },
       "section": "quickstart",
-      "section_title": "Быстрый старт",
+      "section_title": {
+        "ru": "Быстрый старт",
+        "en": "Quick Start"
+      },
       "order": 40,
-      "description": "MIT License для apidcms",
+      "description": {
+        "ru": "MIT License для apidcms",
+        "en": "apidcms license terms — MIT open source license."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/license.md"
     },
     {
       "slug": "bezopasnost",
-      "title": "Безопасность",
+      "title": {
+        "ru": "Безопасность",
+        "en": "Security"
+      },
       "section": "quickstart",
-      "section_title": "Быстрый старт",
+      "section_title": {
+        "ru": "Быстрый старт",
+        "en": "Quick Start"
+      },
       "order": 50,
-      "description": "Где находится база данных, как защитить её от скачивания через прямую ссылку. Настройка .htaccess и nginx, проверка защиты, регулярный аудит.",
+      "description": {
+        "ru": "Где находится база данных, как защитить её от скачивания через прямую ссылку. Настройка .htaccess и nginx, проверка защиты, регулярный аудит.",
+        "en": "Database protection, .htaccess configuration, admin access security, best practices."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/quickstart/bezopasnost.md"
     },
     {
       "slug": "staticheskie-stranicy",
-      "title": "Статические страницы (тип page)",
+      "title": {
+        "ru": "Статические страницы (тип page)",
+        "en": "Static Pages"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 70,
-      "description": "Статические страницы (тип page)",
+      "description": {
+        "ru": "Статические страницы (тип page)",
+        "en": "Creating and managing static content pages in apidcms."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/staticheskie-stranicy.md"
     },
     {
       "slug": "dinamicheskie-stranicy",
-      "title": "Динамические страницы (тип dynamic)",
+      "title": {
+        "ru": "Динамические страницы (тип dynamic)",
+        "en": "Dynamic Pages"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 80,
-      "description": "Универсальный тип dynamic",
+      "description": {
+        "ru": "Универсальный тип dynamic",
+        "en": "Dynamic page types: blog, catalog, landing pages with database-driven content."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/dinamicheskie-stranicy.md"
     },
     {
       "slug": "navigaciya-i-menu",
-      "title": "Навигация и меню",
+      "title": {
+        "ru": "Навигация и меню",
+        "en": "Navigation & Menus"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 90,
-      "description": "Навигация и меню",
+      "description": {
+        "ru": "Навигация и меню",
+        "en": "Setting up site navigation, menu items, and URL structure."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/navigaciya-i-menu.md"
     },
     {
       "slug": "page-config-spravochnik",
-      "title": "page_config — справочник",
+      "title": {
+        "ru": "page_config — справочник",
+        "en": "Page Config Reference"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 100,
-      "description": "page_config — справочник",
+      "description": {
+        "ru": "page_config — справочник",
+        "en": "Complete reference for page_config options: relations, filters, sorting, columns."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/page-config-spravochnik.md"
     },
     {
       "slug": "external-page-type",
-      "title": "Внешние источники (тип external)",
+      "title": {
+        "ru": "Внешние источники (тип external)",
+        "en": "External Page Type"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 110,
-      "description": "",
+      "description": {
+        "ru": "",
+        "en": "Using custom page_type = 'external' with your own PHP controllers."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/external-page-type.md"
     },
     {
       "slug": "multi-column-sort",
-      "title": "Мульти-колоночная сортировка в dynamic-списках",
+      "title": {
+        "ru": "Мульти-колоночная сортировка в dynamic-списках",
+        "en": "Multi-Column Sort"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 115,
-      "description": "Как задать цепочку полей для ORDER BY через sort.then в page_config",
+      "description": {
+        "ru": "Как задать цепочку полей для ORDER BY через sort.then в page_config",
+        "en": "Sorting database records by multiple columns with custom order."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/multi-column-sort.md"
     },
     {
       "slug": "obzor-tablic",
-      "title": "Обзор таблиц",
+      "title": {
+        "ru": "Обзор таблиц",
+        "en": "Tables Overview"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 120,
-      "description": "Что такое таблица, системные таблицы, пользовательские таблицы, как создавать.",
+      "description": {
+        "ru": "Что такое таблица, системные таблицы, пользовательские таблицы, как создавать.",
+        "en": "Database tables in apidcms: structure, types of tables, and basic concepts."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/obzor-tablic.md"
     },
     {
       "slug": "sozdanie-tablicy",
-      "title": "Создание таблицы",
+      "title": {
+        "ru": "Создание таблицы",
+        "en": "Creating a Table"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 130,
-      "description": "Создание таблицы",
+      "description": {
+        "ru": "Создание таблицы",
+        "en": "Step-by-step guide for creating database tables in apidcms admin panel."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/sozdanie-tablicy.md"
     },
     {
       "slug": "crud-zapisi",
-      "title": "CRUD — записи",
+      "title": {
+        "ru": "CRUD — записи",
+        "en": "CRUD Operations"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 140,
-      "description": "CRUD — записи",
+      "description": {
+        "ru": "CRUD — записи",
+        "en": "Creating, reading, updating, and deleting records in apidcms tables."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/crud-zapisi.md"
     },
     {
       "slug": "inline-cell-editing",
-      "title": "Inline-редактирование ячеек с EasyMDE",
+      "title": {
+        "ru": "Inline-редактирование ячеек с EasyMDE",
+        "en": "Inline Cell Editing"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 145,
-      "description": "Двойной клик по ячейке — модальное окно с EasyMDE Markdown-редактором. Тулбар, превью, горячие клавиши.",
+      "description": {
+        "ru": "Двойной клик по ячейке — модальное окно с EasyMDE Markdown-редактором. Тулбар, превью, горячие клавиши.",
+        "en": "Edit table cell values directly from the table view without opening forms."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/inline-cell-editing.md"
     },
     {
       "slug": "izmenenie-struktury",
-      "title": "Изменение структуры",
+      "title": {
+        "ru": "Изменение структуры",
+        "en": "Modifying Table Structure"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 150,
-      "description": "Изменение структуры",
+      "description": {
+        "ru": "Изменение структуры",
+        "en": "Adding, modifying, and deleting columns in existing tables."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/izmenenie-struktury.md"
     },
     {
       "slug": "poisk-po-sajtu",
-      "title": "Поиск по сайту",
+      "title": {
+        "ru": "Поиск по сайту",
+        "en": "Site Search"
+      },
       "section": "content",
-      "section_title": "Контент и данные",
+      "section_title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 160,
-      "description": "",
+      "description": {
+        "ru": "",
+        "en": "Full-text search across tables, search configuration and customization."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/content/poisk-po-sajtu.md"
     },
     {
       "slug": "sozdanie-formy",
-      "title": "Создание формы",
+      "title": {
+        "ru": "Создание формы",
+        "en": "Creating Forms"
+      },
       "section": "forms",
-      "section_title": "Формы и файлы",
+      "section_title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 170,
-      "description": "Пошаговое руководство: создание таблицы, настройка form_config, поля, уведомления, встраивание через Twig.",
+      "description": {
+        "ru": "Пошаговое руководство: создание таблицы, настройка form_config, поля, уведомления, встраивание через Twig.",
+        "en": "Building feedback forms, contact forms, and data collection forms."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/sozdanie-formy.md"
     },
     {
       "slug": "uvedomleniya",
-      "title": "Уведомления",
+      "title": {
+        "ru": "Уведомления",
+        "en": "Notifications"
+      },
       "section": "forms",
-      "section_title": "Формы и файлы",
+      "section_title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 180,
-      "description": "Уведомления",
+      "description": {
+        "ru": "Уведомления",
+        "en": "Email notifications for form submissions, auto-replies, and admin alerts."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/uvedomleniya.md"
     },
     {
       "slug": "prosmotr-zayavok",
-      "title": "Просмотр заявок",
+      "title": {
+        "ru": "Просмотр заявок",
+        "en": "Viewing Submissions"
+      },
       "section": "forms",
-      "section_title": "Формы и файлы",
+      "section_title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 190,
-      "description": "Просмотр заявок",
+      "description": {
+        "ru": "Просмотр заявок",
+        "en": "Managing form submissions: viewing, filtering, marking as read."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/prosmotr-zayavok.md"
     },
     {
       "slug": "vstraivanie-formy",
-      "title": "Встраивание формы",
+      "title": {
+        "ru": "Встраивание формы",
+        "en": "Embedding Forms"
+      },
       "section": "forms",
-      "section_title": "Формы и файлы",
+      "section_title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 200,
-      "description": "Встраивание формы",
+      "description": {
+        "ru": "Встраивание формы",
+        "en": "Embedding forms into pages, custom form templates, and styling."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/vstraivanie-formy.md"
     },
     {
       "slug": "fajlovyj-menedzher",
-      "title": "Файловый менеджер",
+      "title": {
+        "ru": "Файловый менеджер",
+        "en": "File Manager"
+      },
       "section": "forms",
-      "section_title": "Формы и файлы",
+      "section_title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 210,
-      "description": "Загрузка, просмотр, переименование, удаление файлов. Режимы отображения, пагинация, превью изображений.",
+      "description": {
+        "ru": "Загрузка, просмотр, переименование, удаление файлов. Режимы отображения, пагинация, превью изображений.",
+        "en": "Uploading and managing files: images, documents, file browser."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/fajlovyj-menedzher.md"
     },
     {
       "slug": "obrabotka-personalnyh-dannyh",
-      "title": "Обработка персональных данных",
+      "title": {
+        "ru": "Обработка персональных данных",
+        "en": "Personal Data Processing"
+      },
       "section": "forms",
-      "section_title": "Формы и файлы",
+      "section_title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 220,
-      "description": "Чекбокс согласия на ПД, способы включения, хранение логов, требования закона.",
+      "description": {
+        "ru": "Чекбокс согласия на ПД, способы включения, хранение логов, требования закона.",
+        "en": "GDPR compliance, consent checkboxes, data processing policies."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/forms/obrabotka-personalnyh-dannyh.md"
     },
     {
       "slug": "obzor-shablonov",
-      "title": "Обзор шаблонов",
+      "title": {
+        "ru": "Обзор шаблонов",
+        "en": "Templates Overview"
+      },
       "section": "templates",
-      "section_title": "Шаблоны и Twig",
+      "section_title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 230,
-      "description": "Обзор шаблонов",
+      "description": {
+        "ru": "Обзор шаблонов",
+        "en": "Twig templating system: template structure, base template, blocks."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/obzor-shablonov.md"
     },
     {
       "slug": "redaktirovanie-shablonov",
-      "title": "Редактирование шаблонов",
+      "title": {
+        "ru": "Редактирование шаблонов",
+        "en": "Editing Templates"
+      },
       "section": "templates",
-      "section_title": "Шаблоны и Twig",
+      "section_title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 240,
-      "description": "Редактирование шаблонов",
+      "description": {
+        "ru": "Редактирование шаблонов",
+        "en": "Editing Twig templates in the admin panel, syntax highlighting, live preview."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/redaktirovanie-shablonov.md"
     },
     {
       "slug": "privyazka-shablona",
-      "title": "Привязка шаблона к странице",
+      "title": {
+        "ru": "Привязка шаблона к странице",
+        "en": "Template Assignment"
+      },
       "section": "templates",
-      "section_title": "Шаблоны и Twig",
+      "section_title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 250,
-      "description": "Привязка шаблона к странице",
+      "description": {
+        "ru": "Привязка шаблона к странице",
+        "en": "Assigning custom templates to specific pages via navigation.template."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/privyazka-shablona.md"
     },
     {
       "slug": "twig-funkcii-i-filtry",
-      "title": "Twig-функции и фильтры",
+      "title": {
+        "ru": "Twig-функции и фильтры",
+        "en": "Twig Functions & Filters"
+      },
       "section": "templates",
-      "section_title": "Шаблоны и Twig",
+      "section_title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 260,
-      "description": "Twig-функции и фильтры",
+      "description": {
+        "ru": "Twig-функции и фильтры",
+        "en": "Available Twig functions, filters, and variables in apidcms templates."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/twig-funkcii-i-filtry.md"
     },
     {
       "slug": "peremennye-v-shablonah",
-      "title": "Переменные в шаблонах",
+      "title": {
+        "ru": "Переменные в шаблонах",
+        "en": "Template Variables"
+      },
       "section": "templates",
-      "section_title": "Шаблоны и Twig",
+      "section_title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 270,
-      "description": "Переменные в шаблонах",
+      "description": {
+        "ru": "Переменные в шаблонах",
+        "en": "List of all variables available in different template contexts."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/peremennye-v-shablonah.md"
     },
     {
       "slug": "huki-sobytiya",
-      "title": "Хуки (события)",
+      "title": {
+        "ru": "Хуки (события)",
+        "en": "Hooks & Events"
+      },
       "section": "templates",
-      "section_title": "Шаблоны и Twig",
+      "section_title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 280,
-      "description": "Хуки (события)",
+      "description": {
+        "ru": "Хуки (события)",
+        "en": "Plugin hooks, events system, action and filter hooks reference."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/templates/huki-sobytiya.md"
     },
     {
       "slug": "nastrojki-sajta",
-      "title": "Настройки сайта",
+      "title": {
+        "ru": "Настройки сайта",
+        "en": "Site Settings"
+      },
       "section": "settings",
-      "section_title": "Настройки",
+      "section_title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
       "order": 310,
-      "description": "Основные настройки, AI (DeepSeek), системные параметры: email, интеграции.",
+      "description": {
+        "ru": "Основные настройки, AI (DeepSeek), системные параметры: email, интеграции.",
+        "en": "Global site settings: title, description, favicon, email, maintenance mode."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/nastrojki-sajta.md"
     },
     {
       "slug": "sistemnye-nastrojki-spravochnik",
-      "title": "Системные настройки — справочник",
+      "title": {
+        "ru": "Системные настройки — справочник",
+        "en": "System Settings Reference"
+      },
       "section": "settings",
-      "section_title": "Настройки",
+      "section_title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
       "order": 320,
-      "description": "Системные настройки — справочник",
+      "description": {
+        "ru": "Системные настройки — справочник",
+        "en": "Complete list of all system_settings keys and their descriptions."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/sistemnye-nastrojki-spravochnik.md"
     },
     {
       "slug": "keshirovanie",
-      "title": "Кэширование",
+      "title": {
+        "ru": "Кэширование",
+        "en": "Caching"
+      },
       "section": "settings",
-      "section_title": "Настройки",
+      "section_title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
       "order": 330,
-      "description": "Кэширование",
+      "description": {
+        "ru": "Кэширование",
+        "en": "Twig cache, OPcache, docs cache, and cache management in admin panel."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/keshirovanie.md"
     },
     {
       "slug": "statistika-poseshchenij",
-      "title": "Статистика посещений",
+      "title": {
+        "ru": "Статистика посещений",
+        "en": "Visit Statistics"
+      },
       "section": "settings",
-      "section_title": "Настройки",
+      "section_title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
       "order": 340,
-      "description": "Статистика посещений",
+      "description": {
+        "ru": "Статистика посещений",
+        "en": "Built-in visit tracking: page views, daily stats, retention settings."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/statistika-poseshchenij.md"
     },
     {
       "slug": "vajb-koding-i-ii-razrabotka",
-      "title": "Вайб-кодинг и ИИ-разработка apidcms",
+      "title": {
+        "ru": "Вайб-кодинг и ИИ-разработка apidcms",
+        "en": "Vibe Coding & AI Development"
+      },
       "section": "ai",
-      "section_title": "AI Ассистент",
+      "section_title": {
+        "ru": "AI Ассистент",
+        "en": "AI Assistant"
+      },
       "order": 290,
-      "description": "Как человек и ИИ вместе создают apidcms: ценности, видение и приглашение к участию.",
+      "description": {
+        "ru": "Как человек и ИИ вместе создают apidcms: ценности, видение и приглашение к участию.",
+        "en": "apidcms philosophy: vibe coding approach, AI-assisted development workflow."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/vajb-koding-i-ii-razrabotka.md"
     },
     {
       "slug": "ai-assistent",
-      "title": "AI Ассистент",
+      "title": {
+        "ru": "AI Ассистент",
+        "en": "AI Assistant"
+      },
       "section": "ai",
-      "section_title": "AI Ассистент",
+      "section_title": {
+        "ru": "AI Ассистент",
+        "en": "AI Assistant"
+      },
       "order": 300,
-      "description": "Встроенный AI на базе DeepSeek: генерация шаблонов, создание таблиц, заполнение контентом, настройка промтов, база знаний документации.",
+      "description": {
+        "ru": "Встроенный AI на базе DeepSeek: генерация шаблонов, создание таблиц, заполнение контентом, настройка промтов, база знаний документации.",
+        "en": "AI-powered features: template generation, content generation, table creation."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/ai-assistent.md"
     },
     {
       "slug": "obzor-plaginov",
-      "title": "Обзор плагинов",
+      "title": {
+        "ru": "Обзор плагинов",
+        "en": "Plugins Overview"
+      },
       "section": "plugins-dev",
-      "section_title": "Разработка плагинов",
+      "section_title": {
+        "ru": "Разработка плагинов",
+        "en": "Plugin Development"
+      },
       "order": 60,
-      "description": "",
+      "description": {
+        "ru": "",
+        "en": "Plugin system architecture, creating plugins, hooks, and plugin.json structure."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/plugins-dev/obzor-plaginov.md"
     },
     {
       "slug": "baza-znanij-ai-dokumentaciya",
-      "title": "База знаний AI — документация apidcms",
+      "title": {
+        "ru": "База знаний AI — документация apidcms",
+        "en": "AI Knowledge Base & Documentation"
+      },
       "section": "ai",
-      "section_title": "AI Ассистент",
+      "section_title": {
+        "ru": "AI Ассистент",
+        "en": "AI Assistant"
+      },
       "order": 310,
-      "description": "Как AI-ассистент использует документацию apidcms как knowledge base: архитектура, кэширование, DocsFetcher.",
+      "description": {
+        "ru": "Как AI-ассистент использует документацию apidcms как knowledge base: архитектура, кэширование, DocsFetcher.",
+        "en": "Using AI documentation, knowledge base, and AI context for development."
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/baza-znanij-ai-dokumentaciya.md"
     }
   ],
   "sections": {
     "quickstart": {
-      "title": "Быстрый старт",
+      "title": {
+        "ru": "Быстрый старт",
+        "en": "Quick Start"
+      },
       "order": 10
     },
     "content": {
-      "title": "Контент и данные",
+      "title": {
+        "ru": "Контент и данные",
+        "en": "Content & Data"
+      },
       "order": 20
     },
     "forms": {
-      "title": "Формы и файлы",
+      "title": {
+        "ru": "Формы и файлы",
+        "en": "Forms & Files"
+      },
       "order": 30
     },
     "templates": {
-      "title": "Шаблоны и Twig",
+      "title": {
+        "ru": "Шаблоны и Twig",
+        "en": "Templates & Twig"
+      },
       "order": 40
     },
     "settings": {
-      "title": "Настройки",
+      "title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
       "order": 50
     },
     "ai": {
-      "title": "AI Ассистент",
+      "title": {
+        "ru": "AI Ассистент",
+        "en": "AI Assistant"
+      },
       "order": 60
     },
     "plugins-dev": {
-      "title": "Разработка плагинов",
+      "title": {
+        "ru": "Разработка плагинов",
+        "en": "Plugin Development"
+      },
       "order": 70
     }
   },
@@ -395,8 +749,14 @@
     {
       "version": "v1.4.0",
       "release_date": "2026-07-28",
-      "title": "i18n панели администрирования и документации — lang-пакеты, {{ lang() }}, {lang} в манифесте",
-      "summary": "Мультиязычность админки и документации: JSON-пакеты ru/en, функция {{ lang() }} в Twig, настройка admin_language, {lang}-плейсхолдер в manifest.json для DocsFetcher и HelpPanel.",
+      "title": {
+        "ru": "i18n панели администрирования и документации — lang-пакеты, {{ lang() }}, {lang} в манифесте",
+        "en": "Admin Panel i18n & English Localization"
+      },
+      "summary": {
+        "ru": "Мультиязычность админки и документации: JSON-пакеты ru/en, функция {{ lang() }} в Twig, настройка admin_language, {lang}-плейсхолдер в manifest.json для DocsFetcher и HelpPanel.",
+        "en": "Multi-language admin panel, Lang helper, {{lang()}} in Twig, admin_language setting, English documentation."
+      },
       "slug": "v1-4-0",
       "badge_type": "feature",
       "tags": "i18n,admin,lang,twig",
@@ -409,8 +769,14 @@
     {
       "version": "v1.3.30",
       "release_date": "2026-07-28",
-      "title": "CSV импорт и экспорт для таблиц",
-      "summary": "",
+      "title": {
+        "ru": "CSV импорт и экспорт для таблиц",
+        "en": "CSV импорт и экспорт для таблиц"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "csv-import-export",
       "badge_type": "release",
       "tags": "",
@@ -420,8 +786,14 @@
     {
       "version": "v1.3.29",
       "release_date": "2026-07-28",
-      "title": "Кнопка копирования для блоков кода в AI-чате",
-      "summary": "",
+      "title": {
+        "ru": "Кнопка копирования для блоков кода в AI-чате",
+        "en": "Кнопка копирования для блоков кода в AI-чате"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "v1-3-29",
       "badge_type": "release",
       "tags": "",
@@ -431,8 +803,14 @@
     {
       "version": "v1.3.28",
       "release_date": "2026-07-28",
-      "title": "Стилизация таблиц в AI-чате",
-      "summary": "",
+      "title": {
+        "ru": "Стилизация таблиц в AI-чате",
+        "en": "Стилизация таблиц в AI-чате"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "v1-3-28",
       "badge_type": "release",
       "tags": "",
@@ -442,8 +820,14 @@
     {
       "version": "v1.3.27",
       "release_date": "2026-07-28",
-      "title": "Исправление namespace Parsedown в AI-контроллере",
-      "summary": "",
+      "title": {
+        "ru": "Исправление namespace Parsedown в AI-контроллере",
+        "en": "Исправление namespace Parsedown в AI-контроллере"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "v1-3-27",
       "badge_type": "release",
       "tags": "",
@@ -453,8 +837,14 @@
     {
       "version": "v1.3.26",
       "release_date": "2026-07-28",
-      "title": "Исправление рендеринга Markdown в AI-чате",
-      "summary": "",
+      "title": {
+        "ru": "Исправление рендеринга Markdown в AI-чате",
+        "en": "Исправление рендеринга Markdown в AI-чате"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "v1-3-26",
       "badge_type": "release",
       "tags": "",
@@ -464,8 +854,14 @@
     {
       "version": "v1.3.25",
       "release_date": "2026-07-28",
-      "title": "Интеграция документации в AI-ассистент и панель справки",
-      "summary": "",
+      "title": {
+        "ru": "Интеграция документации в AI-ассистент и панель справки",
+        "en": "Интеграция документации в AI-ассистент и панель справки"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "v1-3-25",
       "badge_type": "release",
       "tags": "",
@@ -475,8 +871,14 @@
     {
       "version": "v1.3.24",
       "release_date": "2026-07-28",
-      "title": "Контекстная справка в панели администрирования",
-      "summary": "Кнопка «Помощь» в хедере админки открывает боковую панель с документацией по текущей странице. Содержание, рендер Markdown, горячие клавиши.",
+      "title": {
+        "ru": "Контекстная справка в панели администрирования",
+        "en": "Контекстная справка в панели администрирования"
+      },
+      "summary": {
+        "ru": "Кнопка «Помощь» в хедере админки открывает боковую панель с документацией по текущей странице. Содержание, рендер Markdown, горячие клавиши.",
+        "en": "Кнопка «Помощь» в хедере админки открывает боковую панель с документацией по текущей странице. Содержание, рендер Markdown, горячие клавиши."
+      },
       "slug": "v1-3-24-help-panel",
       "badge_type": "feature",
       "tags": "",
@@ -488,8 +890,14 @@
     {
       "version": "v1.3.23",
       "release_date": "2026-07-28",
-      "title": "Документация из GitHub и strip_frontmatter в ExternalPageLoader",
-      "summary": "Страницы документации переключены на external-тип: контент из GitHub-репозитория apidcms-docs. Новая опция strip_frontmatter убирает YAML-шапку из сырого markdown.",
+      "title": {
+        "ru": "Документация из GitHub и strip_frontmatter в ExternalPageLoader",
+        "en": "Документация из GitHub и strip_frontmatter в ExternalPageLoader"
+      },
+      "summary": {
+        "ru": "Страницы документации переключены на external-тип: контент из GitHub-репозитория apidcms-docs. Новая опция strip_frontmatter убирает YAML-шапку из сырого markdown.",
+        "en": "Страницы документации переключены на external-тип: контент из GitHub-репозитория apidcms-docs. Новая опция strip_frontmatter убирает YAML-шапку из сырого markdown."
+      },
       "slug": "v1-3-23-strip-frontmatter",
       "badge_type": "feature",
       "tags": "",
@@ -501,8 +909,14 @@
     {
       "version": "v1.3.22",
       "release_date": "2026-07-28",
-      "title": "Объединение страниц просмотра и редактирования записей",
-      "summary": "Страница просмотра записи объединена со страницей редактирования: кнопки удаления/копирования, горячие клавиши, информационный блок и сообщения об успехе теперь на одной странице.",
+      "title": {
+        "ru": "Объединение страниц просмотра и редактирования записей",
+        "en": "Объединение страниц просмотра и редактирования записей"
+      },
+      "summary": {
+        "ru": "Страница просмотра записи объединена со страницей редактирования: кнопки удаления/копирования, горячие клавиши, информационный блок и сообщения об успехе теперь на одной странице.",
+        "en": "Страница просмотра записи объединена со страницей редактирования: кнопки удаления/копирования, горячие клавиши, информационный блок и сообщения об успехе теперь на одной странице."
+      },
       "slug": "v1-3-22-merge-view-edit",
       "badge_type": "release",
       "tags": "",
@@ -515,8 +929,14 @@
     {
       "version": "v1.3.21",
       "release_date": "2026-07-27",
-      "title": "Redesign панели администрирования — дашборд, меню и отдельная страница таблиц",
-      "summary": "Панель администрирования получила новый дашборд вместо списка таблиц. Таблицы вынесены на отдельную страницу. Меню перегруппировано: Таблицы, CSS-стили, Формы — всё на своих местах. Иконки починены.",
+      "title": {
+        "ru": "Redesign панели администрирования — дашборд, меню и отдельная страница таблиц",
+        "en": "Redesign панели администрирования — дашборд, меню и отдельная страница таблиц"
+      },
+      "summary": {
+        "ru": "Панель администрирования получила новый дашборд вместо списка таблиц. Таблицы вынесены на отдельную страницу. Меню перегруппировано: Таблицы, CSS-стили, Формы — всё на своих местах. Иконки починены.",
+        "en": "Панель администрирования получила новый дашборд вместо списка таблиц. Таблицы вынесены на отдельную страницу. Меню перегруппировано: Таблицы, CSS-стили, Формы — всё на своих местах. Иконки починены."
+      },
       "slug": "v1-3-21-admin-ux-redesign",
       "badge_type": "feature",
       "tags": "admin,ux,menu,forms,filemanager,dashboard",
@@ -530,8 +950,14 @@
     {
       "version": "v1.3.20",
       "release_date": "2026-07-27",
-      "title": "CodeMirror 6 в форме редактирования записей — JSON/Markdown/HTML с авто-детектом",
-      "summary": "TEXT-поля на странице редактирования записи таблицы теперь используют CodeMirror 6 с автоматическим определением языка. JSON-конфиги форматируются в pretty-print, Markdown и HTML подсвечиваются.",
+      "title": {
+        "ru": "CodeMirror 6 в форме редактирования записей — JSON/Markdown/HTML с авто-детектом",
+        "en": "CodeMirror 6 в форме редактирования записей — JSON/Markdown/HTML с авто-детектом"
+      },
+      "summary": {
+        "ru": "TEXT-поля на странице редактирования записи таблицы теперь используют CodeMirror 6 с автоматическим определением языка. JSON-конфиги форматируются в pretty-print, Markdown и HTML подсвечиваются.",
+        "en": "TEXT-поля на странице редактирования записи таблицы теперь используют CodeMirror 6 с автоматическим определением языка. JSON-конфиги форматируются в pretty-print, Markdown и HTML подсвечиваются."
+      },
       "slug": "v1-3-20-cm6-form-editors",
       "badge_type": "feature",
       "tags": "admin,editor,json,markdown",
@@ -545,8 +971,14 @@
     {
       "version": "v1.3.19",
       "release_date": "2026-07-27",
-      "title": "CodeMirror 6 — подсветка синтаксиса в редакторах шаблонов и CSS",
-      "summary": "Все редакторы кода в админке получили профессиональную подсветку синтаксиса через CodeMirror 6. Тёмная тема oneDark, номера строк, поиск, bracket matching. Страница предпросмотра шаблонов удалена — её функции теперь на странице редактирования.",
+      "title": {
+        "ru": "CodeMirror 6 — подсветка синтаксиса в редакторах шаблонов и CSS",
+        "en": "CodeMirror 6 — подсветка синтаксиса в редакторах шаблонов и CSS"
+      },
+      "summary": {
+        "ru": "Все редакторы кода в админке получили профессиональную подсветку синтаксиса через CodeMirror 6. Тёмная тема oneDark, номера строк, поиск, bracket matching. Страница предпросмотра шаблонов удалена — её функции теперь на странице редактирования.",
+        "en": "Все редакторы кода в админке получили профессиональную подсветку синтаксиса через CodeMirror 6. Тёмная тема oneDark, номера строк, поиск, bracket matching. Страница предпросмотра шаблонов удалена — её функции теперь на странице редактирования."
+      },
       "slug": "v1-3-19-codemirror6",
       "badge_type": "feature",
       "tags": "admin,editor,templates,css",
@@ -559,8 +991,14 @@
     {
       "version": "v1.3.18",
       "release_date": "2026-07-27",
-      "title": "Группировка таблиц на дашборде по категориям (системные/плагины/пользовательские)",
-      "summary": "Таблицы на главной странице админки теперь группируются по происхождению: системные (pages, forms, navigation...), таблицы плагинов (account, cart, subscription) и пользовательские. Все метки переведены на русский язык, колонки выровнены по ширине между группами.",
+      "title": {
+        "ru": "Группировка таблиц на дашборде по категориям (системные/плагины/пользовательские)",
+        "en": "Группировка таблиц на дашборде по категориям (системные/плагины/пользовательские)"
+      },
+      "summary": {
+        "ru": "Таблицы на главной странице админки теперь группируются по происхождению: системные (pages, forms, navigation...), таблицы плагинов (account, cart, subscription) и пользовательские. Все метки переведены на русский язык, колонки выровнены по ширине между группами.",
+        "en": "Таблицы на главной странице админки теперь группируются по происхождению: системные (pages, forms, navigation...), таблицы плагинов (account, cart, subscription) и пользовательские. Все метки переведены на русский язык, колонки выровнены по ширине между группами."
+      },
       "slug": "v1-3-18-dashboard-grouping",
       "badge_type": "feature",
       "tags": "admin,dashboard",
@@ -574,8 +1012,14 @@
     {
       "version": "v1.3.17",
       "release_date": "2026-07-24",
-      "title": "Авто-генерация content_url и авторизация в fetchContent для external-страниц",
-      "summary": "Single-item external страницы с авто-загрузкой Markdown. fetchContent() с авторизацией.",
+      "title": {
+        "ru": "Авто-генерация content_url и авторизация в fetchContent для external-страниц",
+        "en": "Авто-генерация content_url и авторизация в fetchContent для external-страниц"
+      },
+      "summary": {
+        "ru": "Single-item external страницы с авто-загрузкой Markdown. fetchContent() с авторизацией.",
+        "en": "Single-item external страницы с авто-загрузкой Markdown. fetchContent() с авторизацией."
+      },
       "slug": "v1-3-17-external-content-url",
       "badge_type": "release",
       "tags": "",
@@ -588,8 +1032,14 @@
     {
       "version": "v1.3.16",
       "release_date": "23 Июля 2026",
-      "title": "Inline-редактирование ячеек с Markdown-редактором",
-      "summary": "Двойной клик по ячейке таблицы открывает модальное окно с EasyMDE-редактором. Полноценный Markdown с тулбаром, превью и горячими клавишами.",
+      "title": {
+        "ru": "Inline-редактирование ячеек с Markdown-редактором",
+        "en": "Inline-редактирование ячеек с Markdown-редактором"
+      },
+      "summary": {
+        "ru": "Двойной клик по ячейке таблицы открывает модальное окно с EasyMDE-редактором. Полноценный Markdown с тулбаром, превью и горячими клавишами.",
+        "en": "Двойной клик по ячейке таблицы открывает модальное окно с EasyMDE-редактором. Полноценный Markdown с тулбаром, превью и горячими клавишами."
+      },
       "slug": "v1-3-16-inline-cell-editing",
       "badge_type": "feature",
       "tags": "admin, table, inline-edit, markdown, easymde, editor, ux",
@@ -603,8 +1053,14 @@
     {
       "version": "v1.3.15",
       "release_date": "23 Июля 2026",
-      "title": "Мульти-колоночная сортировка в dynamic-списках через sort.then",
-      "summary": "Мульти-колоночная сортировка dynamic-списков: ключ sort.then в page_config позволяет задать цепочку ORDER BY. Обратная совместимость.",
+      "title": {
+        "ru": "Мульти-колоночная сортировка в dynamic-списках через sort.then",
+        "en": "Мульти-колоночная сортировка в dynamic-списках через sort.then"
+      },
+      "summary": {
+        "ru": "Мульти-колоночная сортировка dynamic-списков: ключ sort.then в page_config позволяет задать цепочку ORDER BY. Обратная совместимость.",
+        "en": "Мульти-колоночная сортировка dynamic-списков: ключ sort.then в page_config позволяет задать цепочку ORDER BY. Обратная совместимость."
+      },
       "slug": "v1-3-15-multi-column-sort",
       "badge_type": "enhancement",
       "tags": "sort, dynamic, page-config, enhancement",
@@ -619,8 +1075,14 @@
     {
       "version": "v1.3.14",
       "release_date": "23 Июля 2026",
-      "title": "Тип страницы external — данные из внешних JSON API/URL",
-      "summary": "Новый тип страницы external загружает данные напрямую из внешних JSON-источников: GitHub, NocoDB, любое API. С кешированием и живым режимом.",
+      "title": {
+        "ru": "Тип страницы external — данные из внешних JSON API/URL",
+        "en": "Тип страницы external — данные из внешних JSON API/URL"
+      },
+      "summary": {
+        "ru": "Новый тип страницы external загружает данные напрямую из внешних JSON-источников: GitHub, NocoDB, любое API. С кешированием и живым режимом.",
+        "en": "Новый тип страницы external загружает данные напрямую из внешних JSON-источников: GitHub, NocoDB, любое API. С кешированием и живым режимом."
+      },
       "slug": "v1-3-14-external-page-type",
       "badge_type": "feature",
       "tags": "external, api, json, cache",
@@ -634,8 +1096,14 @@
     {
       "version": "v1.3.13",
       "release_date": "22 Июля 2026",
-      "title": "entity_relations — обязательная таблица, удалены неиспользуемые",
-      "summary": "entity_relations переведена в разряд обязательных. Таблицы sections, gallery, reviews, menus, menu_items удалены из установщика.",
+      "title": {
+        "ru": "entity_relations — обязательная таблица, удалены неиспользуемые",
+        "en": "entity_relations — обязательная таблица, удалены неиспользуемые"
+      },
+      "summary": {
+        "ru": "entity_relations переведена в разряд обязательных. Таблицы sections, gallery, reviews, menus, menu_items удалены из установщика.",
+        "en": "entity_relations переведена в разряд обязательных. Таблицы sections, gallery, reviews, menus, menu_items удалены из установщика."
+      },
       "slug": "v1-3-13-entity-relations-mandatory",
       "badge_type": "refactor",
       "tags": "refactor,core,database,init",
@@ -645,8 +1113,14 @@
     {
       "version": "v1.3.12",
       "release_date": "2026-07-21",
-      "title": "Many-to-many связи и множественный выбор категорий",
-      "summary": "Множественный выбор категорий через pivot-таблицу entity_relations: multi-select с деревом и поиском, фильтрация, get_pivot()",
+      "title": {
+        "ru": "Many-to-many связи и множественный выбор категорий",
+        "en": "Many-to-many связи и множественный выбор категорий"
+      },
+      "summary": {
+        "ru": "Множественный выбор категорий через pivot-таблицу entity_relations: multi-select с деревом и поиском, фильтрация, get_pivot()",
+        "en": "Множественный выбор категорий через pivot-таблицу entity_relations: multi-select с деревом и поиском, фильтрация, get_pivot()"
+      },
       "slug": "v1-3-12-many-to-many-relations",
       "badge_type": "feature",
       "tags": "",
@@ -658,8 +1132,14 @@
     {
       "version": "v1.3.11",
       "release_date": "20 Июля 2026",
-      "title": "Дерево категорий и поиск в выпадающих списках связей",
-      "summary": "Выпадающие списки для relation-полей теперь поддерживают иерархию (tree: true — подкатегории с отступами) и поиск (search: true — фильтрация при вводе).",
+      "title": {
+        "ru": "Дерево категорий и поиск в выпадающих списках связей",
+        "en": "Дерево категорий и поиск в выпадающих списках связей"
+      },
+      "summary": {
+        "ru": "Выпадающие списки для relation-полей теперь поддерживают иерархию (tree: true — подкатегории с отступами) и поиск (search: true — фильтрация при вводе).",
+        "en": "Выпадающие списки для relation-полей теперь поддерживают иерархию (tree: true — подкатегории с отступами) и поиск (search: true — фильтрация при вводе)."
+      },
       "slug": "v1-3-11",
       "badge_type": "feature",
       "tags": "admin, dynamic, relations, tree, search",
@@ -669,8 +1149,14 @@
     {
       "version": "v1.3.10",
       "release_date": "20 Июля 2026",
-      "title": "Выпадающие списки для связанных полей в формах редактирования",
-      "summary": "При редактировании записи dynamic-таблицы поля-связи (например category_id) теперь отображаются как выпадающий список со значениями из связанной таблицы. Настройка через relations в page_config.",
+      "title": {
+        "ru": "Выпадающие списки для связанных полей в формах редактирования",
+        "en": "Выпадающие списки для связанных полей в формах редактирования"
+      },
+      "summary": {
+        "ru": "При редактировании записи dynamic-таблицы поля-связи (например category_id) теперь отображаются как выпадающий список со значениями из связанной таблицы. Настройка через relations в page_config.",
+        "en": "При редактировании записи dynamic-таблицы поля-связи (например category_id) теперь отображаются как выпадающий список со значениями из связанной таблицы. Настройка через relations в page_config."
+      },
       "slug": "v1-3-10",
       "badge_type": "feature",
       "tags": "admin, dynamic, relations",
@@ -680,8 +1166,14 @@
     {
       "version": "v1.3.9",
       "release_date": "20 Июля 2026",
-      "title": "IN-фильтры для get_filters + дерево категорий в dynamic-шаблонах",
-      "summary": "",
+      "title": {
+        "ru": "IN-фильтры для get_filters + дерево категорий в dynamic-шаблонах",
+        "en": "IN-фильтры для get_filters + дерево категорий в dynamic-шаблонах"
+      },
+      "summary": {
+        "ru": "",
+        "en": ""
+      },
       "slug": "v1-3-9",
       "badge_type": "feature",
       "tags": "feature,core,dynamic,categories",
@@ -691,8 +1183,14 @@
     {
       "version": "v1.3.8",
       "release_date": "18 Июля 2026",
-      "title": "Исправление сохранения настроек плагинов: checkbox и права доступа",
-      "summary": "При снятии галки checkbox значение не сохранялось. Плюс plugin.json очищается от runtime-полей при сохранении.",
+      "title": {
+        "ru": "Исправление сохранения настроек плагинов: checkbox и права доступа",
+        "en": "Исправление сохранения настроек плагинов: checkbox и права доступа"
+      },
+      "summary": {
+        "ru": "При снятии галки checkbox значение не сохранялось. Плюс plugin.json очищается от runtime-полей при сохранении.",
+        "en": "При снятии галки checkbox значение не сохранялось. Плюс plugin.json очищается от runtime-полей при сохранении."
+      },
       "slug": "v1-3-8",
       "badge_type": "fix",
       "tags": "fix,plugins,core,admin",
@@ -702,8 +1200,14 @@
     {
       "version": "v1.3.7",
       "release_date": "17 Июля 2026",
-      "title": "Авто-инкремент views_count в dynamic-страницах",
-      "summary": "При просмотре записи на dynamic-странице колонка views_count автоматически увеличивается на 1.",
+      "title": {
+        "ru": "Авто-инкремент views_count в dynamic-страницах",
+        "en": "Авто-инкремент views_count в dynamic-страницах"
+      },
+      "summary": {
+        "ru": "При просмотре записи на dynamic-странице колонка views_count автоматически увеличивается на 1.",
+        "en": "При просмотре записи на dynamic-странице колонка views_count автоматически увеличивается на 1."
+      },
       "slug": "v1-3-7",
       "badge_type": "feature",
       "tags": "feature,core,dynamic",
@@ -713,8 +1217,14 @@
     {
       "version": "v1.3.5",
       "release_date": "15 Июля 2026",
-      "title": "Исправление уязвимости: защита SQLite-базы от прямого доступа",
-      "summary": "Критическая уязвимость: база данных cms.db могла быть доступна по прямой HTTP-ссылке из-за дублирования путей. Исправлен конфиг, удалены дубликаты баз. Добавлена тройная защита в .htaccess. Страница документации «Безопасность».",
+      "title": {
+        "ru": "Исправление уязвимости: защита SQLite-базы от прямого доступа",
+        "en": "Исправление уязвимости: защита SQLite-базы от прямого доступа"
+      },
+      "summary": {
+        "ru": "Критическая уязвимость: база данных cms.db могла быть доступна по прямой HTTP-ссылке из-за дублирования путей. Исправлен конфиг, удалены дубликаты баз. Добавлена тройная защита в .htaccess. Страница документации «Безопасность».",
+        "en": "Критическая уязвимость: база данных cms.db могла быть доступна по прямой HTTP-ссылке из-за дублирования путей. Исправлен конфиг, удалены дубликаты баз. Добавлена тройная защита в .htaccess. Страница документации «Безопасность»."
+      },
       "slug": "v1-3-5",
       "badge_type": "security",
       "tags": "security,core,fix",
@@ -724,8 +1234,14 @@
     {
       "version": "v1.3.4",
       "release_date": "14 Июля 2026",
-      "title": "Поиск по сайту (page_type search)",
-      "summary": "Новый тип страницы search: полнотекстовый поиск по всем таблицам контента. Авто-определение текстовых колонок, релевантность, сниппеты с подсветкой.",
+      "title": {
+        "ru": "Поиск по сайту (page_type search)",
+        "en": "Поиск по сайту (page_type search)"
+      },
+      "summary": {
+        "ru": "Новый тип страницы search: полнотекстовый поиск по всем таблицам контента. Авто-определение текстовых колонок, релевантность, сниппеты с подсветкой.",
+        "en": "Новый тип страницы search: полнотекстовый поиск по всем таблицам контента. Авто-определение текстовых колонок, релевантность, сниппеты с подсветкой."
+      },
       "slug": "v1-3-4",
       "badge_type": "feature",
       "tags": "feature,search,core",
@@ -735,8 +1251,14 @@
     {
       "version": "v1.3.3",
       "release_date": "14 Июля 2026",
-      "title": "Исправление порядка инициализации сессий и NavigationItem",
-      "summary": "session_save_path перенесён до загрузки плагинов. Устранены PHP 8.1 warnings в NavigationItem. Удалены устаревшие проектные копии модели.",
+      "title": {
+        "ru": "Исправление порядка инициализации сессий и NavigationItem",
+        "en": "Search improvements, EXTERNAL type column"
+      },
+      "summary": {
+        "ru": "session_save_path перенесён до загрузки плагинов. Устранены PHP 8.1 warnings в NavigationItem. Удалены устаревшие проектные копии модели.",
+        "en": "Column descriptor for EXTERNAL page type, improved search engine configuration."
+      },
       "slug": "v1-3-3",
       "badge_type": "fix",
       "tags": "fix,core,session",
@@ -748,8 +1270,14 @@
     {
       "version": "v1.3.2",
       "release_date": "14 Июля 2026",
-      "title": "Сортировка dynamic-страниц и синхронизация версионирования",
-      "summary": "Исправлен порядок записей на dynamic-страницах: page_config теперь управляет полем и направлением сортировки. Версионирование приведено к единой схеме SemVer.",
+      "title": {
+        "ru": "Сортировка dynamic-страниц и синхронизация версионирования",
+        "en": "FileManager v2 with pagination"
+      },
+      "summary": {
+        "ru": "Исправлен порядок записей на dynamic-страницах: page_config теперь управляет полем и направлением сортировки. Версионирование приведено к единой схеме SemVer.",
+        "en": "Paginated file manager, improved upload UX, folder navigation enhancements."
+      },
       "slug": "v1-3-2",
       "badge_type": "release",
       "tags": "fix,core",
@@ -761,8 +1289,14 @@
     {
       "version": "v1.3.1",
       "release_date": "13 Июля 2026",
-      "title": "Исправление установщика и восстановление после аварии",
-      "summary": "10+ багфиксов по результатам трёх раундов тестирования установки с нуля. Восстановление core_lib на всех проектах.",
+      "title": {
+        "ru": "Исправление установщика и восстановление после аварии",
+        "en": "Tags support, remove apiKey.js"
+      },
+      "summary": {
+        "ru": "10+ багфиксов по результатам трёх раундов тестирования установки с нуля. Восстановление core_lib на всех проектах.",
+        "en": "Tag system for content, removed hardcoded apiKey.js, security improvements."
+      },
       "slug": "v1-3-1",
       "badge_type": "release",
       "tags": "fix,installer,core",
@@ -774,8 +1308,14 @@
     {
       "version": "v1.3.0",
       "release_date": "12 Июля 2026",
-      "title": "Автоустановка и WAL-режим SQLite",
-      "summary": "Скрипт установки одной командой, параллельные чтение/запись SQLite, защита от рекурсии при обновлении ядра.",
+      "title": {
+        "ru": "Автоустановка и WAL-режим SQLite",
+        "en": "Dynamic Pages & Relations"
+      },
+      "summary": {
+        "ru": "Скрипт установки одной командой, параллельные чтение/запись SQLite, защита от рекурсии при обновлении ядра.",
+        "en": "Dynamic page type, one-to-many and many-to-many relations, entity_relations table."
+      },
       "slug": "v1-3-0",
       "badge_type": "release",
       "tags": "core,installer,database",
@@ -789,8 +1329,14 @@
     {
       "version": "v1.2.0",
       "release_date": "10 Июля 2026",
-      "title": "Тип dynamic, документация и новый лендинг",
-      "summary": "Универсальный тип dynamic заменил blog/catalog. Раздел документации /docs с Markdown-страницами. Полностью новый лендинг apidcms.dezajno.ru с Google Fonts и современным дизайном.",
+      "title": {
+        "ru": "Тип dynamic, документация и новый лендинг",
+        "en": "Plugin System"
+      },
+      "summary": {
+        "ru": "Универсальный тип dynamic заменил blog/catalog. Раздел документации /docs с Markdown-страницами. Полностью новый лендинг apidcms.dezajno.ru с Google Fonts и современным дизайном.",
+        "en": "Plugin architecture: PluginManager, hooks (action/filter), plugin.json, admin plugin UI."
+      },
       "slug": "v1-2-0",
       "badge_type": "release",
       "tags": "core,ui,docs",
@@ -805,8 +1351,14 @@
     {
       "version": "v1.1.0",
       "release_date": "18 Июня 2026",
-      "title": "Система плагинов, AI-безопасность и статистика",
-      "summary": "PluginManager: синглтон с хуками action/filter, плагины account (ЛК) и cart (корзина). AI-контекст: черный + белый списки таблиц, настраиваемый лимит строк. Встроенная статистика посещений с дашбордом. Админка плагинов с редактором шаблонов.",
+      "title": {
+        "ru": "Система плагинов, AI-безопасность и статистика",
+        "en": "Form Builder"
+      },
+      "summary": {
+        "ru": "PluginManager: синглтон с хуками action/filter, плагины account (ЛК) и cart (корзина). AI-контекст: черный + белый списки таблиц, настраиваемый лимит строк. Встроенная статистика посещений с дашбордом. Админка плагинов с редактором шаблонов.",
+        "en": "Visual form builder: field types, validation, email notifications, file uploads."
+      },
       "slug": "v1-1-0",
       "badge_type": "release",
       "tags": "core,ai,plugins",
@@ -817,8 +1369,14 @@
     {
       "version": "v1.0.1",
       "release_date": "15 Июня 2026",
-      "title": "Файловый менеджер и Markdown-фильтр",
-      "summary": "Переработан файловый менеджер: переключатель сетка/таблица, настраиваемые колонки (2/3/4/6), single-click навигация, квадратные превью, cache-busting. Установлен Parsedown: Twig-фильтр markdown_to_html.",
+      "title": {
+        "ru": "Файловый менеджер и Markdown-фильтр",
+        "en": "Файловый менеджер и Markdown-фильтр"
+      },
+      "summary": {
+        "ru": "Переработан файловый менеджер: переключатель сетка/таблица, настраиваемые колонки (2/3/4/6), single-click навигация, квадратные превью, cache-busting. Установлен Parsedown: Twig-фильтр markdown_to_html.",
+        "en": "Переработан файловый менеджер: переключатель сетка/таблица, настраиваемые колонки (2/3/4/6), single-click навигация, квадратные превью, cache-busting. Установлен Parsedown: Twig-фильтр markdown_to_html."
+      },
       "slug": "v1-0-1",
       "badge_type": "release",
       "tags": "core,ui",
@@ -829,8 +1387,14 @@
     {
       "version": "v1.3.6",
       "release_date": "16 Июля 2026",
-      "title": "Исправление стилей popup-окна файл-менеджера",
-      "summary": "Pop-up окно выбора файла осталось без стилей после замены Tailwind CDN на локальный CSS.",
+      "title": {
+        "ru": "Исправление стилей popup-окна файл-менеджера",
+        "en": "Исправление стилей popup-окна файл-менеджера"
+      },
+      "summary": {
+        "ru": "Pop-up окно выбора файла осталось без стилей после замены Tailwind CDN на локальный CSS.",
+        "en": "Pop-up окно выбора файла осталось без стилей после замены Tailwind CDN на локальный CSS."
+      },
       "slug": "v1-3-6",
       "badge_type": "fix",
       "tags": "fix,filemanager,css",
@@ -840,8 +1404,14 @@
     {
       "version": "v1.3.14",
       "release_date": "22 Июля 2026",
-      "title": "Исправлен счётчик уведомлений в сайдбаре админки",
-      "summary": "Бейдж с количеством непрочитанных заявок теперь учитывает все формы из таблицы forms, а не только страницы типа form в навигации.",
+      "title": {
+        "ru": "Исправлен счётчик уведомлений в сайдбаре админки",
+        "en": "Исправлен счётчик уведомлений в сайдбаре админки"
+      },
+      "summary": {
+        "ru": "Бейдж с количеством непрочитанных заявок теперь учитывает все формы из таблицы forms, а не только страницы типа form в навигации.",
+        "en": "Бейдж с количеством непрочитанных заявок теперь учитывает все формы из таблицы forms, а не только страницы типа form в навигации."
+      },
       "slug": "v1-3-14-fix-notifications-count",
       "badge_type": "fix",
       "tags": "fix,core,notifications,forms",
@@ -855,8 +1425,14 @@
     {
       "version": "v1.0.0",
       "release_date": "14 Июня 2026",
-      "title": "Первый стабильный выпуск",
-      "summary": "Первый мажорный релиз apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером, формами и настройками сайта. Исправлены баги загрузки .ico, отображения favicon в админке, двойного слеша в путях.",
+      "title": {
+        "ru": "Первый стабильный выпуск",
+        "en": "First Public Release"
+      },
+      "summary": {
+        "ru": "Первый мажорный релиз apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером, формами и настройками сайта. Исправлены баги загрузки .ico, отображения favicon в админке, двойного слеша в путях.",
+        "en": "Core CMS: page types, database tables, Twig templates, admin panel, SQLite storage."
+      },
       "slug": "v1-0-0",
       "badge_type": "alpha",
       "tags": "core,ai,fix",
