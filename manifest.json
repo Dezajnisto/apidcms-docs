@@ -665,6 +665,24 @@
         "en": "Using AI documentation, knowledge base, and AI context for development."
       },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/ai/baza-znanij-ai-dokumentaciya.md"
+    },
+    {
+      "slug": "internatsionalizatsiya",
+      "title": {
+        "ru": "Интернационализация (i18n)",
+        "en": "Internationalization (i18n)"
+      },
+      "section": "settings",
+      "section_title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
+      "order": 50,
+      "description": {
+        "ru": "Добавление новых языков в админ-панель apidcms. JSON-пакеты, функция lang() в Twig, хелпер __t() в JavaScript.",
+        "en": "Adding new languages to the apidcms admin panel. JSON language packs, lang() in Twig, __t() helper in JavaScript."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/internatsionalizatsiya.md"
     }
   ],
   "sections": {
@@ -718,7 +736,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-28-v2",
+  "updated": "2026-07-29-v1.5.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -746,6 +764,25 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v1.5.0",
+      "release_date": "2026-07-29",
+      "title": {
+        "ru": "Полная интернационализация — 1200 ключей, все шаблоны и контроллеры переведены",
+        "en": "Full i18n — 1200 keys, all templates and controllers translated"
+      },
+      "summary": {
+        "ru": "Полный перевод всех 31 шаблона админки и 11 контроллеров. 1200 ключей в ru.json и en.json. JS-строки через __t(). Исправлены баги с одинарными скобками { } в Twig.",
+        "en": "Complete translation of all 31 admin templates and 11 controllers. 1200 keys in ru.json and en.json. JS strings via __t(). Fixed single-brace { } bugs in Twig."
+      },
+      "slug": "v1-5-0",
+      "badge_type": "feature",
+      "tags": "i18n,admin,lang,twig,js",
+      "order": 158,
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-5-0.md",
+      "intro": "Админ-панель apidcms получила полную поддержку мультиязычности: 1200 ключей в языковых пакетах, перевод всех шаблонов и контроллеров, JS-хелпер __t().",
+      "whats_new": "- **1200 ключей** в ru.json + en.json — полный перевод всех 31 шаблона админки\n- **Переведены все контроллеры:** SettingsController, NotificationsController, PluginAdminController, FormsController, FileManagerController\n- **JS-строки через __t():** window.__lang в base.html.twig + __t() хелпер\n- **Файловый менеджер:** все JS-уведомления, алерты, промпты переведены\n- **Исправлены баги:** одинарные скобки { } в Twig (269 мест), вложенные {{ }} в default(), бэкслеши перед $ в контроллерах\n- **Документация:** статья «Интернационализация» (RU + EN) с инструкциями по добавлению новых языков"
+    },
     {
       "version": "v1.4.0",
       "release_date": "2026-07-28",
