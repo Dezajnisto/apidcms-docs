@@ -80,7 +80,7 @@ The `url()` function automatically adds the language prefix for pages (but not f
 <a href="/docs">{{ _t[site_lang].docs }}</a>
 ```
 
-On an EN page, `url('/docs')` returns `/en/docs`; on RU, `/docs`. Asset paths (`/storage/...`) never receive a prefix.
+On an EN page, `url('/docs')` returns `/en/docs`; on RU, `/docs`. Asset paths (`/storage/...`, `/admin/...`) never receive a prefix.
 
 ### Language Switcher Template
 
@@ -128,9 +128,22 @@ $json = I18n::encode(
 
 // SQL expression for locale-aware search
 $expr = I18n::searchExpr('title', ['ru', 'en']);
-// → COALESCE(json_extract(title, '$.ru'),
-//            json_extract(title, '$.en'), title)
+// → COALESCE(json_extract(title, r'$.ru'),
+//            json_extract(title, r'$.en'), title)
 ```
+
+## External Pages: content_url_{locale}
+
+For external pages (plugins, docs), locale-specific content URLs are supported:
+
+```json
+{
+  "content_url": "https://...account/README.md",
+  "content_url_en": "https://...account/README.en.md"
+}
+```
+
+`handleExternalPage()` automatically picks `content_url_en` for English locale, `content_url_de` for German, etc. This lets you store translations in separate files without code changes.
 
 ## JSON Format for Content
 

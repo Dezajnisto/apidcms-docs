@@ -80,7 +80,7 @@ WHERE setting_key = 'site_languages';
 <a href="/docs">{{ _t[site_lang].docs }}</a>
 ```
 
-На EN-странице `url('/docs')` вернёт `/en/docs`, на RU — `/docs`. Ассеты (`/storage/...`) префикс не получают.
+На EN-странице `url('/docs')` вернёт `/en/docs`, на RU — `/docs`. Ассеты (`/storage/...`, `/admin/...`) префикс не получают.
 
 ### Переключатель языков
 
@@ -128,9 +128,22 @@ $json = I18n::encode(
 
 // SQL для поиска по локали
 $expr = I18n::searchExpr('title', ['ru', 'en']);
-// → COALESCE(json_extract(title, '$.ru'),
-//            json_extract(title, '$.en'), title)
+// → COALESCE(json_extract(title, r'$.ru'),
+//            json_extract(title, r'$.en'), title)
 ```
+
+## Внешние страницы: content_url_{locale}
+
+Для внешних страниц (плагины, документация) есть поддержка локализованных URL контента:
+
+```json
+{
+  "content_url": "https://...account/README.md",
+  "content_url_en": "https://...account/README.en.md"
+}
+```
+
+`handleExternalPage()` автоматически выбирает `content_url_en` для английской локали, `content_url_de` для немецкой и т.д. Это позволяет хранить переводы контента в отдельных файлах без изменения кода.
 
 ## JSON-формат для контента
 
