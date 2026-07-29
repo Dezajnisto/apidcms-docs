@@ -9,7 +9,7 @@ The base language always has no URL prefix. Additional languages use a prefix:
 - `https://mysite.ru/` — base language (usually Russian)
 - `https://mysite.ru/en/` — additional language (English)
 
-When a visitor hits `/en/...`, a `site_lang` cookie is set for one year. On the next visit without a prefix, they're automatically redirected to the correct language version.
+Visiting `/en/...` sets a `site_lang` cookie (1 year). Returning to the base language (`/...`) clears the cookie. The cookie does **not** trigger automatic redirects — language is controlled solely by the URL.
 
 ## Settings
 
@@ -35,6 +35,15 @@ After that:
 - RU/EN language switcher in the header (shown only when `site_languages` is not empty)
 - `site_lang` cookie remembers the choice
 
+### Language Switcher Behavior
+
+The switcher preserves the current page when changing languages:
+
+- On `/en/docs` → RU links to `/docs`, EN links to `/en/docs`
+- On `/` → RU links to `/`, EN links to `/en/`
+
+This works via the `current_path` variable (URL path without the language prefix), automatically passed to all templates.
+
 ## Template Translations
 
 Static strings (navigation, buttons, headings) use the `_t` object in `base.html.twig`:
@@ -55,17 +64,47 @@ Static strings (navigation, buttons, headings) use the `_t` object in `base.html
 
 <html lang="{{ site_lang }}">
 ...
-<a href="/">{{ _t[site_lang].home }}</a>
+<a href="{{ url('/') }}">{{ _t[site_lang].home }}</a>
 <input placeholder="{{ _t[site_lang].search }}">
 ```
 
-The `site_lang` variable is available in all templates and contains the current language (`ru`/`en`).
+### Important: Use url() for All Internal Links
+
+The `url()` function automatically adds the language prefix for pages (but not for assets):
+
+```twig
+{# Correct — prefix added automatically #}
+<a href="{{ url('/docs') }}">{{ _t[site_lang].docs }}</a>
+
+{# Wrong — link never gets the prefix #}
+<a href="/docs">{{ _t[site_lang].docs }}</a>
+```
+
+On an EN page, `url('/docs')` returns `/en/docs`; on RU, `/docs`. Asset paths (`/storage/...`) never receive a prefix.
+
+### Language Switcher Template
+
+```twig
+{% if get_setting('site_languages')|default('') is not empty %}
+<div class="lang-switch">
+    <a href="/{{ current_path }}"
+       class="lang-link{% if site_lang == 'ru' %} active{% endif %}">RU</a>
+    <a href="/en/{{ current_path }}"
+       class="lang-link{% if site_lang == 'en' %} active{% endif %}">EN</a>
+</div>
+{% endif %}
+```
+
+Template variables:
+- `site_lang` — current language (`ru`/`en`)
+- `current_path` — page path without prefix (on `/en/docs` → `docs`)
 
 ### Adding Translations for a New Page
 
 1. Add keys to the `_t` object in `base.html.twig` (in both `ru` and `en` sections)
 2. In the template: `{{ _t[site_lang].your_key }}`
-3. Done
+3. All internal links: `{{ url('/path') }}`
+4. Done
 
 ## Core\I18n — Programmatic Access
 
