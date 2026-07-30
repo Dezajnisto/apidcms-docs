@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-v2-0-1-hotfix",
+  "updated": "2026-07-31-plugins-account-credits",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,23 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "plugins-v2.0.2",
+      "release_date": "2026-07-31",
+      "slug": "plugins-account-1-1-2-credits-1-0-2",
+      "badge_type": "hotfix",
+      "tags": "plugin,account,credits,subscription,payments,fix",
+      "title": {
+        "ru": "Account v1.1.2 + Credits v1.0.2 — платёжный поток",
+        "en": "Account v1.1.2 + Credits v1.0.2 — Payment Flow"
+      },
+      "summary": {
+        "ru": "Исправлен поток подписки: профиль показывает ошибки оплаты, возврат из YooKassa не уводит на 404, опечатка в credits.",
+        "en": "Fixed subscription flow: profile shows payment errors, YooKassa return no longer 404s, typo in credits plugin."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/plugins-account-1-1-2-credits-1-0-2.md",
+      "order": 166
+    },
     {
       "version": "v1.0.1",
       "release_date": "2026-07-30",
