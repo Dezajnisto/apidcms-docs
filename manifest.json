@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-31-plugins-account-credits",
+  "updated": "2026-07-30-bulk-delete",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,28 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.0.2",
+      "release_date": "2026-07-30",
+      "slug": "v2-0-2",
+      "badge_type": "feature",
+      "tags": "core,admin,ui",
+      "title": {
+        "ru": "v2.0.2 — Массовое удаление записей в таблицах",
+        "en": "v2.0.2 — Bulk Delete in Table Viewer"
+      },
+      "summary": {
+        "ru": "Колонка с чекбоксами, липкая панель массовых действий и удаление нескольких записей одной кнопкой.",
+        "en": "Checkbox column, sticky bulk actions bar, and one-click multi-record deletion."
+      },
+      "intro": {
+        "ru": "В просмотр таблиц добавлена колонка с чекбоксами для множественного выбора записей и панель массовых действий. Пока доступно только массовое удаление, но архитектура готова к расширению другими действиями.",
+        "en": "Table viewer now has a checkbox column for multi-select and a bulk actions bar. Currently only bulk delete is available, but the architecture is ready for more actions."
+      },
+      "whats_new": "- **Checkbox column** with select-all toggle\n- **Sticky bulk actions bar** with selected count and deselect button\n- **Bulk delete** with confirmation dialog and FK constraint handling\n- **Pagination preserved** after bulk operations\n- **Safe by default**: no checkboxes for tables without `id` column",
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-0-2.md",
+      "order": 167
+    },
     {
       "version": "plugins-v2.0.2",
       "release_date": "2026-07-31",
@@ -1659,5 +1681,6 @@
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-0-0.md",
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
-  ]
+  ],
+  "version": "2.0.2"
 }
