@@ -782,6 +782,29 @@
   },
   "changelog": [
     {
+      "version": "v2.0.0",
+      "release_date": "2026-07-30",
+      "slug": "v2-0-0",
+      "badge_type": "breaking",
+      "tags": "architecture,restructure,breaking,psr-4,nginx,themes",
+      "title": {
+        "ru": "v2.0.0 — Реструктуризация архитектуры",
+        "en": "v2.0.0 — Architecture Restructuring"
+      },
+      "summary": {
+        "ru": "Полная реструктуризация: core_lib→core, PSR-4, шаблоны отделены, единая точка входа www/index.php, storage proxy, nginx.conf.",
+        "en": "Complete restructuring: core_lib→core, PSR-4, separated views, single entry point www/index.php, storage proxy, nginx.conf."
+      },
+      "intro": {
+        "ru": "Крупнейшее архитектурное обновление apidcms. «Взрослая» структура: PSR-4, разделение кода и шаблонов, themes, storage proxy, единая точка входа.",
+        "en": "The largest architectural update of apidcms. Mature structure: PSR-4, code/view separation, themes, storage proxy, single entry point."
+      },
+      "whats_new": "- **core_lib/ → core/** — новое имя директории ядра\n- **PSR-4:** классы в `core/src/{Core,Admin,Front}/`\n- **Admin\\Core слит с Admin** — namespace больше не двойной\n- **Шаблоны отделены:** `core/views/{admin,front}/` (было вперемешку с кодом)\n- **Статика:** `core/assets/{css,js}/` (было `static/`)\n- **init.php → bootstrap.php + router.php** — инициализация и маршрутизация разделены\n- **Единая точка входа:** только `www/index.php`, убраны `admin/index.php` и `front/index.php`\n- **Конфиги наверху:** `config/{admin,front}.php`\n- **Storage proxy:** PHP-прокси для `/storage/uploads/*`, без симлинков\n- **БД недоступна через веб:** тройная защита .htaccess\n- **Themes:** `themes/{theme}/front/` и `themes/{theme}/admin/`\n- **Nginx:** `nginx.conf.example` — готовая конфигурация\n- **Удалены рудименты:** `www/admin/`, `www/front/`",
+      "improvements": "Архитектура приведена к отраслевому стандарту. Шаблоны больше не лежат вперемешку с PHP-кодом. Storage proxy вместо симлинков — надёжнее на shared-хостинге. Nginx-конфиг для production-развёртывания.",
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-0-0.md",
+      "order": 160
+    },
+    {
       "version": "v1.1.0",
       "release_date": "2026-07-29",
       "slug": "account-v1-1-0",
