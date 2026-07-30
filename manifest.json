@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-bulk-delete",
+  "updated": "2026-07-30-ai-assistant-editors",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,28 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.1.0",
+      "release_date": "2026-07-30",
+      "slug": "v2-1-0",
+      "badge_type": "feature",
+      "tags": "ai,admin,ui,templates,forms,css,editor",
+      "title": {
+        "ru": "v2.1.0 — AI Ассистент во всех редакторах",
+        "en": "v2.1.0 — AI Assistant in All Editors"
+      },
+      "summary": {
+        "ru": "AI-ассистент теперь во всех редакторах админки: CSS, шаблоны плагинов, шаблоны форм, системные промты. Расширен контекст — custom.css и Twig-шаблоны передаются AI для точной генерации кода.",
+        "en": "AI Assistant now available in all admin editors: CSS, plugin templates, form templates, system prompts. Context expanded — custom.css and Twig templates are sent to AI for precise code generation."
+      },
+      "intro": {
+        "ru": "AI-ассистент apidcms получил самое большое обновление с момента запуска. Теперь кнопка AI доступна в каждом редакторе кода и текста в админ-панели. AI видит реальный CSS проекта, структуру HTML-шаблонов и может генерировать код в едином стиле.",
+        "en": "The apidcms AI Assistant received its biggest update since launch. The AI button is now available in every code and text editor in the admin panel. AI sees the project's real CSS, HTML template structure, and can generate code in a consistent style."
+      },
+      "whats_new": "- **CSS Editor AI:** Generate and edit CSS with template structure awareness\n- **Plugin Templates AI:** Generate Twig code for plugin views\n- **Form Templates AI:** Generate Twig code for form templates\n- **Prompt Writer:** AI helps write system prompts for itself (8 fields)\n- **Context Enhanced:** custom.css and .twig files sent to AI for accurate generation\n- **CodeMirror Sync:** Fixed template insertion with CodeMirror editors",
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-0.md",
+      "order": 168
+    },
     {
       "version": "v2.0.2",
       "release_date": "2026-07-30",
