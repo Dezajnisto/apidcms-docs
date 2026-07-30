@@ -799,7 +799,10 @@
         "ru": "Страница статистики посещений получила несколько улучшений: более детальные периоды фильтрации, сниженный срок хранения данных и аккуратный график часов пик с подписями под каждым столбцом.",
         "en": "The visit statistics page received several improvements: more detailed filter periods, reduced data retention, and a cleaner peak hours chart with labels under every bar."
       },
-      "whats_new": "- **New periods:** 1d / 7d / 14d / 30d (was 7 / 30 / 60 / 90)\n- **Retention:** default 30 days, selectable 7-90 (was 30-365)\n- **Peak hours:** hour labels under every bar (0-23), not just every 3rd",
+      "whats_new": {
+        "ru": "- **Новые периоды:** 1 дн. / 7 дн. / 14 дн. / 30 дн. (было 7 / 30 / 60 / 90)\n- **Срок хранения:** по умолчанию 30 дней, выбор 7-90 (было 30-365)\n- **Часы пик:** подписи часа под каждой полоской (0-23), а не только под каждой третьей",
+        "en": "- **New periods:** 1d / 7d / 14d / 30d (was 7 / 30 / 60 / 90)\n- **Retention:** default 30 days, selectable 7-90 (was 30-365)\n- **Peak hours:** hour labels under every bar (0-23), not just every 3rd"
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-1.md",
       "order": 169
     },
@@ -821,7 +824,10 @@
         "ru": "AI-ассистент apidcms получил самое большое обновление с момента запуска. Теперь кнопка AI доступна в каждом редакторе кода и текста в админ-панели. AI видит реальный CSS проекта, структуру HTML-шаблонов и может генерировать код в едином стиле.",
         "en": "The apidcms AI Assistant received its biggest update since launch. The AI button is now available in every code and text editor in the admin panel. AI sees the project's real CSS, HTML template structure, and can generate code in a consistent style."
       },
-      "whats_new": "- **CSS Editor AI:** Generate and edit CSS with template structure awareness\n- **Plugin Templates AI:** Generate Twig code for plugin views\n- **Form Templates AI:** Generate Twig code for form templates\n- **Prompt Writer:** AI helps write system prompts for itself (8 fields)\n- **Context Enhanced:** custom.css and .twig files sent to AI for accurate generation\n- **CodeMirror Sync:** Fixed template insertion with CodeMirror editors",
+      "whats_new": {
+        "ru": "- **CSS-редактор:** генерация и редактирование CSS с учётом HTML-структуры шаблонов\n- **Шаблоны плагинов:** генерация Twig-кода для представлений плагинов\n- **Шаблоны форм:** генерация Twig-кода для шаблонов форм\n- **Редактор промтов:** AI помогает писать системные промты для самого себя (8 полей)\n- **Расширенный контекст:** custom.css и .twig-файлы передаются AI для точной генерации\n- **CodeMirror:** исправлена вставка шаблонов в редакторы CodeMirror",
+        "en": "- **CSS Editor AI:** Generate and edit CSS with template structure awareness\n- **Plugin Templates AI:** Generate Twig code for plugin views\n- **Form Templates AI:** Generate Twig code for form templates\n- **Prompt Writer:** AI helps write system prompts for itself (8 fields)\n- **Context Enhanced:** custom.css and .twig files sent to AI for accurate generation\n- **CodeMirror Sync:** Fixed template insertion with CodeMirror editors"
+      },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-0.md",
       "order": 168
     },
