@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-v2-1-1-stats",
+  "updated": "2026-07-30-i18n-language-persistence",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,26 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.1.2",
+      "release_date": "2026-07-30",
+      "slug": "v2-1-2",
+      "badge_type": "hotfix",
+      "tags": "i18n,frontend,fix",
+      "title": {
+        "ru": "v2.1.2 — Сохранение языка при навигации",
+        "en": "v2.1.2 — Language persistence on navigation"
+      },
+      "summary": {
+        "ru": "Кука site_lang больше не сбрасывается при переходе по ссылкам. Ссылки в чейнджлоге получают языковой префикс. Явный сброс языка через ?lang=ru.",
+        "en": "The site_lang cookie is no longer cleared on bare-URL navigation. Changelog links get language prefix. Explicit reset via ?lang=ru."
+      },
+      "whats_new": {
+        "ru": "- **Сохранение куки:** `site_lang` проверяется при голом URL, не удаляется\n- **Явный сброс:** `?lang=ru` сигнализирует о переключении на базовый язык\n- **Префиксы в ссылках:** `url()` автоматически добавляет языковой префикс",
+        "en": "- **Cookie persistence:** `site_lang` is checked on bare URLs, no longer deleted\n- **Explicit reset:** `?lang=ru` signals base-language switch\n- **Link prefixes:** `url()` automatically adds language prefix"
+      },
+      "order": 170
+    },
     {
       "version": "v2.1.1",
       "release_date": "2026-07-30",
