@@ -754,7 +754,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-multilingual-docs",
+  "updated": "2026-07-30-v2-1-3",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -782,6 +782,31 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.1.3",
+      "release_date": "2026-07-30",
+      "slug": "v2-1-3",
+      "badge_type": "feature",
+      "tags": "core,admin,filemanager,ui,fix",
+      "title": {
+        "ru": "v2.1.3 — Мультизагрузка и массовое удаление в файл-менеджере",
+        "en": "v2.1.3 — Multi-upload and Batch Delete in File Manager"
+      },
+      "summary": {
+        "ru": "Мультизагрузка файлов с drag-and-drop, массовое удаление через чекбоксы в таблице, исправлена ошибка Twig в попапе.",
+        "en": "Multi-file upload with drag-and-drop, batch delete via checkboxes in table view, fixed Twig error in popup."
+      },
+      "whats_new": {
+        "ru": "- **Мультизагрузка файлов:** модалка загрузки поддерживает multiple-файлы, drag-and-drop, прогресс-бар, очередь.\n- **Массовое удаление:** чекбоксы у каждого элемента в таблице, кнопка «Удалить (N)», подтверждение.",
+        "en": "- **Multi-file upload:** upload modal supports multiple files, drag-and-drop, progress bar, queue.\n- **Batch delete:** checkboxes on every table row, «Delete (N)» button, confirmation dialog."
+      },
+      "improvements": {
+        "ru": "- **Исправлена ошибка Twig:** `/admin/filemanager/popup` — тройные скобки `{{{` заменены на `{{`.",
+        "en": "- **Fixed Twig error:** `/admin/filemanager/popup` — triple braces `{{{` replaced with `{{`."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-3.md",
+      "order": 171
+    },
     {
       "version": "v2.1.2",
       "release_date": "2026-07-30",
