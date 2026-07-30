@@ -101,7 +101,7 @@ order: 60
   "name": "account",
   "version": "1.0.0",
   "description": "Личный кабинет",
-  "tables": ["users", "user_tokens"]
+  "tables": ["plugin_account_users", "plugin_account_tokens"]
 }
 ```
 
@@ -110,3 +110,71 @@ order: 60
 ---
 
 ##
+
+
+## 🏷️ Соглашение об именовании таблиц
+
+Все таблицы плагинов должны использовать префикс `plugin_{name}_`. Это предотвращает конфликты имён с пользовательскими таблицами (например, если пользователь создаст таблицу `users` через админку, а плагин Account попытается создать свою).
+
+**Формат:** `plugin_{имя_плагина}_{назначение}`
+
+**Примеры:**
+- `plugin_account_users` — таблица пользователей плагина Account
+- `plugin_cart_items` — таблица элементов корзины плагина Cart
+- `plugin_credits_transactions` — таблица транзакций плагина Credits
+
+**Правила:**
+- Имя плагина — только `[a-z][a-z0-9]*` (без подчёркиваний)
+- Имя таблицы — строчные буквы и подчёркивания
+- Полное имя: `plugin_{name}_{purpose}`
+
+### Миграции с верификацией схемы
+
+Каждая миграция плагина должна не только создавать таблицы (`CREATE TABLE IF NOT EXISTS`), но и верифицировать схему существующих таблиц через `PRAGMA table_info` и `ALTER TABLE ADD COLUMN`. Это гарантирует, что при обновлении плагина новые колонки будут добавлены без потери данных.
+
+**Пример миграции с PRAGMA-верификацией:**
+
+```php
+$pm->addAction('db.migrate', function ($db) use ($pluginDir) {
+    $migrationFile = $pluginDir . '/migrations/001_create.sql';
+    if (!file_exists($migrationFile)) return;
+    $sql = file_get_contents($migrationFile);
+    $statements = array_filter(array_map('trim', explode(';', $sql)));
+    foreach ($statements as $stmt) {
+        if (!empty($stmt)) {
+            try { $db->exec($stmt); }
+            catch (\Exception $e) { error_log("Migration error: " . $e->getMessage()); }
+        }
+    }
+
+    // Schema verification
+    $expectedColumns = [
+        'plugin_myplugin_items' => [
+            'id' => 'INTEGER',
+            'name' => 'TEXT',
+            'created_at' => 'DATETIME'
+        ]
+    ];
+
+    foreach ($expectedColumns as $table => $columns) {
+        try {
+            $existing = $db->query("PRAGMA table_info(\"{$table}\")")->fetchAll();
+            $existingNames = array_column($existing, 'name');
+            foreach ($columns as $colName => $colType) {
+                if (!in_array($colName, $existingNames)) {
+                    $db->exec("ALTER TABLE \"{$table}\" ADD COLUMN \"{$colName}\" {$colType} DEFAULT ''");
+                    error_log("Added missing column {$table}.{$colName}");
+                }
+            }
+        } catch (\Exception $e) {
+            error_log("Schema verification error: " . $e->getMessage());
+        }
+    }
+}, 10, 'myplugin');
+```
+
+### Внешние ключи
+
+Если таблица ссылается на таблицу другого плагина (например, `plugin_account_users`), плагин должен:
+- Указать зависимость в `plugin.json`: `"dependencies": ["account"]`
+- Использовать полное имя таблицы в FOREIGN KEY

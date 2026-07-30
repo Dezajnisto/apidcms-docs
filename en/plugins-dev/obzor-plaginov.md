@@ -103,7 +103,7 @@ Plugins can declare their tables via the `tables` field in `plugin.json`. This l
   "name": "account",
   "version": "1.0.0",
   "description": "User cabinet",
-  "tables": ["users", "user_tokens"]
+  "tables": ["plugin_account_users", "plugin_account_tokens"]
 }
 ```
 
@@ -112,3 +112,71 @@ After adding the `tables` field, plugin tables will appear in the "Plugins" sect
 ---
 
 ##
+
+
+## 🏷️ Table Naming Convention
+
+All plugin tables MUST use the `plugin_{name}_` prefix. This prevents name conflicts with user-created tables (e.g. if a user creates a `users` table via admin panel, and the Account plugin tries to create its own).
+
+**Format:** `plugin_{plugin_name}_{purpose}`
+
+**Examples:**
+- `plugin_account_users` — Account plugin users table
+- `plugin_cart_items` — Cart plugin items table
+- `plugin_credits_transactions` — Credits plugin transactions table
+
+**Rules:**
+- Plugin name — only `[a-z][a-z0-9]*` (no underscores)
+- Table name — lowercase with underscores
+- Full name: `plugin_{name}_{purpose}`
+
+### Migrations with Schema Verification
+
+Every plugin migration must not only create tables (`CREATE TABLE IF NOT EXISTS`), but also verify the schema of existing tables via `PRAGMA table_info` and `ALTER TABLE ADD COLUMN`. This ensures that when a plugin is updated, new columns are added without data loss.
+
+**Migration example with PRAGMA verification:**
+
+```php
+$pm->addAction('db.migrate', function ($db) use ($pluginDir) {
+    $migrationFile = $pluginDir . '/migrations/001_create.sql';
+    if (!file_exists($migrationFile)) return;
+    $sql = file_get_contents($migrationFile);
+    $statements = array_filter(array_map('trim', explode(';', $sql)));
+    foreach ($statements as $stmt) {
+        if (!empty($stmt)) {
+            try { $db->exec($stmt); }
+            catch (\Exception $e) { error_log("Migration error: " . $e->getMessage()); }
+        }
+    }
+
+    // Schema verification
+    $expectedColumns = [
+        'plugin_myplugin_items' => [
+            'id' => 'INTEGER',
+            'name' => 'TEXT',
+            'created_at' => 'DATETIME'
+        ]
+    ];
+
+    foreach ($expectedColumns as $table => $columns) {
+        try {
+            $existing = $db->query("PRAGMA table_info(\"{$table}\")")->fetchAll();
+            $existingNames = array_column($existing, 'name');
+            foreach ($columns as $colName => $colType) {
+                if (!in_array($colName, $existingNames)) {
+                    $db->exec("ALTER TABLE \"{$table}\" ADD COLUMN \"{$colName}\" {$colType} DEFAULT ''");
+                    error_log("Added missing column {$table}.{$colName}");
+                }
+            }
+        } catch (\Exception $e) {
+            error_log("Schema verification error: " . $e->getMessage());
+        }
+    }
+}, 10, 'myplugin');
+```
+
+### Foreign Keys
+
+If a table references another plugin's table (e.g. `plugin_account_users`), the plugin must:
+- Declare the dependency in `plugin.json`: `"dependencies": ["account"]`
+- Use the full table name in FOREIGN KEY
