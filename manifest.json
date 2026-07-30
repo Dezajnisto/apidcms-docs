@@ -699,7 +699,8 @@
       "description": {
         "ru": "Как создать сайт на нескольких языках: настройки, URL-префиксы, _t объект, класс Core\\I18n.",
         "en": "How to build a multilingual site: settings, URL prefixes, _t object, Core\\I18n class."
-      }
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/features/multilingual-sites.md"
     }
   ],
   "sections": {
@@ -753,7 +754,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-i18n-language-persistence",
+  "updated": "2026-07-30-multilingual-docs",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",

@@ -1,175 +1,198 @@
+---
+title: Multilingual Sites
+slug: multilingual-sites
+section: features
+order: 55
+description: How to build a multilingual site: settings, URL prefixes, _t object, Core\I18n class.
+---
+
 # Multilingual Sites
 
-apidcms supports optional frontend multilingual mode. It's **disabled by default** — your site works as usual. Additional languages are enabled only when needed.
+apidcms supports building sites in multiple languages through a URL prefix system, cookies, and the `_t` translation object.
+
+## How to Enable
+
+In the admin panel, go to **Settings** (`/admin/settings`). Find these two options:
+
+| Setting | Description | Example |
+|---------|-------------|---------|
+| `site_language` | Default site language | `ru` |
+| `site_languages` | Additional languages (JSON array) | `["en", "de"]` |
+
+After saving, a language switcher appears on the frontend, and all pages become available with a language prefix in the URL.
+
+**Important:** the system is opt-in — multilingual support is inactive until `site_languages` is populated.
 
 ## How It Works
 
-The base language always has no URL prefix. Additional languages use a prefix:
+### URL Prefixes
 
-- `https://mysite.ru/` — base language (usually Russian)
-- `https://mysite.ru/en/` — additional language (English)
+Each additional language gets a prefix in the URL:
 
-Visiting `/en/...` sets a `site_lang` cookie (1 year). Returning to the base language (`/...`) clears the cookie. The cookie does **not** trigger automatic redirects — language is controlled solely by the URL.
+| Base language (ru) | English (en) |
+|--------------------|--------------|
+| `/changelog` | `/en/changelog` |
+| `/docs/install` | `/en/docs/install` |
+| `/plugins` | `/en/plugins` |
 
-## Settings
+The base language (`site_language`) does **not** get a prefix — its URLs remain bare. This preserves backward compatibility with existing links.
 
-Two keys in `system_settings`:
+### The site_lang Cookie
 
-| Setting | Default | Description |
-|---|---|---|
-| `site_language` | `ru` | Base frontend language |
-| `site_languages` | `null` | JSON array of extra languages. `null` = multilingual disabled |
+When visiting a page with a language prefix, the system sets a `site_lang` cookie for 1 year. If the user navigates to a bare URL (without prefix), the system checks the cookie and serves the stored language.
 
-## Enabling an Additional Language
+Switching to the base language is done via the `?lang=ru` query parameter — it clears the cookie and returns to the base locale.
 
-Via admin panel: Settings → System, or directly in the database:
+### The _t Object in Templates
 
-```sql
-UPDATE system_settings SET setting_value = '["en"]'
-WHERE setting_key = 'site_languages';
-```
-
-After that:
-
-- `/en/page` — English version of any page
-- RU/EN language switcher in the header (shown only when `site_languages` is not empty)
-- `site_lang` cookie remembers the choice
-
-### Language Switcher Behavior
-
-The switcher preserves the current page when changing languages:
-
-- On `/en/docs` → RU links to `/docs`, EN links to `/en/docs`
-- On `/` → RU links to `/`, EN links to `/en/`
-
-This works via the `current_path` variable (URL path without the language prefix), automatically passed to all templates.
-
-## Template Translations
-
-Static strings (navigation, buttons, headings) use the `_t` object in `base.html.twig`:
+All translations are stored in the `base.html.twig` template as a `_t` object:
 
 ```twig
 {% set _t = {
   ru: {
     home: "Главная",
     docs: "Документация",
-    search: "Поиск"
+    changelog: "CHANGELOG"
   },
   en: {
     home: "Home",
     docs: "Documentation",
-    search: "Search"
+    changelog: "Changelog"
   }
 } %}
-
-<html lang="{{ site_lang }}">
-...
-<a href="{{ url('/') }}">{{ _t[site_lang].home }}</a>
-<input placeholder="{{ _t[site_lang].search }}">
 ```
 
-### Important: Use url() for All Internal Links
-
-The `url()` function automatically adds the language prefix for pages (but not for assets):
+Usage in any template:
 
 ```twig
-{# Correct — prefix added automatically #}
+<h1>{{ _t[site_lang].changelog_heading }}</h1>
 <a href="{{ url('/docs') }}">{{ _t[site_lang].docs }}</a>
-
-{# Wrong — link never gets the prefix #}
-<a href="/docs">{{ _t[site_lang].docs }}</a>
 ```
 
-On an EN page, `url('/docs')` returns `/en/docs`; on RU, `/docs`. Asset paths (`/storage/...`, `/admin/...`) never receive a prefix.
+The `site_lang` variable is automatically passed to all templates — it contains the current language (`ru` or `en`).
 
-### Language Switcher Template
+### The url() Function
+
+All internal links must use `url()`, not hardcoded paths:
+
+```twig
+{# Correct — prefix is added automatically #}
+<a href="{{ url('/changelog') }}">Changelog</a>
+
+{# Wrong — link always goes to the base language #}
+<a href="/changelog">Changelog</a>
+```
+
+`url()` checks the current locale and, if it differs from the base language, adds the prefix:
+
+- When `site_lang = en`: `url('/changelog')` → `/en/changelog`
+- When `site_lang = ru`: `url('/changelog')` → `/changelog`
+
+System paths (`/admin`, `/storage`, `/static`) are never prefixed.
+
+### Language Switcher
+
+A minimal switcher in `base.html.twig`:
 
 ```twig
 {% if get_setting('site_languages')|default('') is not empty %}
 <div class="lang-switch">
-    <a href="/{{ current_path }}"
-       class="lang-link{% if site_lang == 'ru' %} active{% endif %}">RU</a>
+    <a href="/{{ current_path }}?lang=ru"
+       class="{% if site_lang == 'ru' %}active{% endif %}">RU</a>
     <a href="/en/{{ current_path }}"
-       class="lang-link{% if site_lang == 'en' %} active{% endif %}">EN</a>
+       class="{% if site_lang == 'en' %}active{% endif %}">EN</a>
 </div>
 {% endif %}
 ```
 
-Template variables:
-- `site_lang` — current language (`ru`/`en`)
-- `current_path` — page path without prefix (on `/en/docs` → `docs`)
+- **Base language (RU):** `/{current_path}?lang=ru` — query parameter signals explicit switch
+- **Additional language (EN):** `/en/{current_path}` — URL prefix
 
-### Adding Translations for a New Page
+The `current_path` variable contains the current path **without** the locale prefix.
 
-1. Add keys to the `_t` object in `base.html.twig` (in both `ru` and `en` sections)
-2. In the template: `{{ _t[site_lang].your_key }}`
-3. All internal links: `{{ url('/path') }}`
-4. Done
+### current_path
 
-## Core\I18n — Programmatic Access
+The `current_path` variable is automatically stripped of the locale prefix:
+
+| Page URL | `site_lang` | `current_path` |
+|----------|-------------|----------------|
+| `/changelog` | `ru` | `changelog` |
+| `/en/changelog` | `en` | `changelog` |
+| `/en/changelog/v2-1-1` | `en` | `changelog/v2-1-1` |
+
+This allows the language switcher to always generate correct links.
+
+## Core\I18n Class
+
+For advanced translation handling in PHP, use the `Core\I18n` class.
+
+### resolve()
+
+Extracts the value for a locale from an i18n object:
 
 ```php
 use Core\I18n;
 
-// Resolve a single value
-$title = I18n::resolve($row['title'], 'en');
-// "Привет" → "Привет" (plain text)
-// '{"ru":"Привет","en":"Hello"}' → "Hello"
-
-// Resolve an array of items
-$items = I18n::resolveArray($items,
-    ['title', 'description', 'content'], 'en');
-
-// Build i18n JSON for storage
-$json = I18n::encode(
-    ['ru' => 'Привет', 'en' => 'Hello'], 'ru');
-// → '{"ru":"Привет","en":"Hello"}'
-// If only base language → plain text "Привет"
-
-// SQL expression for locale-aware search
-$expr = I18n::searchExpr('title', ['ru', 'en']);
-// → COALESCE(json_extract(title, r'$.ru'),
-//            json_extract(title, r'$.en'), title)
+$title = I18n::resolve($item['title'], 'ru');  // {"ru":"Hello","en":"Привет"} → "Hello"
+$title = I18n::resolve($item['title'], 'en');  // → "Привет"
 ```
 
-## External Pages: content_url_{locale}
+### resolveArray()
 
-For external pages (plugins, docs), locale-specific content URLs are supported:
+Recursively walks an array and resolves all i18n fields:
 
-```json
-{
-  "content_url": "https://...account/README.md",
-  "content_url_en": "https://...account/README.en.md"
-}
+```php
+$items = I18n::resolveArray($items, 'en');
+// All fields like {"ru":"...","en":"..."} are replaced with English values
 ```
 
-`handleExternalPage()` automatically picks `content_url_en` for English locale, `content_url_de` for German, etc. This lets you store translations in separate files without code changes.
+Used in `FrontController::resolveI18nData()` for automatic translation of data before rendering.
 
-## JSON Format for Content
+### searchExpr()
 
-Content (pages, posts) can be stored as JSON:
+Escapes a search query for different locales:
 
-```sql
--- Single language
-title = "Home page"
-
--- Multiple languages
-title = '{"ru":"Главная","en":"Home page"}'
+```php
+$expr = I18n::searchExpr($query, 'en');
 ```
 
-`FrontController::render()` automatically resolves `title`, `description`, `content` and other fields via `resolveI18nData()`. Templates receive ready-to-use strings.
+Useful when implementing search on multilingual sites.
 
-## Search
+### encode()
 
-Search works via `LIKE` on text columns. For JSON fields, it finds keys along with values (minor noise). `json_extract()` support for clean locale-aware search is planned.
+Encodes a value with locale awareness:
 
-## Limitations
+```php
+$encoded = I18n::encode($value, 'en');
+```
 
-- **Content** (pages, posts) is currently single-language. JSON format for content is the next step.
-- **Accept-Language** browser detection is not implemented.
-- **Admin panel** always uses `admin_language`, independent of the frontend.
+## External Pages and content_url_{locale}
 
-## See Also
+For external pages (changelog, plugins), you can specify different content URLs for different languages.
 
-- [Internationalization](/docs/i18n) — admin panel translation
-- [apidcms.dezajno.ru](https://apidcms.dezajno.ru/en/) — live multilingual site example
+Instead of a single `content_url`, use:
+
+| Field | Purpose |
+|-------|---------|
+| `content_url` | Default URL (base language) |
+| `content_url_ru` | URL for Russian version |
+| `content_url_en` | URL for English version |
+
+If `content_url_{locale}` is not set, `content_url` is used as fallback.
+
+## Setting <html lang>
+
+The `base.html.twig` template should use `site_lang` for the `lang` attribute:
+
+```twig
+<html lang="{{ site_lang }}">
+```
+
+This is important for SEO and accessibility (screen readers).
+
+## Known Limitations
+
+- **No auto-redirect.** The system does not redirect from a bare URL to a prefixed one. If the user has a `site_lang=en` cookie and visits `/changelog`, the page renders in English but the URL stays bare.
+- **Prefix method only.** Subdomain-based (`en.example.com`) or parameter-based (`?lang=en`) persistent routing is not supported.
+- **Translations in templates.** All `_t` strings live in `base.html.twig`. For larger projects, consider extracting translations to a separate Twig file via `include`.
+- **No content translation.** The system only translates the UI (navigation, buttons, headings). Page content (articles, text) requires manual duplication for each locale.
