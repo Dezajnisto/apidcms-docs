@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-ai-assistant-editors",
+  "updated": "2026-07-30-v2-1-1-stats",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,28 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.1.1",
+      "release_date": "2026-07-30",
+      "slug": "v2-1-1",
+      "badge_type": "feature",
+      "tags": "stats,admin,ui,settings",
+      "title": {
+        "ru": "v2.1.1 — Улучшение страницы статистики",
+        "en": "v2.1.1 — Stats Page Improvements"
+      },
+      "summary": {
+        "ru": "Новые периоды фильтрации [1, 7, 14, 30] дней, срок хранения по умолчанию 30 дней, подписи часов под каждой полоской в графике часов пик.",
+        "en": "New filter periods [1, 7, 14, 30] days, default retention 30 days, hour labels under every bar in peak hours chart."
+      },
+      "intro": {
+        "ru": "Страница статистики посещений получила несколько улучшений: более детальные периоды фильтрации, сниженный срок хранения данных и аккуратный график часов пик с подписями под каждым столбцом.",
+        "en": "The visit statistics page received several improvements: more detailed filter periods, reduced data retention, and a cleaner peak hours chart with labels under every bar."
+      },
+      "whats_new": "- **New periods:** 1d / 7d / 14d / 30d (was 7 / 30 / 60 / 90)\n- **Retention:** default 30 days, selectable 7-90 (was 30-365)\n- **Peak hours:** hour labels under every bar (0-23), not just every 3rd",
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-1.md",
+      "order": 169
+    },
     {
       "version": "v2.1.0",
       "release_date": "2026-07-30",
