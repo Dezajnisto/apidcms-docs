@@ -753,7 +753,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-29-account-v1.1.0",
+  "updated": "2026-07-30-v2-0-1-hotfix",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -781,6 +781,91 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v1.0.1",
+      "release_date": "2026-07-30",
+      "slug": "credits-v1-0-1",
+      "badge_type": "hotfix",
+      "tags": "plugin,fix,v2",
+      "title": {
+        "ru": "Credits v1.0.1 — V2 Compatibility Fix",
+        "en": "Credits v1.0.1 — V2 Compatibility Fix"
+      },
+      "summary": {
+        "ru": "Исправлен путь к конфигу в Service.php для v2.",
+        "en": "Fixed config path in Service.php for v2."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/credits-v1-0-1.md",
+      "order": 165
+    },
+    {
+      "version": "v1.0.1",
+      "release_date": "2026-07-30",
+      "slug": "favorites-v1-0-1",
+      "badge_type": "hotfix",
+      "tags": "plugin,fix,v2",
+      "title": {
+        "ru": "Favorites v1.0.1 — V2 Compatibility Fix",
+        "en": "Favorites v1.0.1 — V2 Compatibility Fix"
+      },
+      "summary": {
+        "ru": "Исправлены пути к конфигу в init.php и контроллере для v2.",
+        "en": "Fixed config paths in init.php and controller for v2."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/favorites-v1-0-1.md",
+      "order": 164
+    },
+    {
+      "version": "v1.4.1",
+      "release_date": "2026-07-30",
+      "slug": "subscription-v1-4-1",
+      "badge_type": "hotfix",
+      "tags": "plugin,fix,v2",
+      "title": {
+        "ru": "Subscription v1.4.1 — V2 Compatibility Fix",
+        "en": "Subscription v1.4.1 — V2 Compatibility Fix"
+      },
+      "summary": {
+        "ru": "getDb() использует \\$fc->getDatabase() с fallback на v2-путь к конфигу.",
+        "en": "getDb() now uses \\$fc->getDatabase() with v2 config path fallback."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/subscription-v1-4-1.md",
+      "order": 163
+    },
+    {
+      "version": "v1.0.1",
+      "release_date": "2026-07-30",
+      "slug": "account-v1-0-1",
+      "badge_type": "hotfix",
+      "tags": "plugin,fix,v2",
+      "title": {
+        "ru": "Account v1.0.1 — V2 Compatibility Fix",
+        "en": "Account v1.0.1 — V2 Compatibility Fix"
+      },
+      "summary": {
+        "ru": "Удалена битая строка миграции plugin_account_users_migration.",
+        "en": "Removed broken plugin_account_users_migration migration line."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/account-v1-0-1.md",
+      "order": 162
+    },
+    {
+      "version": "v2.0.1",
+      "release_date": "2026-07-30",
+      "slug": "v2-0-1",
+      "badge_type": "hotfix",
+      "tags": "core,plugin,fix,plugins",
+      "title": {
+        "ru": "v2.0.1 — Hotfix: стабильность плагинов и v2-совместимость",
+        "en": "v2.0.1 — Hotfix: Plugin Stability & v2 Compatibility"
+      },
+      "summary": {
+        "ru": "Плагины больше не падают при загрузке без БД. Пути к конфигам исправлены для v2. Добавлен FrontController::getDatabase().",
+        "en": "Plugins no longer crash when loaded without DB. Config paths fixed for v2. Added FrontController::getDatabase()."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-0-1.md",
+      "order": 161
+    },
     {
       "version": "v2.0.0",
       "release_date": "2026-07-30",
