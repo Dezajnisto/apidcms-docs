@@ -783,6 +783,23 @@
   },
   "changelog": [
     {
+      "version": "v2.2.1",
+      "release_date": "2026-07-31",
+      "slug": "v2-2-1",
+      "badge_type": "fix",
+      "tags": "fix,frontend",
+      "title": {
+        "ru": "v2.2.1 — Пагинация для внешних страниц",
+        "en": "v2.2.1 — Pagination for external pages"
+      },
+      "summary": {
+        "ru": "Добавлена поддержка параметра items_per_page в handleExternalPage(). Страница changelog теперь корректно разбивается на страницы.",
+        "en": "Added items_per_page support in handleExternalPage(). Changelog page now correctly paginates."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-1.md",
+      "order": 174
+    },
+    {
       "version": "v2.2.0",
       "release_date": "2026-07-31",
       "slug": "v2-2-0",
@@ -806,6 +823,23 @@
       },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-0.md",
       "order": 173
+    },
+    {
+      "version": "v2.1.5",
+      "release_date": "2026-07-31",
+      "slug": "v2-1-5",
+      "badge_type": "hotfix",
+      "tags": "fix,admin",
+      "title": {
+        "ru": "v2.1.5 — Фикс счётчика уведомлений в сайдбаре",
+        "en": "v2.1.5 — Notification badge count fix"
+      },
+      "summary": {
+        "ru": "Когда несколько форм использовали одну таблицу, счётчик уведомлений задваивался. Теперь SELECT DISTINCT source_table.",
+        "en": "When multiple forms shared a table, notification count doubled. Now uses SELECT DISTINCT source_table."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-5.md",
+      "order": 172.5
     },
     {
       "version": "v2.1.4",
