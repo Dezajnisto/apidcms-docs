@@ -754,7 +754,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-30-v2-1-3",
+  "updated": "2026-07-31-v2-2-0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -782,6 +782,31 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.2.0",
+      "release_date": "2026-07-31",
+      "slug": "v2-2-0",
+      "badge_type": "feature",
+      "tags": "core,ai,admin,settings",
+      "title": {
+        "ru": "v2.2.0 -- Настраиваемые лимиты контекста AI",
+        "en": "v2.2.0 -- Configurable AI Context Limits"
+      },
+      "summary": {
+        "ru": "Администратор может задать максимальный размер шаблонов и CSS, отправляемых в AI-помощник. По умолчанию без ограничений.",
+        "en": "Administrator can set maximum size for templates and CSS sent to the AI assistant. Default: unlimited."
+      },
+      "whats_new": {
+        "ru": "- **Настраиваемые лимиты:** ai_template_max_size, ai_template_total_max, ai_css_max_size\n- **UI в админке:** секция «Размер контекста» во вкладке AI\n- **По умолчанию 0** -- без ограничений",
+        "en": "- **Configurable limits:** ai_template_max_size, ai_template_total_max, ai_css_max_size\n- **Admin UI:** \"Context Size\" section in the AI tab\n- **Default 0** -- unlimited"
+      },
+      "improvements": {
+        "ru": "- **Исправлен баг:** getCssContext() реализован (отсутствовал, вызывал ошибку)\n- CSS-контекст теперь корректно передаётся AI",
+        "en": "- **Bug fix:** getCssContext() implemented (was missing, caused errors)\n- CSS context now properly sent to AI"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-0.md",
+      "order": 173
+    },
     {
       "version": "v2.1.4",
       "release_date": "2026-07-31",

@@ -128,6 +128,18 @@ Limits the number of rows passed to AI as context. Default **50 rows**. A value 
 
 This setting is also in the AI Frontend tab.
 
+### Context Size (v2.2.0)
+
+Settings that limit the amount of templates and CSS sent to the AI assistant. Located in the **AI** tab (Settings → AI → Context Size):
+
+| Parameter | Description | Default |
+|-----------|-------------|:---:|
+| `ai_template_max_size` | Max bytes per .twig file | 0 |
+| `ai_template_total_max` | Total limit for all templates | 0 |
+| `ai_css_max_size` | Max bytes for custom.css | 0 |
+
+**0 = unlimited.** Relevant for modern models (DeepSeek -- 1M tokens). If using a model with a small context window, set limits accordingly.
+
 ---
 
 ## 📚 Knowledge Base (since v1.3.25)
