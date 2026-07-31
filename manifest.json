@@ -783,6 +783,31 @@
   },
   "changelog": [
     {
+      "version": "v2.2.2",
+      "release_date": "2026-07-31",
+      "slug": "v2-2-2",
+      "badge_type": "hotfix",
+      "tags": "core,fix,external,pagination",
+      "title": {
+        "ru": "v2.2.2 — items_per_page=0 отключает пагинацию для external-страниц",
+        "en": "v2.2.2 — items_per_page=0 disables pagination for external pages"
+      },
+      "summary": {
+        "ru": "Фикс пагинации external-страниц: items_per_page=0 отключает пагинацию, показывает все записи. Исправлено меню документации, которое показывало только 10 статей.",
+        "en": "External page pagination fix: items_per_page=0 disables pagination, shows all items. Fixed docs sidebar showing only 10 articles."
+      },
+      "whats_new": {
+        "ru": "",
+        "en": ""
+      },
+      "improvements": {
+        "ru": "- **items_per_page=0** — отключает пагинацию для external-страниц\n- **README.md** переведён на два языка (EN+RU)\n- **www.backup-before-migration** удалён из репозитория",
+        "en": "- **items_per_page=0** — disables pagination for external pages\n- **README.md** translated to two languages (EN+RU)\n- **www.backup-before-migration** removed from the repository"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-2.md",
+      "order": 175
+    },
+    {
       "version": "v2.2.1",
       "release_date": "2026-07-31",
       "slug": "v2-2-1",
