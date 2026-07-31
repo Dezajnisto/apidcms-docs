@@ -783,6 +783,31 @@
   },
   "changelog": [
     {
+      "version": "v2.1.2",
+      "release_date": "2026-07-31",
+      "slug": "v2-1-2",
+      "badge_type": "hotfix",
+      "tags": "core,admin,fix,templates,ui",
+      "title": {
+        "ru": "v2.1.2 — Мелкие правки редактора шаблонов",
+        "en": "v2.1.2 — Template editor minor fixes"
+      },
+      "summary": {
+        "ru": "Исправлен плейсхолдер пути к файлу, убран избыточный label над редактором, добавлен размер файла на страницах шаблонов и CSS.",
+        "en": "Fixed file path placeholder, removed redundant editor label, added file size display on template and CSS pages."
+      },
+      "whats_new": {
+        "ru": "- **Размер файла:** на страницах редактирования шаблонов и CSS-стилей теперь отображается размер файла в human-readable формате",
+        "en": "- **File size:** template and CSS editor pages now display human-readable file size"
+      },
+      "improvements": {
+        "ru": "- **Путь к файлу:** плейсхолдер `{{ templatePath }}` заменён на рабочий `{templatePath}`, теперь показывает реальный путь\\n- **Интерфейс:** убран избыточный label «Содержимое шаблона *»",
+        "en": "- **File path:** placeholder changed from `{{ templatePath }}` to working `{templatePath}`, now shows the real path\\n- **UI:** removed redundant «Content *» label"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-1-2.md",
+      "order": 172
+    },
+    {
       "version": "v2.1.3",
       "release_date": "2026-07-30",
       "slug": "v2-1-3",
