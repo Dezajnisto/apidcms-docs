@@ -76,7 +76,6 @@ Each dynamic type requires **two templates**:
 ## Examples from Real Projects
 
 - **apidcms.dezajno.ru** — `docs` → `docs` table, documentation
-- **prostostihi.ru** — `examples` → `poetry` table, poetry examples
 
 ---
 

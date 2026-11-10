@@ -112,9 +112,10 @@ order: 110
 
 ### Пример: Buildin.ai (реальный кейс)
 
-Интеграция с [Buildin.ai API v2](https://buildin.ai/developer-api/v2/getting-started/overview). Реальный пример: wearefun.ru — свадебный гид с полным Markdown-контентом.
+Интеграция с [Buildin.ai API v2](https://buildin.ai/developer-api/v2/getting-started/overview).
 
-[/svadba](https://wearefun.ru/svadba) — список-оглавление, [/svadba/{id}](https://wearefun.ru/svadba/2db6d106-ad2a-44f4-8e7e-11cfdc1c933d) — детальная страница.
+Типичная схема: `/guide` — список-оглавление, `/guide/{id}` — детальная страница с
+Markdown-контентом из внешнего источника.
 
 **Список страниц через Search API (POST):**
 

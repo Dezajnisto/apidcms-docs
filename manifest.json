@@ -1803,7 +1803,7 @@
       "tags": "fix,core,session",
       "order": 71,
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v1-3-3.md",
-      "intro": "После реструктуризации и доработок ядра обнаружены две проблемы на действующих проектах: warning session_save_path на prostostihi.ru и warning NavigationItem::$page_config на wearefun.ru.",
+      "intro": "После реструктуризации и доработок ядра обнаружены две проблемы на действующих проектах: warning session_save_path и warning NavigationItem::$page_config.",
       "fixes": "- session_save_path вызывается ДО плагинов (init.php)\n- NavigationItem::$page_config = null\n- Удалены 6 устаревших проектных копий NavigationItem.php"
     },
     {

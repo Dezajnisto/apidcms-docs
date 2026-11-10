@@ -20,7 +20,7 @@ description: "Чекбокс согласия на ПД, способы вклю
 
 Если в таблице, к которой привязана форма, есть колонка `pd_consent` (INTEGER, DEFAULT 0), то чекбокс появляется автоматически. Значение сохраняется в БД (1 — согласие получено, 0 — нет).
 
-**Пример для prostostihi:**
+**Пример:**
 ```sql
 ALTER TABLE contacts ADD COLUMN pd_consent INTEGER DEFAULT 0;
 ```

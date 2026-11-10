@@ -111,9 +111,10 @@ If the API is unavailable or returns an error — `external_error.html.twig` is 
 
 ### Example: Buildin.ai (real-world case)
 
-Integration with [Buildin.ai API v2](https://buildin.ai/developer-api/v2/getting-started/overview). Real example: wearefun.ru — a wedding guide with full Markdown content.
+Integration with [Buildin.ai API v2](https://buildin.ai/developer-api/v2/getting-started/overview).
 
-[/svadba](https://wearefun.ru/svadba) — table of contents list, [/svadba/{id}](https://wearefun.ru/svadba/2db6d106-ad2a-44f4-8e7e-11cfdc1c933d) — detailed page.
+Typical layout: `/guide` — a table-of-contents list, `/guide/{id}` — a detail page with
+Markdown content from the external source.
 
 **Page list via Search API (POST):**
 

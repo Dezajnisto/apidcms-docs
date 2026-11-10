@@ -20,7 +20,7 @@ The personal data processing consent checkbox is **not added automatically** to 
 
 If the table linked to the form has a `pd_consent` column (INTEGER, DEFAULT 0), the checkbox appears automatically. The value is saved in the database (1 — consent obtained, 0 — no).
 
-**Example for prostostihi:**
+**Example:**
 ```sql
 ALTER TABLE contacts ADD COLUMN pd_consent INTEGER DEFAULT 0;
 ```
