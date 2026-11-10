@@ -685,6 +685,24 @@
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/internatsionalizatsiya.md"
     },
     {
+      "slug": "http-api",
+      "title": {
+        "ru": "HTTP API",
+        "en": "HTTP API"
+      },
+      "section": "settings",
+      "section_title": {
+        "ru": "Настройки",
+        "en": "Settings & System"
+      },
+      "order": 350,
+      "description": {
+        "ru": "REST API /api/v1/ для таблиц и статей: токен-авторизация, форматы ответов, кэш внешнего контента.",
+        "en": "REST API /api/v1/ for tables and articles: token auth, response formats, external content cache."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/http-api.md"
+    },
+    {
       "slug": "multilingual-sites",
       "title": {
         "ru": "Мультиязычные сайты",
@@ -754,7 +772,7 @@
       "order": 70
     }
   },
-  "updated": "2026-07-31-v2-2-0",
+  "updated": "2026-11-10-v2-2-5",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -782,6 +800,81 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.2.5",
+      "release_date": "2026-11-10",
+      "slug": "v2-2-5",
+      "badge_type": "fix",
+      "tags": "core,fix,admin,templates,permissions",
+      "title": {
+        "ru": "v2.2.5 — Редактор шаблонов: причина вместо «404»",
+        "en": "v2.2.5 — Template editor shows the reason instead of 404"
+      },
+      "summary": {
+        "ru": "Сохранение шаблона в админке показывало «404 Страница не найдена» при любом отказе записи. Теперь ошибки разделены: «не найдено» — 404, «не удалось записать» — отдельная страница с причиной и подсказкой про права на themes.",
+        "en": "Saving a template showed 404 for any write failure. Errors are now split: not-found renders 404, could-not-write renders a dedicated page with the reason and a themes permissions hint."
+      },
+      "whats_new": {
+        "ru": "",
+        "en": ""
+      },
+      "improvements": {
+        "ru": "- **error/action.html.twig** — страница ошибки действия с подсказкой\n- **Диагностика в лог** — владелец файла, `is_writable()` файла и каталога\n- **Бэкап не блокирует сохранение** — неудачный бэкап только предупреждение",
+        "en": "- **error/action.html.twig** — action error page with a hint\n- **Diagnostics to the log** — file owner, `is_writable()` of file and directory\n- **Backup no longer blocks saving** — a failed backup is only a warning"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-5.md",
+      "order": 178
+    },
+    {
+      "version": "v2.2.4",
+      "release_date": "2026-11-10",
+      "slug": "v2-2-4",
+      "badge_type": "fix",
+      "tags": "core,fix,forms,pd-consent,storage",
+      "title": {
+        "ru": "v2.2.4 — Лог согласий на обработку ПД вынесен из ядра",
+        "en": "v2.2.4 — PD consent log moved out of the core"
+      },
+      "summary": {
+        "ru": "pd_consent.log писался внутрь core/src/Admin/storage/logs — то есть в код, который перезаписывается раскаткой. Теперь лог живёт в storage/logs проекта, рядом с остальными данными.",
+        "en": "pd_consent.log was written into core/src/Admin/storage/logs — code that the rollout overwrites. The log now lives in the project's storage/logs next to the other data."
+      },
+      "whats_new": {
+        "ru": "",
+        "en": ""
+      },
+      "improvements": {
+        "ru": "- **Путь лога** — `storage/logs/pd_consent.log` проекта вместо `core/`\n- **STORAGE_PATH** — работает в нестандартной раскладке",
+        "en": "- **Log path** — the project's `storage/logs/pd_consent.log` instead of `core/`\n- **STORAGE_PATH** — works in non-standard layouts"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-4.md",
+      "order": 177
+    },
+    {
+      "version": "v2.2.3",
+      "release_date": "2026-11-10",
+      "slug": "v2-2-3",
+      "badge_type": "feature",
+      "tags": "core,api,external,cache",
+      "title": {
+        "ru": "v2.2.3 — API к таблицам и статьям, кэш внешнего контента",
+        "en": "v2.2.3 — Tables and articles API, external content cache"
+      },
+      "summary": {
+        "ru": "HTTP API /api/v1/ для таблиц и статей с токен-авторизацией. ExternalPageLoader::fetchContent() кэширует контент по URL и при недоступной сети отдаёт просроченный кэш вместо 15 секунд ожидания.",
+        "en": "HTTP API /api/v1/ for tables and articles with token auth. ExternalPageLoader::fetchContent() caches content per URL and returns stale cache instead of waiting 15 seconds when the network is down."
+      },
+      "whats_new": {
+        "ru": "- **`/api/v1/tables`** — список таблиц, записи, схема, CRUD\n- **`/api/v1/articles`** — статьи блога, CRUD по slug\n- **Авторизация токеном**, единый формат ошибок, системные таблицы закрыты\n- **Кэш внешнего контента** — TTL 3600 с, отдача просроченного кэша при сбое сети",
+        "en": "- **`/api/v1/tables`** — table list, records, schema, CRUD\n- **`/api/v1/articles`** — blog articles, CRUD by slug\n- **Token auth**, unified error format, system tables excluded\n- **External content cache** — 3600 s TTL, stale fallback on network failure"
+      },
+      "improvements": {
+        "ru": "",
+        "en": ""
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-2-3.md",
+      "order": 176
+    },
     {
       "version": "v2.2.2",
       "release_date": "2026-07-31",
