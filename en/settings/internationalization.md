@@ -130,10 +130,7 @@ In `admin/app/views/settings/index.html.twig`, find the language selector:
 
 ### 4. Deploy
 
-```bash
-sync-core all
-# Clear caches on all sites
-```
+Copy the updated `www/core` into your sites and clear the caches (Twig and OPcache).
 
 The new language will appear in Settings → General → Interface Language.
 
