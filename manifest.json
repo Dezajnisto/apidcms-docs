@@ -772,7 +772,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-10-v2-2-5",
+  "updated": "2026-11-11-v2.3.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -800,6 +800,31 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.3.0",
+      "release_date": "2026-11-11",
+      "slug": "v2-3-0",
+      "badge_type": "feature",
+      "tags": "core,feature,robots,sitemap,routing,fix,admin,foreign-key",
+      "title": {
+        "ru": "v2.3.0 — robots.txt и sitemap.xml средствами CMS",
+        "en": "v2.3.0 — robots.txt and sitemap.xml from the CMS"
+      },
+      "summary": {
+        "ru": "Новый тип страницы `raw` отдаёт шаблон темы как есть, без layout, с заданным Content-Type — так заводятся robots.txt и sitemap.xml. Заодно исправлен `FOREIGN KEY constraint failed` при сохранении записи: пустой внешний ключ из формы не приводился к NULL.",
+        "en": "A new `raw` page type serves a theme template as-is, without the layout, with a configurable Content-Type — enough for robots.txt and sitemap.xml. Also fixes `FOREIGN KEY constraint failed` on save: an empty foreign key from the form was not turned into NULL."
+      },
+      "whats_new": {
+        "ru": "- **`page_type = raw`** — шаблон темы без layout, `Content-Type` из `page_config`\n- **robots.txt из админки** — запись `navigation` + шаблон темы, шаблон по умолчанию в ядре\n- **sitemap.xml** — тот же механизм с `application/xml`\n- **404 вместо 500**, если шаблон не найден",
+        "en": "- **`page_type = raw`** — theme template without layout, `Content-Type` from `page_config`\n- **robots.txt from the admin panel** — a `navigation` record plus a theme template, with a core default\n- **sitemap.xml** — same mechanism with `application/xml`\n- **404 instead of 500** when the template is missing"
+      },
+      "improvements": {
+        "ru": "- **`Database::normalizeEmptyValues()`** — `''` → `NULL` для nullable не-текстовых колонок, `''` → `0` для NOT NULL числовых\n- **Работает в `insert()`, `update()` и inline-редактировании ячейки**\n- **Пустой `page_id` больше не ломает сохранение** в `navigation`, `menu_items`, `docs`, `sections`, `gallery`",
+        "en": "- **`Database::normalizeEmptyValues()`** — `''` → `NULL` for nullable non-text columns, `''` → `0` for NOT NULL numeric ones\n- **Applied in `insert()`, `update()` and inline cell editing**\n- **An empty `page_id` no longer breaks saving** in `navigation`, `menu_items`, `docs`, `sections`, `gallery`"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-3-0.md",
+      "order": 179
+    },
     {
       "version": "v2.2.5",
       "release_date": "2026-11-10",
@@ -1980,5 +2005,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.0.2"
+  "version": "2.3.0"
 }
