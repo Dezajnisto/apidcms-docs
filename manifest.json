@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.5.0",
+  "updated": "2026-11-16-v2.5.1",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.5.1",
+      "release_date": "2026-11-16",
+      "slug": "v2-5-1",
+      "badge_type": "fix",
+      "tags": "core,fix,api,schema,agent",
+      "title": {
+        "ru": "v2.5.1 — DEFAULT в схеме: значение, а не текст SQL",
+        "en": "v2.5.1 — DEFAULT in the schema is a value, not SQL text"
+      },
+      "summary": {
+        "ru": "`PRAGMA` отдаёт дефолт как текст SQL, и в JSON Schema уезжали кавычки: `\"default\": \"'active'\"`. Агент, доверяя схеме, записал бы значение вместе с кавычками. Тот же дефолт ломал удаление колонки (`DEFAULT '''active'''`). Добавлена общая нормализация `Database::normalizeDefault()`.",
+        "en": "`PRAGMA` returns the default as SQL text, so quotes leaked into the JSON Schema: `\"default\": \"'active'\"`. An agent trusting the schema would have written the value with the quotes. The same default broke column deletion (`DEFAULT '''active'''`). Added a shared `Database::normalizeDefault()`."
+      },
+      "whats_new": {
+        "ru": "- **`Database::normalizeDefault()`** — строковый литерал → значение, выражения и числа не трогаются\n- **Схема правдива**: `\"default\": \"active\"` вместо `\"default\": \"'active'\"`\n- **`deleteColumn()` не портит дефолты** при пересборке таблицы",
+        "en": "- **`Database::normalizeDefault()`** — a string literal becomes a value; expressions and numbers are untouched\n- **The schema tells the truth**: `\"default\": \"active\"` instead of `\"default\": \"'active'\"`\n- **`deleteColumn()` no longer corrupts defaults** when rebuilding a table"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-5-1.md",
+      "order": 182
+    },
     {
       "version": "v2.5.0",
       "release_date": "2026-11-16",
@@ -2073,5 +2094,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.5.0"
+  "version": "2.5.1"
 }
