@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.5.1",
+  "updated": "2026-11-16-v2.5.2",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.5.2",
+      "release_date": "2026-11-16",
+      "slug": "v2-5-2",
+      "badge_type": "fix",
+      "tags": "core,fix,ai,assistant,mcp,schema",
+      "title": {
+        "ru": "v2.5.2 — ассистент не выдаёт служебное за данные, расход виден",
+        "en": "v2.5.2 — the assistant stops passing internals off as data, and spend is visible"
+      },
+      "summary": {
+        "ru": "Первый запуск на реальной модели показал: в список таблиц попадали `_litestream_*` (репликация SQLite), старый режим ассистента выгружал в промпт `users`, `user_tokens`, `system_settings` и вообще не отвечал из-за «Array to string conversion» в `DocsFetcher`. Всё исправлено; `POST /admin/ai/assistant` теперь возвращает `steps` и `usage` — видно, что вопрос по данным стоит ~6 000 токенов вместо ~54 000.",
+        "en": "The first real-model run showed `_litestream_*` (SQLite replication) in the table list, the legacy assistant mode dumping `users`, `user_tokens`, `system_settings` into the prompt, and that mode not answering at all because of \"Array to string conversion\" in `DocsFetcher`. All fixed; `POST /admin/ai/assistant` now returns `steps` and `usage` — a data question costs ~6 000 prompt tokens instead of ~54 000."
+      },
+      "whats_new": {
+        "ru": "- **Префикс `_` = служебная таблица**: репликация Litestream больше не выглядит данными сайта\n- **Дамп таблиц в старом режиме фильтруется** — без `users`, `user_tokens`, `system_settings`, `plugin_*`\n- **Старый режим снова отвечает**: локализованные заголовки манифеста разбираются через `localeValue()`\n- **`steps` и `usage` в ответе ассистента** — расход по всем шагам одного вопроса",
+        "en": "- **A leading `_` marks an internal table**: Litestream replication no longer looks like site data\n- **The legacy table dump is filtered** — no `users`, `user_tokens`, `system_settings`, `plugin_*`\n- **The legacy mode answers again**: localised manifest titles go through `localeValue()`\n- **`steps` and `usage` in the assistant response** — spend across all steps of one question"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-5-2.md",
+      "order": 183
+    },
     {
       "version": "v2.5.1",
       "release_date": "2026-11-16",
@@ -2094,5 +2115,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.5.1"
+  "version": "2.5.2"
 }

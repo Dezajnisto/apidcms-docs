@@ -172,4 +172,11 @@ answers from facts: it has **tools**, the same ones the
 
 The step limit and the switch are in the settings (below).
 
+**What it costs.** The assistant response carries `steps` and `usage`
+(`prompt_tokens`, `completion_tokens`, `total_tokens`, summed over all steps of
+one question). Measured on a site with 36 documentation articles: a data question
+takes 2 steps and ~6 000 prompt tokens, a documentation question 3 steps and
+~5 900. The legacy mode sent ~54 000 tokens with every message regardless of the
+question.
+
 Details: [AI knowledge base — how the assistant reads the docs](/docs/baza-znanij-ai-dokumentaciya)
