@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.7.0",
+  "updated": "2026-11-16-v2.7.1",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.7.1",
+      "release_date": "2026-11-16",
+      "slug": "v2-7-1",
+      "badge_type": "fix",
+      "tags": "core,nginx,external-pages,plugins",
+      "title": {
+        "ru": "v2.7.1 — nginx-пример не отдаёт 403 на страницы каталога плагинов",
+        "en": "v2.7.1 — the nginx example no longer answers 403 on plugin catalog pages"
+      },
+      "summary": {
+        "ru": "Правило `location ~ ^/(core|config|storage|themes|plugins|tmp)/ { deny all; }` из примера конфига закрывало не только исходники, но и живые страницы: тип `external` обслуживает элементы по адресу `/<url>/<слаг>`, то есть `/plugins/yookassa`, а правило совпадает по префиксу URL. Добавлено исключение выше запрета; пути с расширением (`/plugins/<имя>/plugin.json`) по-прежнему закрыты.",
+        "en": "The rule `location ~ ^/(core|config|storage|themes|plugins|tmp)/ { deny all; }` from the example config closed off not only the sources but also live pages: the `external` page type serves items at `/<url>/<slug>`, i.e. `/plugins/yookassa`, and the rule matches by URL prefix. An exception now sits above the deny; paths with an extension (`/plugins/<name>/plugin.json`) stay closed."
+      },
+      "whats_new": {
+        "ru": "- **Исключение для `/plugins/<слаг>`** в `docs/nginx.conf.example`\n- **Готовый блок конфига** и объяснение грабли в `docs/external-page-type.md`\n- Пути с расширением по-прежнему под запретом",
+        "en": "- **An exception for `/plugins/<slug>`** in `docs/nginx.conf.example`\n- **Ready-made config block** and the explanation in `docs/external-page-type.md`\n- Paths with an extension stay denied"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-7-1.md",
+      "order": 187
+    },
     {
       "version": "v2.7.0",
       "release_date": "2026-11-16",
@@ -2178,5 +2199,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.7.0"
+  "version": "2.7.1"
 }
