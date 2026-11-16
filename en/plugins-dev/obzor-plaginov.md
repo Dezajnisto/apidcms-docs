@@ -88,7 +88,57 @@ Add products to cart for catalog sites.
 
 ## Plugin Settings
 
-Each plugin can have configurable parameters (currency, limits, behavior). Settings are found in the "Settings" tab on the plugin page and are saved to `plugin.json`.
+A plugin declares its configurable parameters in `plugin.json` — currency, limits,
+behaviour. The actual values are stored in the site database, in the
+`plugin_settings` table, not in the manifest: the manifest is code, it lives in
+git and is deployed, while settings belong to one site and some of them are
+secrets. The table is created automatically on first use, no migration needed.
+
+```json
+"settings": [
+  {
+    "key": "currency",
+    "type": "text",
+    "value": "₽",
+    "label": "Currency",
+    "description": "Currency symbol used to format prices"
+  },
+  {
+    "key": "payment_secret",
+    "type": "text",
+    "secret": true,
+    "value": "",
+    "label": "Payment gateway secret key"
+  }
+]
+```
+
+`value` is the default here — the part git is allowed to see. The settings editor
+in the admin panel (the "Settings" tab on the plugin page) writes what you enter
+into `plugin_settings`. A plugin reads the value as usual:
+
+```php
+$pm = \Core\PluginManager::getInstance();
+$cfg = $pm->getPlugin('cart');
+foreach ($cfg['settings'] as $s) {
+    if ($s['key'] === 'currency') { $currency = $s['value']; }
+}
+```
+
+Where the value came from is none of the plugin's business.
+
+### The `secret` flag
+
+`"secret": true` marks keys and passwords. Such a value is never rendered into
+HTML (password field, an empty submit means "keep it", clearing is a separate
+checkbox), it is masked as `***` on the "Info" tab, and it is never written back
+to `plugin.json` — neither when settings are saved nor when the plugin is
+activated or deactivated.
+
+If the manifest still carries a value with this flag (an older plugin version),
+the core moves it into the database on the first request, blanks it in the file
+and writes a line to `error_log`. An update therefore neither loses the key nor
+leaves it in the code.
 
 ---
 

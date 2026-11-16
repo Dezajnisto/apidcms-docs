@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.6.0",
+  "updated": "2026-11-16-v2.7.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.7.0",
+      "release_date": "2026-11-16",
+      "slug": "v2-7-0",
+      "badge_type": "feature",
+      "tags": "core,plugins,settings,secrets,security",
+      "title": {
+        "ru": "v2.7.0 — настройки плагинов живут в базе, а не в plugin.json",
+        "en": "v2.7.0 — plugin settings live in the database, not in plugin.json"
+      },
+      "summary": {
+        "ru": "Манифест плагина — это код, а настройки принадлежат сайту, и часть из них секретна. Значения переехали в таблицу `plugin_settings` (создаётся лениво, миграция не нужна), манифест хранит только схему и значение по умолчанию. Код плагинов не меняется: ядро подставляет значения до того, как плагин к ним обратится. Новый флаг `secret` не выводит значение в HTML, маскирует его как `***` и никогда не пишет обратно в файл, а секрет, оставшийся в старом манифесте, переносится в базу при первом запросе.",
+        "en": "A plugin manifest is code, while settings belong to the site — and some of them are secrets. Values moved to the `plugin_settings` table (created lazily, no migration needed); the manifest keeps only the schema and the default value. Plugin code does not change: the core overlays the values before a plugin touches them. The new `secret` flag keeps the value out of HTML, masks it as `***` and never writes it back to the file; a secret left in an old manifest is moved into the database on the first request."
+      },
+      "whats_new": {
+        "ru": "- **Настройки плагинов в таблице `plugin_settings`**, а не в `plugin.json`\n- **Код плагинов не меняется** — значения подставляет ядро\n- **Флаг `secret`**: поле-пароль, `***` на вкладке «Инфо», никогда не пишется в файл\n- **Перенос старых секретов** из манифеста в базу при первом запросе\n- **Включение/выключение плагина больше не возвращает секрет в файл**\n- **Сохранение настроек в админке** пишет в базу и не теряет `tables`/`routes`",
+        "en": "- **Plugin settings live in `plugin_settings`**, not in `plugin.json`\n- **Plugin code does not change** — the core overlays the values\n- **`secret` flag**: password field, `***` on the Info tab, never written to the file\n- **Existing secrets are adopted** from the manifest into the database on the first request\n- **Activating/deactivating a plugin no longer puts the secret back**\n- **Saving settings in the admin** writes to the database and keeps `tables`/`routes`"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-7-0.md",
+      "order": 186
+    },
     {
       "version": "v2.6.0",
       "release_date": "2026-11-16",
@@ -2157,5 +2178,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.6.0"
+  "version": "2.7.0"
 }
