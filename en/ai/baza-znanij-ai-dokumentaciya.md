@@ -1,108 +1,112 @@
 ---
-title: AI Knowledge Base — apidcms Documentation
+title: AI knowledge base — how the assistant reads the docs
 slug: baza-znanij-ai-dokumentaciya
 section: ai
 order: 310
-description: "How the AI assistant uses apidcms documentation as a knowledge base: architecture, caching, DocsFetcher."
+description: "The AI assistant and MCP pull documentation on demand through tools (DocsFetcher/DocIndex) instead of loading the whole library into every prompt."
 ---
 
-# 📚 AI Knowledge Base — apidcms Documentation
+# 📚 AI knowledge base — how the assistant reads the docs
 
-Since version **v1.3.25** the AI assistant in the admin panel has access to the entire apidcms documentation. When you ask a question, AI sees not only the database structure but also the full text of all articles from the `apidcms-docs` repository.
+Starting with **2.5.0** the AI assistant in the admin panel **no longer loads the
+entire documentation into every request**. It gets a compact description of what
+it can ask for and decides itself which article or table to open.
 
----
-
-## 🧠 How It Works
-
-On each request to the AI assistant, the system:
-
-1. **Loads the manifest** (`manifest.json`) from the GitHub repo `Dezajnisto/apidcms-docs`
-2. **Fetches all articles** (36 Markdown files)
-3. **Strips YAML front-matter** — AI receives only the content text
-4. **Builds the context** (~131 KB of text, ~32K tokens)
-5. **Inserts it into the system prompt** before the database data
-
-Result: AI answers questions about apidcms with knowledge of the official documentation.
-
-### Example Questions AI Can Now Answer
-
-- *"How to create a feedback form with a GDPR consent checkbox?"*
-- *"What hooks are available when developing a plugin?"*
-- *"How does the external page type work?"*
-- *"Explain the template structure: what variables are available in single?"*
-- *"How to configure caching?"*
-- *"What system settings exist and what are they for?"*
+What changed is not only token spend but behaviour: the assistant used to give
+advice only, now it has tools — it reads the real schema, the real rows, and can
+change them.
 
 ---
 
-## 🗄️ DocsFetcher — Technical Details
+## 🧠 How it works
 
-### Class `Core\DocsFetcher`
+The assistant has a set of tools (`Core\AgentTools`), the same ones the
+[MCP server](../settings/mcp.md) exposes:
 
-Handles loading and caching of documentation.
+| Tool | Returns |
+|---|---|
+| `schema.get` | tables, columns, allowed values, relations, page map |
+| `records.list` / `records.get` | real rows of a table |
+| `records.create` / `update` / `delete` | data changes with field validation |
+| `navigation.get` | which table feeds which URL with which template |
+| `docs.list` / `docs.get` / `docs.search` | documentation: contents, one article, search |
+
+The answer loop:
+
+1. The user asks a question.
+2. The model decides what it is missing and calls a tool (`docs.search` →
+   `docs.get` for CMS questions, `schema.get` for site data).
+3. The result comes back as one `role: tool` message.
+4. The model answers. Usually 1–3 steps.
+
+The step limit is `ai_assistant_max_steps` (default 6), and each result is
+truncated to 16 KB so one big table cannot swallow the context.
+
+---
+
+## 📉 What it costs
+
+| | Before 2.5.0 | Now |
+|---|---|---|
+| Documentation in the prompt | the whole library: ~163 KB of text | contents: ~10 KB, articles on demand |
+| Site table dump | always | only if the model asks |
+| Order of magnitude | ~55–60k tokens **per message** | ~3k in the first request + 1–2 articles of ~1k |
+
+"How do I set up caching" now costs one contents search and one article instead
+of the whole library. A question about site data costs one `schema.get` and
+nothing at all if the model already called it.
+
+---
+
+## 🗄️ Technical details
+
+### `Core\DocIndex` — contents and one article
 
 ```php
-$docsFetcher = new \Core\DocsFetcher();
-$kb = $docsFetcher->getKnowledgeBase();
-// $kb — full documentation text for AI
+$index = new \Core\DocIndex();
+$toc = $index->toc();               // slug, title, section, description
+$doc = $index->get('http-api');     // one article, front-matter stripped
+$hits = $index->searchDeep('cache');// search: titles first, then bodies
 ```
 
-### Caching
-
-| Data | TTL | Location |
-|------|-----|----------|
-| manifest.json | 1 hour | `admin/storage/docs_cache/manifest.json` |
-| Articles (.md) | 6 hours | `admin/storage/docs_cache/<md5-hash>.md` |
-
-The cache directory is created automatically on the first request.
-
-### Data Source
-
-- **Repository:** `github.com/Dezajnisto/apidcms-docs` (branch `master`)
-- **Format:** Markdown with YAML front-matter (automatically stripped)
-- **Source:** GitHub Raw (`raw.githubusercontent.com`)
-
-### Fault Tolerance
-
-If GitHub is unavailable:
-- Stale cache is used — for up to 6 hours
-- If no cache exists, AI works **without documentation**, with DB context only
-- A load error does not break the AI assistant — it continues working
-
----
-
-## 🔄 Cache Invalidation
-
-After updating documentation on GitHub, you can forcibly clear the cache:
+### `Core\DocsFetcher` — fetching and caching
 
 ```php
 $fetcher = new \Core\DocsFetcher();
-$count = $fetcher->invalidateCache();
-// Removed $count cache files
+$manifest = $fetcher->getManifest();          // manifest
+$content  = $fetcher->getDocContent($url);    // one article
 ```
 
-On the next request, documentation will be loaded fresh.
+| Data | TTL | Location |
+|---|---|---|
+| manifest.json | 1 hour | `storage/cache/docs/manifest.json` |
+| Articles (.md) | 6 hours | `storage/cache/docs/<md5>.md` |
 
-In the future, invalidation will be available from the admin panel — a "Clear Documentation Cache" button in the AI settings section.
+The cache lives in the project's `storage/`, not inside the core: it used to be
+written to `core/admin/storage/docs_cache` and survived core updates as junk. It
+is cleared with "Clear cache" in the admin panel.
 
----
-
-## 📊 Context Size
-
-| Parameter | Value |
-|-----------|-------|
-| Articles | 36 |
-| Sections | 7 |
-| Text size | ~131 KB |
-| Tokens (approx.) | ~32,000 |
-| Model | DeepSeek (128K context) |
-
-32K tokens is ~25% of DeepSeek's context window. Plenty of room remains for conversation and DB data.
+The source is `raw.githubusercontent.com/Dezajnisto/apidcms-docs` (branch
+`master`, language from the `admin_language` setting). If GitHub is unreachable,
+the stale cache is used; without a cache the assistant works without
+documentation but still with the site data tools.
 
 ---
 
-## 🔮 Future Plans
+## ⚙️ Settings
 
-- **RAG instead of full load** — if the number of articles grows, we'll switch to retrieval-augmented generation: AI will select relevant articles for each specific question
-- **Admin panel invalidation** — a cache-clear button in the UI
-- **Local mirror** — `git pull` via cron for projects without GitHub access
+| Key | Default | Purpose |
+|---|---|---|
+| `ai_assistant_tools` | `1` | `0` — bring back the old mode: the whole library and a table dump in the system prompt |
+| `ai_assistant_max_steps` | `6` | how many tool rounds are allowed (1–10) |
+
+Both are edited in the admin panel: Settings → AI.
+
+---
+
+## 🔮 Next
+
+- a dedicated "reset documentation cache" button (today it is the generic "Clear cache");
+- a local documentation mirror for projects that cannot reach GitHub;
+- template tools (`templates.read/write`) so the assistant finishes a task instead
+  of stopping at the data.

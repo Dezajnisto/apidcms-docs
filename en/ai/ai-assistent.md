@@ -89,7 +89,9 @@ Managed in **Settings → AI (DeepSeek)** (the "AI" tab):
 | `ai_prompt_table` | Prompt for table structure |
 | `ai_prompt_content` | Prompt for content generation |
 | `ai_prompt_fill_form` | Prompt for form filling |
-| `ai_prompt_assistant` | Prompt for the general assistant |
+| `ai_prompt_assistant` | Extra instructions for the general assistant (appended to its system prompt) |
+| `ai_assistant_tools` | `1` — the assistant works through tools; `0` — old mode: the whole library and a table dump in the prompt |
+| `ai_assistant_max_steps` | How many tool rounds are allowed (1–10, default 6) |
 
 Prompts can be edited — customize AI behavior for your tasks.
 
@@ -114,6 +116,10 @@ The AI assistant **does not see** system and private tables. By default, the fol
 - `system_settings` — site settings
 - `users` — users
 - `user_tokens` — authorization tokens
+- `entity_relations` — internal many-to-many links (read through the `relations.list` tool)
+- `visit_stats` — visit statistics
+- `table_meta` / `field_meta` — metadata (served through `schema.get`)
+- `api_idempotency` — API retry cache
 - `sqlite_sequence` — SQLite system table
 
 ### Table Whitelist
@@ -142,19 +148,28 @@ Settings that limit the amount of templates and CSS sent to the AI assistant. Lo
 
 ---
 
-## 📚 Knowledge Base (since v1.3.25)
+## 📚 Knowledge base and tools (since 2.5.0)
 
-The AI assistant has access to the full apidcms documentation from the `apidcms-docs` repository.
+The assistant does not answer from memory or from a documentation dump — it
+answers from facts: it has **tools**, the same ones the
+[MCP server](../settings/mcp.md) exposes.
 
-**How it works:**
-- On each request, AI receives the text of all 36 documentation articles (~131 KB)
-- Documentation is cached locally: manifest 1 hour, articles 6 hours
-- YAML front-matter is automatically stripped before sending to AI
-- If GitHub is unavailable, AI works without documentation (fallback)
+| Tool | When it is used |
+|---|---|
+| `schema.get` | questions about the site: which tables, columns, pages exist |
+| `records.list` / `records.get` | questions about actual data ("what is in the catalog?") |
+| `records.create` / `update` / `delete` | "add a row", "change the price" — with field validation |
+| `navigation.get` | "which table is shown on this page?" |
+| `docs.search` / `docs.list` / `docs.get` | questions about CMS capabilities: it finds an article and reads it |
 
-**What this gives:**
-- AI can answer questions about setup, plugins, templates, forms
-- Knows all apidcms capabilities — not just what it sees in the DB
-- Example: *"How to create a form with a GDPR checkbox and AJAX submission?"* — AI explains from the documentation
+**What it changes:**
 
-Details: [AI Knowledge Base — apidcms Documentation](/docs/baza-znanij-ai-dokumentaciya)
+- the whole library (~163 KB) no longer goes into the prompt — only a compact
+  description of what can be asked, with articles pulled one at a time;
+- the assistant sees the real schema and real rows instead of a summary;
+- it can **do**, not only advise: add a row, fix a field, preview the change
+  (`dry_run`).
+
+The step limit and the switch are in the settings (below).
+
+Details: [AI knowledge base — how the assistant reads the docs](/docs/baza-znanij-ai-dokumentaciya)

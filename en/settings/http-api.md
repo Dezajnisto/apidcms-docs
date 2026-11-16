@@ -328,8 +328,10 @@ Planned and marked as `planned` in `capabilities`:
 - **scope tokens** (`read` / `content` / `full`) and a token screen: today there
   is one token that grants access to everything;
 - **templates** (`/api/v1/templates`) — without them an agent cannot finish the
-  "add a section" task;
-- **MCP** (`/mcp`) — the same API exposed as agent tools.
+  "add a section" task.
+
+MCP is live: `POST /mcp` exposes the same data and actions as agent tools —
+[MCP server](../settings/mcp.md).
 
 The API token lives in the `api_key` system setting and is still set by hand —
 there is no screen for it yet.

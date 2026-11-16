@@ -703,6 +703,24 @@
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/http-api.md"
     },
     {
+      "slug": "mcp",
+      "title": {
+        "ru": "MCP-сервер — управление сайтом из AI-клиента",
+        "en": "MCP server — run the site from an AI client"
+      },
+      "section": "settings",
+      "section_title": {
+        "ru": "Настройки и система",
+        "en": "Settings & System"
+      },
+      "order": 360,
+      "description": {
+        "ru": "Сервер Model Context Protocol на /mcp: инструменты (схема, записи, навигация, документация), ресурсы и подключение из Cursor/[CC].",
+        "en": "Model Context Protocol server on /mcp: tools (schema, records, navigation, docs), resources and connecting from Cursor/[CC]."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/mcp.md"
+    },
+    {
       "slug": "multilingual-sites",
       "title": {
         "ru": "Мультиязычные сайты",
@@ -772,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.4.0",
+  "updated": "2026-11-16-v2.5.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -800,6 +818,31 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.5.0",
+      "release_date": "2026-11-16",
+      "slug": "v2-5-0",
+      "badge_type": "feature",
+      "tags": "core,feature,mcp,agent,assistant,tools,docs,fix,installer",
+      "title": {
+        "ru": "v2.5.0 — MCP-сервер и ассистент, который смотрит, а не пересказывает",
+        "en": "v2.5.0 — An MCP server and an assistant that looks instead of paraphrasing"
+      },
+      "summary": {
+        "ru": "`POST /mcp` — сервер Model Context Protocol: 12 инструментов (схема, записи, навигация, журнал, документация) и ресурсы со статьями. Встроенный ассистент переведён на те же инструменты: вместо ~55k токенов справочника в каждом запросе — оглавление и одна-две статьи по запросу, и он теперь может действовать, а не только советовать. Исправлен прямой запуск `init_system_tables.php` и второй `cms.db`.",
+        "en": "`POST /mcp` — a Model Context Protocol server: 12 tools (schema, records, navigation, audit, docs) and resources with articles. The built-in assistant runs on the same tools: instead of ~55k tokens of documentation per request it gets a contents list and one or two articles, and it can now act rather than only advise. Also fixes running `init_system_tables.php` directly and a stray second `cms.db`."
+      },
+      "whats_new": {
+        "ru": "- **`POST /mcp`** — MCP по Streamable HTTP, JSON-RPC 2.0, stateless, тот же Bearer-токен\n- **12 инструментов** — `schema.get`, `records.*`, `navigation.get`, `relations.list`, `audit.list`, `docs.*`\n- **Ресурсы** — `apidcms://schema`, `apidcms://navigation`, `apidcms://docs/toc`, `apidcms://docs/{slug}`\n- **`Core\\AgentTools`** — один каталог действий для MCP и для встроенного ассистента\n- **Ассистент на function calling** — данные и документация подтягиваются по запросу модели\n- **`ai_assistant_tools` / `ai_assistant_max_steps`** — выключатель и предел шагов\n- **Кэш документации в `storage/cache/docs/`** и очистка кнопкой «Очистить кэш»",
+        "en": "- **`POST /mcp`** — MCP over Streamable HTTP, JSON-RPC 2.0, stateless, same Bearer token\n- **12 tools** — `schema.get`, `records.*`, `navigation.get`, `relations.list`, `audit.list`, `docs.*`\n- **Resources** — `apidcms://schema`, `apidcms://navigation`, `apidcms://docs/toc`, `apidcms://docs/{slug}`\n- **`Core\\AgentTools`** — one action catalogue for MCP and the built-in assistant\n- **Assistant on function calling** — data and documentation are pulled on demand\n- **`ai_assistant_tools` / `ai_assistant_max_steps`** — switch and step limit\n- **Documentation cache in `storage/cache/docs/`**, cleared with \"Clear cache\""
+      },
+      "improvements": {
+        "ru": "- **Ошибки инструментов — данные, а не текст**: `isError` + список полей, модель исправляется сама\n- **Запись через MCP в журнале** с `actor: mcp`\n- **Старый режим ассистента** остался за флагом `ai_assistant_tools=0`\n- **Исправлен `init_system_tables.php`**: запускался только через обёртку, прямой запуск падал\n- **Больше никакого второго `cms.db`**: корень проекта вычисляется правильно",
+        "en": "- **Tool errors are data, not prose**: `isError` plus a field list, so the model fixes itself\n- **MCP writes land in the audit log** with `actor: mcp`\n- **The old assistant mode** is still available via `ai_assistant_tools=0`\n- **`init_system_tables.php` fixed**: it only worked through the wrapper, a direct run failed\n- **No more stray second `cms.db`**: the project root is computed correctly"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-5-0.md",
+      "order": 181
+    },
     {
       "version": "v2.4.0",
       "release_date": "2026-11-16",
@@ -2030,5 +2073,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.4.0"
+  "version": "2.5.0"
 }
