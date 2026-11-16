@@ -82,6 +82,21 @@ The `external` page type loads data from an external JSON source (API, GitHub, N
 }
 ```
 
+**Important for pages whose URL looks like a directory name.** The `external`
+type serves items at `/<url>/<slug>` — for such a catalog that is
+`/plugins/yookassa`. If nginx carries a deny rule like
+`location ~ ^/(core|config|storage|themes|plugins|tmp)/ { deny all; }`, it
+matches by URL prefix and takes those pages together with the sources: the list
+opens while an item answers 403. Put an exception **above** the deny rule (regex
+locations are checked in order); there is no dot in the character class, so
+`/plugins/<name>/plugin.json` stays closed:
+
+```nginx
+location ~ ^/plugins/[A-Za-z0-9_-]+/?$ {
+    rewrite ^ /index.php?$query_string last;
+}
+```
+
 **Changelog from GitHub Releases (cacheable):**
 ```json
 {
