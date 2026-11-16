@@ -697,8 +697,8 @@
       },
       "order": 350,
       "description": {
-        "ru": "REST API /api/v1/ для таблиц и статей: токен-авторизация, форматы ответов, кэш внешнего контента.",
-        "en": "REST API /api/v1/ for tables and articles: token auth, response formats, external content cache."
+        "ru": "REST API /api/v1/: схема проекта, навигация, проверка записи, dry_run, журнал и статьи.",
+        "en": "REST API /api/v1/: project schema, navigation, write validation, dry_run, audit log and articles."
       },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/settings/http-api.md"
     },
@@ -772,7 +772,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-11-v2.3.0",
+  "updated": "2026-11-16-v2.4.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -800,6 +800,31 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.4.0",
+      "release_date": "2026-11-16",
+      "slug": "v2-4-0",
+      "badge_type": "feature",
+      "tags": "core,api,feature,schema,navigation,metadata,validation,dry-run,audit,idempotency,admin,agent",
+      "title": {
+        "ru": "v2.4.0 — API, которому можно доверить запись",
+        "en": "v2.4.0 — An API you can trust with writes"
+      },
+      "summary": {
+        "ru": "API перестал врать молча: анонимный индекс с capabilities, `/schema` — весь проект одним ответом, `/navigation` — разобранный граф страниц, семантика таблиц в админке. Запись проверяется до базы: тип, NOT NULL, enum, внешние ключи и формат, отказ — `422` со списком полей. Плюс `dry_run`, `Idempotency-Key` против повторов и журнал `/api/v1/audit`.",
+        "en": "The API stopped lying silently: an anonymous capabilities index, `/schema` — the whole project in one payload, `/navigation` — the resolved page graph, table semantics in the admin panel. Writes are validated before the database: type, NOT NULL, enums, foreign keys and format, a refusal is `422` with a field list. Plus `dry_run`, `Idempotency-Key` against retries and an `/api/v1/audit` log."
+      },
+      "whats_new": {
+        "ru": "- **`GET /api/v1`** — индекс API: `status: preview` и список путей со статусом `ready` / `planned`\n- **`X-apidcms-api: v1-preview`** — статус виден и человеку, и скрипту\n- **`GET /api/v1/schema`** — таблицы, колонки с enum из `CHECK`, метаданные, внешние ключи, связи и граф страниц одним ответом\n- **`GET /api/v1/navigation`** — `page_config` разобранным, с `type` и `page_config_error`\n- **`GET /api/v1/relations`**, **`GET /api/v1/tables/{t}/json-schema`**, **`GET /api/v1/audit`**\n- **Семантика таблиц** — `table_meta` / `field_meta` и кнопка «Семантика» в структуре таблицы\n- **Проверка записи** — `422 validation_failed` со списком `{column, rule, got, expected}`\n- **`?dry_run=1`** — что изменится и какие страницы это показывают\n- **`Idempotency-Key`** — повтор возвращает первый ответ, второй записи нет",
+        "en": "- **`GET /api/v1`** — API index: `status: preview` and a list of paths marked `ready` / `planned`\n- **`X-apidcms-api: v1-preview`** — the status is visible to a human and to a script\n- **`GET /api/v1/schema`** — tables, columns with enums from `CHECK`, metadata, foreign keys, relations and the page graph in one payload\n- **`GET /api/v1/navigation`** — `page_config` resolved, with `type` and `page_config_error`\n- **`GET /api/v1/relations`**, **`GET /api/v1/tables/{t}/json-schema`**, **`GET /api/v1/audit`**\n- **Table semantics** — `table_meta` / `field_meta` and a \"Semantics\" button in the table structure page\n- **Write validation** — `422 validation_failed` with a `{column, rule, got, expected}` list\n- **`?dry_run=1`** — what would change and which pages show it\n- **`Idempotency-Key`** — a retry returns the first response, no second row"
+      },
+      "improvements": {
+        "ru": "- **Честные ошибки** — запланированные пути отвечают `501 not_implemented`, а не `404`\n- **Discovery анонимно** — `/api/v1` и `/api/v1/system/*` без токена\n- **Незнакомые поля — ошибка**, а не тихое отбрасывание: опечатка в имени поля больше не теряет данные\n- **`DELETE` отвечает `200`** с телом, чтобы повторы были идемпотентны\n- **Журнал `system_audit`** — диф по каждой записи, хранение 90 дней\n- **Внутренние таблицы скрыты** — `entity_relations`, `visit_stats`, `table_meta`, `field_meta`, `api_idempotency`\n- **Автомиграция** — все новые таблицы создаются при первом обращении",
+        "en": "- **Honest errors** — planned paths answer `501 not_implemented`, not `404`\n- **Anonymous discovery** — `/api/v1` and `/api/v1/system/*` need no token\n- **Unknown fields are an error**, not a silent drop: a typo in a field name no longer loses data\n- **`DELETE` answers `200`** with a body, so retries stay idempotent\n- **`system_audit` log** — a diff per write, kept for 90 days\n- **Internal tables hidden** — `entity_relations`, `visit_stats`, `table_meta`, `field_meta`, `api_idempotency`\n- **Self-migration** — every new table is created on first use"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-4-0.md",
+      "order": 180
+    },
     {
       "version": "v2.3.0",
       "release_date": "2026-11-11",
@@ -2005,5 +2030,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.3.0"
+  "version": "2.4.0"
 }
