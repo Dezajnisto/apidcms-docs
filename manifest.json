@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.5.2",
+  "updated": "2026-11-16-v2.5.3",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.5.3",
+      "release_date": "2026-11-16",
+      "slug": "v2-5-3",
+      "badge_type": "fix",
+      "tags": "core,fix,plugins,router,api",
+      "title": {
+        "ru": "v2.5.3 — плагины грузятся по зависимостям, их /api/* маршруты снова живые",
+        "en": "v2.5.3 — plugins load by dependency and their /api/* routes work again"
+      },
+      "summary": {
+        "ru": "`PluginManager` перебирал плагины по алфавиту и проверял зависимости по уже загруженным — плагин, чья зависимость сортируется позже, не грузился никогда. А `router.php` отдавал ядру все пути, начинающиеся с `api`, поэтому плагинные `/api/*` маршруты получали «Путь должен начинаться с /api/v1/»: были мертвы REST лицензий на enfesto и избранное с лентой на bajto. Оба исправлены; заодно `plugin.json` больше не получает абсолютный путь к каталогу.",
+        "en": "`PluginManager` iterated plugins alphabetically and checked dependencies against already-loaded ones — a plugin whose dependency sorts later never loaded. And `router.php` handed every `api*` path to the core, so plugin `/api/*` routes got \"the path must start with /api/v1/\": the license REST on enfesto and favorites/feed on bajto were dead. Both fixed; `plugin.json` no longer receives an absolute directory path."
+      },
+      "whats_new": {
+        "ru": "- **Загрузка по зависимостям**: обход в глубину вместо алфавита, циклы обнаруживаются\n- **Конкретная причина в лог**: «выключен», «нет в plugins/», «циклическая зависимость»\n- **Ядро отвечает только за `/api/v1`** — плагинные `/api/*` маршруты снова работают\n- **`activate()`/`deactivate()` следят за зависимостями** и объясняют отказ в админке\n- **`plugin.json` без абсолютного пути** к каталогу плагина",
+        "en": "- **Load by dependency**: depth-first order instead of alphabetical, cycles detected\n- **The log names the real cause**: \"disabled\", \"missing from plugins/\", \"circular dependency\"\n- **The core owns only `/api/v1`** — plugin `/api/*` routes work again\n- **`activate()`/`deactivate()` respect dependencies** and explain refusals in the admin panel\n- **`plugin.json` without an absolute directory path**"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-5-3.md",
+      "order": 184
+    },
     {
       "version": "v2.5.2",
       "release_date": "2026-11-16",
@@ -2115,5 +2136,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.5.2"
+  "version": "2.5.3"
 }
