@@ -63,6 +63,8 @@ curl -X POST https://example.com/mcp \
 | `records.delete` | delete a row |
 | `navigation.get` | page map: which table feeds which URL with which template |
 | `relations.list` | many-to-many relations, optionally for one table |
+| `relations.add` | link a record to categories/tags: `source_table`, `source_id`, `relation_name`, `target_ids[]` |
+| `relations.remove` | unlink (empty `target_ids` unlinks all) |
 | `audit.list` | the write log: method, table, row, diff |
 | `docs.list` | documentation table of contents (cheap) |
 | `docs.get` | one documentation article by slug |
@@ -126,6 +128,6 @@ tool result return `affected_urls` — the pages assembled from that table.
   `visit_stats`, `table_meta`, `field_meta`, `api_idempotency`) are not reachable
   through tools;
 - every write through MCP lands in the audit log marked `actor: mcp`;
-- there is one token and it grants access to all project data — there are no
-  scopes (`read` / `content` / `full`) yet, so keep a dedicated token for agents
-  and rotate it after experiments.
+- tokens are scoped: a `read` token cannot call any mutating tool — such a call
+  returns `isError: true` with the code `insufficient_scope`. Give a read-only
+  agent a `read` token in **Settings → API**.

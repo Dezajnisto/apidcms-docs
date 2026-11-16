@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.5.3",
+  "updated": "2026-11-16-v2.6.0",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.6.0",
+      "release_date": "2026-11-16",
+      "slug": "v2-6-0",
+      "badge_type": "feature",
+      "tags": "core,api,tokens,scopes,relations,docs",
+      "title": {
+        "ru": "v2.6.0 — агент может всем управлять: токены со скоупами, связи через API, документация без сети",
+        "en": "v2.6.0 — an agent can run everything: scoped tokens, relation writes, docs without the network"
+      },
+      "summary": {
+        "ru": "Токен API стал ключом с правами: `read` / `content` / `full`, экран «Настройки → API» — создание, показ один раз, отзыв, дата последнего использования. Связи many-to-many теперь пишутся через `POST`/`DELETE /api/v1/relations` с проверкой целей, `dry_run` и журналом. Документация отдаётся из локального кэша (`GET /api/v1/docs`), сеть нужна только для `POST /api/v1/docs/refresh` — на сервере с закрытым GitHub это убрало 10 секунд ожидания из каждого обращения.",
+        "en": "An API token is now a key with rights: `read` / `content` / `full`, with a Settings → API screen for creating, showing once, revoking and last-used dates. Many-to-many links are written through `POST`/`DELETE /api/v1/relations` with target validation, `dry_run` and the audit log. Documentation is served from the local cache (`GET /api/v1/docs`); the network is only needed for `POST /api/v1/docs/refresh` — on a server without GitHub that removed a 10-second wait from every call."
+      },
+      "whats_new": {
+        "ru": "- **Токены со скоупами** `read` / `content` / `full` и экран «Настройки → API»\n- **Отзыв токена** и дата последнего использования; в базе только `sha256`\n- **`POST`/`DELETE /api/v1/relations`** — запись связей many-to-many с валидацией и `dry_run`\n- **`GET /api/v1/relations/{table}/{id}`** — связи одной записи\n- **MCP: `relations.add` / `relations.remove`**; `read`-токен не может писать\n- **`GET /api/v1/docs`** и `/docs/{slug}?lang=ru|en` из локального кэша\n- **`POST /api/v1/docs/refresh`** — единственное место, где нужен GitHub\n- **`system_audit.token_id`** — видно, какой токен сделал запись",
+        "en": "- **Scoped tokens** `read` / `content` / `full` and a Settings → API screen\n- **Token revocation** and last-used dates; only `sha256` is stored\n- **`POST`/`DELETE /api/v1/relations`** — many-to-many writes with validation and `dry_run`\n- **`GET /api/v1/relations/{table}/{id}`** — links of one record\n- **MCP: `relations.add` / `relations.remove`**; a `read` token cannot write\n- **`GET /api/v1/docs`** and `/docs/{slug}?lang=ru|en` from the local cache\n- **`POST /api/v1/docs/refresh`** — the only place GitHub is needed\n- **`system_audit.token_id`** — the log shows which token made a write"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-6-0.md",
+      "order": 185
+    },
     {
       "version": "v2.5.3",
       "release_date": "2026-11-16",
@@ -2136,5 +2157,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.5.3"
+  "version": "2.6.0"
 }

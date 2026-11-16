@@ -3,7 +3,7 @@ title: HTTP API
 slug: http-api
 section: settings
 order: 350
-description: "REST API /api/v1/: project schema, navigation, write validation, dry_run, audit log and articles"
+description: "REST API /api/v1/: project schema, navigation, many-to-many relations, write validation, dry_run, audit log, articles and documentation; scoped tokens"
 ---
 
 # 🔌 HTTP API
@@ -31,10 +31,27 @@ Requests without a token are rejected. The token goes in a header:
 Authorization: Bearer <token>
 ```
 
-The token is an integration key, not a user permission: it grants access to all
-project data. Treat it like the admin password — not in git, not in frontend JS.
-It is stored in the `api_key` system setting; there is no dedicated token screen
-yet (it comes together with scopes in a later release).
+A token is an access key with a name and a scope. It is created and revoked in
+the admin: **Settings → API**. The same screen shows when a token was last used.
+
+The scope is chosen at creation:
+
+| Scope | What it allows |
+|---|---|
+| `read` | `GET` only: schema, navigation, relations, tables, documentation |
+| `content` | `read` plus writes to user tables and articles |
+| `full` | everything, templates and service endpoints included |
+
+The `/api/v1/audit` log is the exception to "GET only": it holds client IPs and
+write diffs, so only `content` and `full` tokens can read it.
+
+Treat a token like the admin password — not in git, not in frontend JS. The token
+itself is shown once at creation; only its hash is stored. The scope actually
+applied to a request is returned in the `X-apidcms-scope` header.
+
+The legacy key in the `api_key` system setting keeps working (scope `full`), but
+it cannot be revoked from the admin: create a named token and clear `api_key`
+once the integration has moved.
 
 Only two things are public: `GET /api/v1` and `GET /api/v1/system/info` — enough
 for an agent to learn what this site is.
@@ -69,6 +86,9 @@ the capabilities of the API with the status of each.
 | `GET` | `/api/v1/navigation` | page graph: `slug`, `url`, `type`, `template`, `source_table`, `filters` |
 | `GET` | `/api/v1/relations` | many-to-many relations from `entity_relations` |
 | `GET` | `/api/v1/relations/{table}` | the same for one table |
+| `GET` | `/api/v1/relations/{table}/{id}` | links of one record: `target_ids` per `relation_name` |
+| `POST` | `/api/v1/relations` | link a record: `{source_table, source_id, relation_name, target_ids[]}` |
+| `DELETE` | `/api/v1/relations` | unlink (empty `target_ids` unlinks all) |
 | `GET` | `/api/v1/audit` | what was written through the API: `limit`, `table`, `id` |
 
 A column in `/schema` looks like this:
@@ -150,6 +170,25 @@ without guessing:
 
 If the JSON in `page_config` is broken, the page is still listed and
 `page_config_error` explains why.
+
+---
+
+## Many-to-many relations
+
+`entity_relations` is machinery: it is not visible through `/tables`, and links
+are read through `/relations`. Writing them goes the same way, in one request:
+
+```bash
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json"   -d '{"source_table":"catalog","source_id":42,"relation_name":"categories","target_ids":[3,5]}'   https://example.com/api/v1/relations
+```
+
+`relation_name` is the name of a relation, not of a table: the "relation → table"
+mapping comes from `navigation.page_config.relations`, and — when the project
+never declared it — from the relation being named after its table. Everything
+that can be checked is checked before writing: the table, the record, the
+relation and every target. An existing link is not duplicated, it is reported in
+`changes.already`. `?dry_run=1` shows `before` and `after`, `Idempotency-Key`
+protects against retries and the audit log records the diff.
 
 ---
 
@@ -297,6 +336,28 @@ days are pruned. Filters: `limit` (up to 500), `table`, and a row `id`.
 
 ---
 
+## Documentation over the API
+
+The CMS documentation is served from the local cache — no GitHub request per call:
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/api/v1/docs` | table of contents: `slug`, title, section, description |
+| `GET` | `/api/v1/docs?q=words` | search titles, descriptions and article bodies |
+| `GET` | `/api/v1/docs/{slug}?lang=ru\|en` | one article as Markdown |
+| `POST` | `/api/v1/docs/refresh` | refresh the cache from GitHub (`?force=1` re-downloads all) |
+
+```bash
+curl -H "Authorization: Bearer $TOKEN"   "https://example.com/api/v1/docs/http-api?lang=en"
+```
+
+The cache lives in `storage/cache/docs/`; reading never touches the network, and
+refreshing is a separate call: without the network the previous copy stays, and
+`status.stale` tells how old it is. The same articles are MCP resources:
+`apidcms://docs/{slug}`.
+
+---
+
 ## Response format
 
 A successful response is a JSON object or an array of objects. Errors always look
@@ -311,7 +372,9 @@ the same:
 }
 ```
 
-Codes: `unauthorized` (missing or invalid token), `not_found` (table, record or
+Codes: `unauthorized` (missing or invalid token), `api_disabled` (the API is not
+configured: no token and no `api_key`), `insufficient_scope` (the token is too
+narrow — a `read` token attempting a write), `not_found` (table, record or
 article missing), `bad_request` (bad path or body), `validation_failed` (a field
 failed a rule — see the `fields` list), `conflict` / `foreign_key_violation` /
 `notnull_violation` / `database_error` (the database refused the row), `forbidden`
@@ -325,16 +388,11 @@ failure).
 
 Planned and marked as `planned` in `capabilities`:
 
-- **scope tokens** (`read` / `content` / `full`) and a token screen: today there
-  is one token that grants access to everything;
 - **templates** (`/api/v1/templates`) — without them an agent cannot finish the
   "add a section" task.
 
 MCP is live: `POST /mcp` exposes the same data and actions as agent tools —
 [MCP server](../settings/mcp.md).
-
-The API token lives in the `api_key` system setting and is still set by hand —
-there is no screen for it yet.
 
 ---
 
