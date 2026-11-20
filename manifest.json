@@ -819,6 +819,27 @@
   },
   "changelog": [
     {
+      "version": "v2.7.2",
+      "release_date": "2026-11-20",
+      "slug": "v2-7-2",
+      "badge_type": "fix",
+      "tags": "core,installer,setup,security",
+      "title": {
+        "ru": "v2.7.2 — установщик снова запускается",
+        "en": "v2.7.2 — the installer runs again"
+      },
+      "summary": {
+        "ru": "С версии 2.2.2 в `install.php` остался висячий блок `} else { … }` без открывающего `if`: PHP падал с `Parse error` ещё до начала установки, поэтому ни командная строка, ни веб-форма не работали и свежая установка CMS была невозможна. Заодно установщик считал корнем сайта веб-корень и создавал второй набор каталогов внутри `www/` — включая `www/config/admin.php` с паролем `admin`, который ядро не читает: сайт работал на дефолтном пароле. Теперь установщик различает корень сайта и веб-корень, а шапка и подвал берут название сайта из настроек.",
+        "en": "Since 2.2.2 `install.php` carried a dangling `} else { … }` block with no opening `if`: PHP died with `Parse error` before installation started, so neither the CLI nor the web form worked and a fresh CMS install was impossible. The installer also treated the web root as the site root and created a second set of directories inside `www/` — including `www/config/admin.php` with the password `admin`, which the core never reads, so the site ran on the default password. The installer now distinguishes the site root from the web root, and header/footer take the site name from settings."
+      },
+      "whats_new": {
+        "ru": "- **Установщик запускается**: убрана синтаксическая ошибка, живут и CLI, и веб-форма\n- **Конфиги пишутся в корень сайта**, а не в веб-корень: пароль из формы теперь работает\n- **Название сайта в шапке и подвале** из настроек, а не «Мой сайт»\n- `INSTALLER_VERSION` → `1.2.1`\n- В записи — как проверить пароль, если сайт ставился версиями 2.2.2–2.7.1",
+        "en": "- **The installer runs**: syntax error removed, both CLI and web form work\n- **Configs go to the site root**, not the web root: the password from the form now works\n- **Site name in header and footer** comes from settings, not “My Site”\n- `INSTALLER_VERSION` → `1.2.1`\n- The entry explains how to check the password if the site was installed with 2.2.2–2.7.1"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-7-2.md",
+      "order": 188
+    },
+    {
       "version": "v2.7.1",
       "release_date": "2026-11-16",
       "slug": "v2-7-1",
@@ -2199,5 +2220,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.7.1"
+  "version": "2.7.2"
 }
