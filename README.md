@@ -39,7 +39,7 @@ description: Brief description
 
 ## Usage
 
-Documentation is used on [apidcms.dezajno.ru](https://apidcms.dezajno.ru/docs) and in the admin panel as contextual help.
+Documentation is used on [apidcms.ru](https://apidcms.ru/docs) and in the admin panel as contextual help.
 
 ---
 
@@ -80,4 +80,4 @@ description: Краткое описание
 
 ### Использование
 
-Документация используется на [apidcms.dezajno.ru](https://apidcms.dezajno.ru/docs) и в панели администрирования как контекстная справка.
+Документация используется на [apidcms.ru](https://apidcms.ru/docs) и в панели администрирования как контекстная справка.

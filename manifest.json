@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-16-v2.7.1",
+  "updated": "2026-11-23-v2.7.3",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.7.3",
+      "release_date": "2026-11-23",
+      "slug": "v2-7-3",
+      "badge_type": "fix",
+      "tags": "core,docs,domain",
+      "title": {
+        "ru": "v2.7.3 — витрина переехала на собственный домен apidcms.ru",
+        "en": "v2.7.3 — the showcase moved to its own domain, apidcms.ru"
+      },
+      "summary": {
+        "ru": "У документации и каталога плагинов теперь собственный домен **apidcms.ru** вместо поддомена чужой зоны. Старый адрес `apidcms.dezajno.ru` отвечает постоянным редиректом 301, поэтому закладки, ссылки в статьях и в почте продолжают работать. В ядре изменилась ровно одна ссылка — кнопка «Все документы» в панели контекстной справки админки; больше ничего в поведении CMS не меняется, обновление безопасно для всех сайтов.",
+        "en": "The documentation and the plugin catalog now have a domain of their own, **apidcms.ru**, instead of a subdomain of another zone. The old address `apidcms.dezajno.ru` answers with a permanent 301 redirect, so bookmarks, article links and emails keep working. Exactly one link changed in the core — the \"All documents\" button of the admin context help panel; nothing else in the CMS behaves differently, and the update is safe for every site."
+      },
+      "whats_new": {
+        "ru": "- **Новый адрес документации**: https://apidcms.ru/docs (и `/en/docs` для английской)\n- **Старый адрес не сломан**: `apidcms.dezajno.ru` → 301 на новый домен\n- **В админке** кнопка «Все документы» ведёт на apidcms.ru\n- **Каталог плагинов**: https://apidcms.ru/plugins\n- Перенастраивать при обновлении нечего — меняется только ссылка в шаблоне справки",
+        "en": "- **New documentation address**: https://apidcms.ru/docs (`/en/docs` for English)\n- **The old address still works**: `apidcms.dezajno.ru` → 301 to the new domain\n- **In the admin panel** the \"All documents\" button points to apidcms.ru\n- **Plugin catalog**: https://apidcms.ru/plugins\n- Nothing to reconfigure on update — only a link in the help template changes"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-7-3.md",
+      "order": 189
+    },
     {
       "version": "v2.7.2",
       "release_date": "2026-11-20",
@@ -2220,5 +2241,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.7.2"
+  "version": "2.7.3"
 }

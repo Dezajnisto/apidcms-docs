@@ -165,4 +165,4 @@ When accessing `/page/{id}`, apidcms automatically: (1) finds the page in items 
 
 **Important:** the content/markdown response comes as JSON `{"markdown": "..."}`, so in the template first apply |json_decode, then access .markdown.
 
-**Step-by-step guide:** [how we integrated Buildin.ai](https://apidcms.dezajno.ru/docs/external-page-type)
+**Step-by-step guide:** [how we integrated Buildin.ai](https://apidcms.ru/docs/external-page-type)

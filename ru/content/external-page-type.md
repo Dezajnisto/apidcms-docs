@@ -166,4 +166,4 @@ Markdown-контентом из внешнего источника.
 
 **Важно:** ответ content/markdown приходит как JSON `{"markdown": "..."}`, поэтому в шаблоне сначала применяем |json_decode, затем берем .markdown.
 
-**Пошаговое руководство:** [как мы интегрировали Buildin.ai](https://apidcms.dezajno.ru/docs/external-page-type#пример-buildinai-реальный-кейс)
+**Пошаговое руководство:** [как мы интегрировали Buildin.ai](https://apidcms.ru/docs/external-page-type#пример-buildinai-реальный-кейс)
