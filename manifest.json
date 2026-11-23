@@ -790,7 +790,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-23-v2.7.3",
+  "updated": "2026-11-23-v2.7.4",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -818,6 +818,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.7.4",
+      "release_date": "2026-11-23",
+      "slug": "v2-7-4",
+      "badge_type": "fix",
+      "tags": "core,templates,landing,security",
+      "title": {
+        "ru": "v2.7.4 — из ядра убрана чужая форма заявки",
+        "en": "v2.7.4 — someone else's lead form is gone from the core"
+      },
+      "summary": {
+        "ru": "В шаблоне `views/front/glavnaya.html.twig` (готовый лендинг в поставке ядра) в блоке «Final Call to Action» стоял `iframe` с формой сбора заявок стороннего сервиса — остаток от сайта, для которого шаблон когда-то писали. На любом другом сайте этот блок показывал пустое место, а адрес и идентификатор формы попадали в публичный репозиторий. `iframe` удалён, вместо него — комментарий, как поставить свою форму из `/admin/forms`. Поведение сайтов не меняется: темы с собственным `glavnaya.html.twig` ядерный файл не используют.",
+        "en": "The `views/front/glavnaya.html.twig` template (the ready-made landing page that ships with the core) had an `iframe` in its \"Final Call to Action\" block pointing at a third-party lead-capture form — a leftover from the site the template was originally written for. On any other site the block showed an empty box, and the form address and identifier ended up in a public repository. The `iframe` is gone, replaced by a comment on how to add your own form from `/admin/forms`. No site changes behaviour: themes with their own `glavnaya.html.twig` never load the core file."
+      },
+      "whats_new": {
+        "ru": "- **Шаблон `glavnaya.html.twig`**: блок CTA больше не содержит чужой `iframe` с формой\n- **Как поставить свою форму**: собрать в админке (`/admin/forms`) и вставить в шаблон своей темы\n- **Публичное ядро чище**: ни адресов сторонних сервисов, ни идентификаторов форм\n- Обновление безопасно: сайты со своей темой ядерный шаблон не используют",
+        "en": "- **`glavnaya.html.twig` template**: the CTA block no longer contains a third-party form `iframe`\n- **Adding your own form**: build it in the admin panel (`/admin/forms`) and place it in your theme template\n- **Cleaner public core**: no third-party service addresses and no form identifiers\n- The update is safe: sites with their own theme never load the core template"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-7-4.md",
+      "order": 190
+    },
     {
       "version": "v2.7.3",
       "release_date": "2026-11-23",
@@ -2241,5 +2262,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.7.3"
+  "version": "2.7.4"
 }
