@@ -819,6 +819,23 @@
   },
   "changelog": [
     {
+      "version": "plugins-v1.2.0",
+      "release_date": "2026-11-24",
+      "slug": "plugins-account-1-2-0",
+      "badge_type": "feature",
+      "tags": "plugin,account,auth,email,fix,security",
+      "title": {
+        "ru": "Account v1.2.0 — подтверждение email и фикс сохранения профиля",
+        "en": "Account v1.2.0 — Email Confirmation and Profile Save Fix"
+      },
+      "summary": {
+        "ru": "Регистрация с подтверждением почты и возврат на исходную страницу после входа. Исправлен баг, из-за которого не сохранялся профиль и не менялся пароль.",
+        "en": "Registration with email confirmation and post-login redirect. Fixed a bug that prevented profile saving and password changes."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/plugins-account-1-2-0.md",
+      "order": 168
+    },
+    {
       "version": "v2.7.4",
       "release_date": "2026-11-23",
       "slug": "v2-7-4",
