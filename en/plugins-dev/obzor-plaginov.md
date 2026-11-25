@@ -155,6 +155,11 @@ $pm->addAction('admin.twig.init', function ($controller, $twig) use ($pluginDir)
 The controller extends `Admin\BaseController` and renders with the namespace:
 `$this->render('@webchat/chats.html.twig', [...])`.
 
+> ⚠️ **Always end your own response in `front.router.before` with `exit`.** If
+> you return control to `FrontController`, it draws its own 404 and overwrites
+> the status — a `304 Not Modified` or `204` becomes a `404` with an empty body.
+> That is how "the widget disappears every other reload" was caught.
+
 **Menu item** — an array with `title`, `url`, `section` (matches the value
 returned by `admin.current_section`), `badge` (number for the red counter) and
 `order` (sorting, 50 by default):

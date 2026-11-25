@@ -155,6 +155,11 @@ $pm->addAction('admin.twig.init', function ($controller, $twig) use ($pluginDir)
 Контроллер наследуется от `Admin\BaseController`, шаблоны вызываются с
 namespace: `$this->render('@webchat/chats.html.twig', [...])`.
 
+> ⚠️ **Свой ответ из `front.router.before` всегда завершайте `exit`.** Если
+> вернуть управление в `FrontController`, он нарисует свою 404 и перетрёт
+> статус — ответ `304 Not Modified` или `204` превратится в `404` с пустым
+> телом. На этом уже ловили «виджет пропадает через раз».
+
 **Пункт меню** — массив с ключами `title`, `url`, `section` (совпадает со
 значением, которое вернул фильтр `admin.current_section`), `badge` (число для
 красного счётчика) и `order` (сортировка, по умолчанию 50):
