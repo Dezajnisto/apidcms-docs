@@ -178,6 +178,19 @@ Suspicious posts are queued for review; stop words and the bot trap are rejected
 
 ---
 
+> **If a plugin renders its own pages**, it bypasses
+> `FrontController::render()` — and therefore the `front.output` filter does not
+> run by itself. Everything subscribed to that filter (plugin styles, widgets,
+> counters) will be missing on such a page. Run the finished HTML through the
+> filter yourself:
+>
+> ```php
+> $html = \Core\PluginManager::getInstance()->applyFilters('front.output', $html, $fc);
+> echo $html;
+> ```
+>
+> This is a real trap: the forum was served without CSS until this was added.
+
 ## 🧩 Extension points (hooks)
 
 A plugin subscribes to hooks through `PluginManager`. Actions (`addAction`)
