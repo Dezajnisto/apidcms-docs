@@ -155,7 +155,7 @@ separate features.
 | `GET /forum/<channel>/<topic>` | posts and reply form |
 | `GET/POST /forum/<channel>/new` | new topic |
 | `POST /forum/<channel>/<topic>/reply` | reply |
-| `POST /community/reply` | comment on a page |
+| `POST /community/reply` | comment on a page or record |
 | `POST /community/upload` | image upload (JSON) |
 | `/admin/community` | moderation queue |
 
@@ -165,8 +165,25 @@ separate features.
 **Styling:** `assets/community.css` sets no background and inherits text colour
 from the theme; the accent comes from `--accent-purple` when the theme declares it.
 
-**If a theme template does not print content as `page.content`**, the comment
-block will not appear by itself — insert it manually:
+**What a topic can be attached to:**
+
+| `embed_code` | Meaning |
+|---|---|
+| `page:12` | a site page |
+| `item:posts:7` | a blog post |
+| `item:catalog:2` | a record of any section — catalog, products |
+
+The table name comes from `nav_item->source_table`, so records with equal ids in
+different sections never share a topic.
+
+**If a template does not print the record text** (a catalog card loads its text
+with a separate request), there is nothing to append to — the block is then
+inserted before `</main>` on the `front.output` hook. The `<!--apc-comments-->`
+marker prevents inserting it twice. Setting `comments_position`: `auto` (in the
+article text, otherwise at the end of the page), `content` (article text only),
+`end` (always at the end of the page).
+
+To place the block at a specific spot in a template, use the function:
 
 ```twig
 {{ community_comments(page) }}
