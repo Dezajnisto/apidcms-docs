@@ -119,6 +119,65 @@ history stays in the site database.
 
 ---
 
+## 🗣️ Community Plugin — forum, comments, communities
+
+One plugin for three jobs: a plain forum, comments under site pages, and
+private communities. The trick is simple: **a forum topic is an ordinary record
+with an `embed_code` field**. Empty — it is a forum topic; filled — the topic is
+bound to a site page and works as comments under it. Moderation, replies,
+quoting, reply subscriptions and pagination are therefore shared code, not three
+separate features.
+
+**Features:**
+- Forum: channels, topics, pinning, locking, pagination, view counter
+- Comments under a page or blog post — without editing theme templates
+- Images in posts (uploaded through the form, type checked by content)
+- Markdown in safe mode: raw HTML escaped, `javascript:` and `data:` stripped
+- Moderation queue in admin: "publish / spam / delete", counter in the menu
+- Anti-spam: honeypot, minimum fill time, per-address hash limits, stop words
+- Reply notifications by email using the site's mail settings
+- Works without the Account plugin too: guest comments with moderation remain
+
+**Channels by mode:**
+
+| `mode` | What | Who creates topics | Where it shows |
+|---|---|---|---|
+| `forum` | forum channel | users | `/forum/<slug>` |
+| `comments` | service channel, hidden | automatically on first comment | under the page text |
+| `community` | community | members | `/community/<slug>` (planned) |
+
+**Routes:**
+
+| Path | Purpose |
+|---|---|
+| `GET /forum` | channel list |
+| `GET /forum/<channel>` | topics of a channel |
+| `GET /forum/<channel>/<topic>` | posts and reply form |
+| `GET/POST /forum/<channel>/new` | new topic |
+| `POST /forum/<channel>/<topic>/reply` | reply |
+| `POST /community/reply` | comment on a page |
+| `POST /community/upload` | image upload (JSON) |
+| `/admin/community` | moderation queue |
+
+**Tables:** `plugin_community_channels`, `plugin_community_topics`,
+`plugin_community_posts`, `plugin_community_followers`, `plugin_community_members`
+
+**Styling:** `assets/community.css` sets no background and inherits text colour
+from the theme; the accent comes from `--accent-purple` when the theme declares it.
+
+**If a theme template does not print content as `page.content`**, the comment
+block will not appear by itself — insert it manually:
+
+```twig
+{{ community_comments(page) }}
+```
+
+**Anti-spam.** The IP is never stored: only `HMAC-SHA256(ip, plugin secret)`.
+The hash is enough to count frequency, not enough to recover the address.
+Suspicious posts are queued for review; stop words and the bot trap are rejected.
+
+---
+
 ## 🧩 Extension points (hooks)
 
 A plugin subscribes to hooks through `PluginManager`. Actions (`addAction`)
