@@ -86,6 +86,97 @@ Add products to cart for catalog sites.
 
 ---
 
+## 💬 WebChat Plugin — chat answered from MAX or Telegram
+
+A chat widget for the site: the visitor writes in a window on the page, the owner
+replies from a messenger. No operator panel to keep open, and the conversation
+history stays in the site database.
+
+**Features:**
+- Chat button on every page; window, history, mobile layout
+- Reply channel — MAX or Telegram (selected in settings, can be changed later)
+- Admin page with conversations, unread count, search, and replying from the panel
+- "Check connection" button: subscribes the webhook and sends a test message
+- Anti-spam: limits on conversations and messages, IP stored only as a hash
+
+**Routes:**
+
+| Path | Purpose |
+|---|---|
+| `GET /chat/widget` | widget script (CSS embedded in the response) |
+| `POST /chat/api/start` | create a conversation, get the visitor token |
+| `POST /chat/api/send` | visitor message |
+| `GET /chat/api/poll` | new messages |
+| `POST /chat/api/hook/max` | MAX webhook |
+| `POST /chat/api/hook/telegram` | Telegram webhook |
+| `/admin/chats` | conversations and replies |
+
+> The widget script is served from a path **without** the `.js` extension on
+> purpose: the usual nginx rule `location ~* \.(css|js)$` serves such addresses
+> as static files, and the request never reaches PHP.
+
+**Tables:** `plugin_webchat_threads`, `plugin_webchat_messages`
+
+---
+
+## 🧩 Extension points (hooks)
+
+A plugin subscribes to hooks through `PluginManager`. Actions (`addAction`)
+return nothing, filters (`addFilter`) take a value and return the changed one.
+
+| Hook | Type | When | Why |
+|---|---|---|---|
+| `core.init` | action | core loaded | early plugin initialisation |
+| `db.migrate` | action | loaded with a database | create and verify tables |
+| `twig.init` | action | frontend Twig ready | own templates and functions on the site |
+| `front.router.before` | action | before routing | own public routes (`$path`) |
+| `front.router.after` | action | after routing | does not run if the page was sent |
+| `front.render` | filter | before rendering | add data to the template |
+| `front.output` | filter | finished HTML | insert a widget/counter on every page |
+| `admin.routes` | action | admin routes being built | own admin page |
+| `admin.twig.init` | action | admin Twig ready | path to own templates |
+| `admin.menu` | filter | menu rendering | sidebar item (with `order` and `badge`) |
+| `admin.current_section` | filter | menu highlighting | which item counts as active |
+
+**Own admin page.** The plugin controller lives in its own namespace; the core
+finds it by a class name containing a backslash:
+
+```php
+$pm->addAction('admin.routes', function ($app) {
+    $app->addRoute('/chats', 'Plugins\Webchat\AdminChatsController', 'index');
+    $app->addRoute('/chats/{id}', 'Plugins\Webchat\AdminChatsController', 'thread');
+}, 10, 'webchat');
+
+$pm->addAction('admin.twig.init', function ($controller, $twig) use ($pluginDir) {
+    $twig->getLoader()->addPath($pluginDir . '/views', 'webchat');
+}, 10, 'webchat');
+```
+
+The controller extends `Admin\BaseController` and renders with the namespace:
+`$this->render('@webchat/chats.html.twig', [...])`.
+
+**Menu item** — an array with `title`, `url`, `section` (matches the value
+returned by `admin.current_section`), `badge` (number for the red counter) and
+`order` (sorting, 50 by default):
+
+```php
+$pm->addFilter('admin.menu', function ($items) {
+    $items[] = ['title' => 'Chats', 'url' => '/admin/chats', 'section' => 'chats', 'badge' => 3, 'order' => 60];
+    return $items;
+}, 10, 'webchat');
+```
+
+**A widget on every page** is inserted with the `front.output` filter — the only
+way that does not require editing the templates of every theme:
+
+```php
+$pm->addFilter('front.output', function ($html) {
+    return str_replace('</body>', '<script src="/chat/widget" defer></script></body>', $html);
+}, 10, 'webchat');
+```
+
+---
+
 ## Plugin Settings
 
 A plugin declares its configurable parameters in `plugin.json` — currency, limits,
@@ -126,6 +217,10 @@ foreach ($cfg['settings'] as $s) {
 ```
 
 Where the value came from is none of the plugin's business.
+
+Field types in the settings form: `text` (default), `textarea`, `number`,
+`checkbox`, `select` (with an `options` map) and `secret` — a flag that applies
+on top of any type.
 
 ### The `secret` flag
 
