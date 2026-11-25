@@ -144,7 +144,7 @@ separate features.
 |---|---|---|---|
 | `forum` | forum channel | users | `/forum/<slug>` |
 | `comments` | service channel, hidden | automatically on first comment | under the page text |
-| `community` | community | members | `/community/<slug>` (planned) |
+| `community` | community | members | `/community/<slug>` |
 
 **Routes:**
 
@@ -154,10 +154,28 @@ separate features.
 | `GET /forum/<channel>` | topics of a channel |
 | `GET /forum/<channel>/<topic>` | posts and reply form |
 | `GET/POST /forum/<channel>/new` | new topic |
+| `GET /community` | community list |
+| `GET /community/<slug>` | community page: discussions, members |
+| `POST /community/<slug>/join` | join or apply |
+| `POST /community/<slug>/leave` | leave |
+| `POST /community/<slug>/members` | moderator actions: approve, reject, promote, remove |
 | `POST /forum/<channel>/<topic>/reply` | reply |
 | `POST /community/reply` | comment on a page or record |
 | `POST /community/upload` | image upload (JSON) |
 | `/admin/community` | moderation queue |
+
+**Communities.** A community is the same channel with `mode = community`.
+Join policy (`join_policy`): `open` — one click, `approval` — a request approved
+by a channel moderator, `closed` — invitation only. It is set from a list in
+`/admin/community`, not as free text in the table editor.
+
+A non-member sees the title, description, member count and a join button;
+topics and the member list stay hidden. A channel moderator approves requests
+and removes members without the site admin; nobody can demote themselves.
+Moderators get an email about every new request.
+
+> Communities need the `account` plugin: there is nobody to join on a site
+> without registration. Comments and a guest forum work without it.
 
 **Tables:** `plugin_community_channels`, `plugin_community_topics`,
 `plugin_community_posts`, `plugin_community_followers`, `plugin_community_members`
