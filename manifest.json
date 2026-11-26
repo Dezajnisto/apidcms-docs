@@ -737,6 +737,24 @@
         "en": "How to build a multilingual site: settings, URL prefixes, _t object, Core\\I18n class."
       },
       "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/features/multilingual-sites.md"
+    },
+    {
+      "slug": "seo",
+      "title": {
+        "ru": "SEO — мета-теги и советник",
+        "en": "SEO — Meta Tags & Advisor"
+      },
+      "section": "features",
+      "section_title": {
+        "ru": "Возможности",
+        "en": "Features"
+      },
+      "order": 56,
+      "description": {
+        "ru": "Плагин SEO: мета-теги, Open Graph и JSON-LD, sitemap.xml, 301-редиректы, журнал 404 и чек-лист проверки страниц с оценкой.",
+        "en": "SEO plugin: meta tags, Open Graph and JSON-LD, sitemap.xml, 301 redirects, a 404 log and a per-page checklist with a score."
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/{lang}/features/seo.md"
     }
   ],
   "sections": {
@@ -767,6 +785,13 @@
         "en": "Templates & Twig"
       },
       "order": 40
+    },
+    "features": {
+      "title": {
+        "ru": "Возможности",
+        "en": "Features"
+      },
+      "order": 45
     },
     "settings": {
       "title": {
