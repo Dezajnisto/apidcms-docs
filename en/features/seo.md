@@ -150,6 +150,10 @@ The page editor has a **"Fill with AI"** panel at the top with four buttons:
 The same sparkle buttons sit next to the title, description and focus keyword
 fields — no need to hunt for the generator elsewhere.
 
+The length counters next to the fields show what actually goes to the site: when a field is
+empty they read "49 (from content)" in grey — the length of the value taken from the page —
+not a red "0 characters".
+
 **Results are never inserted silently.** They appear as a suggestion under the
 field with "Apply" and "Cancel": you see exactly what will be written, and the old
 value is not lost. Keyword variants arrive as clickable chips.
