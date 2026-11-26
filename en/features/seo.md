@@ -74,8 +74,20 @@ Opened by clicking a page in the overview. It contains:
 - **snippet preview** — how the page looks in search results;
 - **"Generate title and description"** — the AI drafts text from the page content.
 
-An empty field means "use the content value": the page title, its description and
-image. **"Reset to content"** returns the page to that state.
+An empty field means "use what the page already has". The order of sources is
+an important part of the plugin's behaviour:
+
+1. the **SEO field** in the page editor — when filled, it wins over everything;
+2. **what the theme renders** — if the theme author wrote a `<title>`,
+   `description` or `og:*` by hand, the plugin keeps it and does not overwrite it;
+3. the **content column** in the database, e.g. `pages.title`;
+4. the plugin default (for the social image).
+
+The theme ranks above the content on purpose: `title` in the database is often a
+service label ("Main", "Home"), while the theme renders a meaningful headline.
+With the content first, the plugin would replace a good title with a technical one.
+
+**"Reset to content"** clears the SEO fields and returns the page to this order.
 
 ## What the checklist checks
 
