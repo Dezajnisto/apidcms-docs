@@ -135,16 +135,34 @@ Entries are not cleaned automatically — delete them by hand.
 
 ## AI
 
-The "Generate title and description" button uses the DeepSeek key from
-**Settings → AI**, the same key as the built-in assistant. No extra keys.
+Generation uses the DeepSeek key from **Settings → AI**, the same key as the
+built-in assistant. No extra keys.
 
-What goes to the model: the page text (first 4000 characters), its title and URL.
-The model returns a title up to 65 characters, a description up to 170 and a
-suggested focus keyword. The result is inserted into the fields and should be
-edited before saving. The score is computed by the checklist, not by the model, so
-it does not drift with the model's mood.
+The page editor has a **"Fill with AI"** panel at the top with four buttons:
 
-No key — the button is disabled, everything else works.
+| Button | Returns |
+|---|---|
+| **Everything at once** | title, description and focus keyword in one request |
+| **Title** | only the SEO title, 30–65 chars |
+| **Description** | only the description, 120–165 chars |
+| **Focus keywords** | three variants to pick from, broad to narrow |
+
+The same sparkle buttons sit next to the title, description and focus keyword
+fields — no need to hunt for the generator elsewhere.
+
+**Results are never inserted silently.** They appear as a suggestion under the
+field with "Apply" and "Cancel": you see exactly what will be written, and the old
+value is not lost. Keyword variants arrive as clickable chips.
+
+What goes to the model: the page text (first 4000 characters), its title, URL and
+the focus keyword when already typed. Per-field prompts return sharper answers
+and spend fewer tokens than "everything at once".
+
+The score is computed by the checklist, not by the model, so it does not drift
+with the model's mood. After applying suggestions press "Save": the score is
+recalculated on save.
+
+No key — the generation panel is disabled, everything else works.
 
 ## If the theme renders tags itself
 
