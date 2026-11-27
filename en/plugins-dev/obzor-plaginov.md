@@ -48,6 +48,27 @@ Full-featured code editor. Save with Ctrl+S or the button.
 
 > ⚠️ When deleting the plugin folder, the database tables **remain**. Same on deactivation.
 
+### Where the on/off state lives
+
+`"enabled"` in `plugin.json` is the **default** — the value that ships with the
+plugin. The current state of the site lives in
+`storage/database/plugins-state.json` and overrides the file:
+
+```json
+{ "webchat": true, "cart": false }
+```
+
+That is why the admin toggle changes no file tracked by git. It used to rewrite
+`plugin.json`, so the server copy drifted from the commit and the deploy refused
+on the "files the CMS edits" check until you passed `--force`.
+
+The state cannot live in the database: `bootstrap.php` loads plugins before the
+database connection exists, so a disabled plugin still ran its `init.php` from
+the value in the file. `storage/database/` is not deployed and is backed up
+together with the database.
+
+Deleting the state file returns every plugin to the default from its manifest.
+
 ---
 
 ## 🔐 Account Plugin — User Cabinet

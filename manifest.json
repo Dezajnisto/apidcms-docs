@@ -815,7 +815,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-23-v2.7.4",
+  "updated": "2026-11-27-v2.8.1",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -843,6 +843,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.8.1",
+      "release_date": "2026-11-27",
+      "slug": "v2-8-1",
+      "badge_type": "fix",
+      "tags": "core,plugins,deploy,state",
+      "title": {
+        "ru": "v2.8.1 — состояние плагинов больше не пишется в plugin.json",
+        "en": "v2.8.1 — the plugin on/off state no longer writes to plugin.json"
+      },
+      "summary": {
+        "ru": "Галочка «Активировать/Деактивировать» переписывала `plugins/<имя>/plugin.json` — файл из git. После каждого переключения серверная копия расходилась с коммитом, и деплой отказывал на проверке «файлы, которые правит CMS», требуя `--force`. Теперь состояние живёт в `storage/database/plugins-state.json`, а `enabled` в манифесте остаётся значением по умолчанию. В базу состояние положить нельзя: `bootstrap.php` грузит плагины до подключения к БД, и выключенный плагин успевал выполнить `init.php` по значению из файла.",
+        "en": "The \"Activate/Deactivate\" toggle rewrote `plugins/<name>/plugin.json` — a file tracked by git. Every switch made the server copy drift from the commit, and the deploy refused on the \"files the CMS edits\" check until you passed `--force`. The state now lives in `storage/database/plugins-state.json`, while `enabled` in the manifest stays the default. It cannot live in the database: `bootstrap.php` loads plugins before the database connection exists, so a disabled plugin still ran its `init.php` from the value in the file."
+      },
+      "whats_new": {
+        "ru": "- **Галочка плагина не трогает файлы в git**: состояние пишется в `storage/database/plugins-state.json`\n- **`enabled` в `plugin.json`** — значение по умолчанию; файл состояния его перекрывает\n- **Выключение переживает деплой**: сайт остаётся с выключенным плагином, даже если в репозитории `\"enabled\": true`\n- **Запись атомарная**: временный файл + `rename`, обрыв не оставит половину JSON\n- **Миграция не нужна**: пока файла состояния нет, действуют значения из манифестов",
+        "en": "- **The plugin toggle touches no files in git**: the state goes to `storage/database/plugins-state.json`\n- **`enabled` in `plugin.json`** is the default; the state file overrides it\n- **Disabling survives a deploy**: the site keeps the plugin off even when the repository says `\"enabled\": true`\n- **Atomic writes**: temporary file + `rename`, so a crash cannot leave half a JSON file\n- **No migration needed**: while the state file does not exist, the manifest values apply"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-8-1.md",
+      "order": 200
+    },
     {
       "version": "plugins-v1.2.0",
       "release_date": "2026-11-24",
@@ -2304,5 +2325,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.7.4"
+  "version": "2.8.1"
 }
