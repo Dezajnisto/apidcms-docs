@@ -90,7 +90,6 @@ Managed in **Settings → AI (DeepSeek)** (the "AI" tab):
 | `ai_prompt_content` | Prompt for content generation |
 | `ai_prompt_fill_form` | Prompt for form filling |
 | `ai_prompt_assistant` | Extra instructions for the general assistant (appended to its system prompt) |
-| `ai_assistant_tools` | `1` — the assistant works through tools; `0` — old mode: the whole library and a table dump in the prompt |
 | `ai_assistant_max_steps` | How many tool rounds are allowed (1–10, default 6) |
 
 Prompts can be edited — customize AI behavior for your tasks.
@@ -140,11 +139,31 @@ Settings that limit the amount of templates and CSS sent to the AI assistant. Lo
 
 | Parameter | Description | Default |
 |-----------|-------------|:---:|
-| `ai_template_max_size` | Max bytes per .twig file | 0 |
-| `ai_template_total_max` | Total limit for all templates | 0 |
-| `ai_css_max_size` | Max bytes for custom.css | 0 |
+| `ai_template_max_size` | Max bytes per .twig file | 20000 |
+| `ai_template_total_max` | Total limit for all templates | 60000 |
+| `ai_css_max_size` | Max bytes for custom.css | 20000 |
 
-**0 = unlimited.** Relevant for modern models (DeepSeek -- 1M tokens). If using a model with a small context window, set limits accordingly.
+`0` or empty means the **built-in limit** (the values above). `-1` means
+deliberately unlimited. Before 2.8.2 `0` meant "unlimited", and that was not the
+owner's choice but the shipped default: the prompt grew with the site silently.
+
+#### Which templates are sent
+
+Templates come **from the site's active theme**; the core only fills in what the
+theme does not have at all. Order: `base.html.twig` first, then the other
+root-level theme templates alphabetically, then root-level core templates, then
+partials from subdirectories. Names differ per site (`catalog.html.twig`,
+`catalog_single.html.twig` and so on), so the list is not fixed.
+
+Before 2.8.2 the template and CSS generators ran **without any templates at
+all**: the code looked for them in old-structure paths that do not exist in the
+project and silently got an empty array.
+
+#### What goes out right now
+
+The same AI tab has a **"What goes to the model now"** block: active theme, the
+number of templates and their size, the CSS size (flagged when cut by the limit),
+and the total in bytes and tokens. Prompt size should not be invisible.
 
 ---
 

@@ -815,7 +815,7 @@
       "order": 70
     }
   },
-  "updated": "2026-11-27-v2.8.1",
+  "updated": "2026-11-27-v2.8.2",
   "admin_routes": {
     "/": "{lang}/quickstart/obzor-paneli-upravleniya.md",
     "/tables": "{lang}/content/obzor-tablic.md",
@@ -843,6 +843,27 @@
     "/ai/assistant": "{lang}/ai/ai-assistent.md"
   },
   "changelog": [
+    {
+      "version": "v2.8.2",
+      "release_date": "2026-11-27",
+      "slug": "v2-8-2",
+      "badge_type": "fix",
+      "tags": "core,ai,context,deploy",
+      "title": {
+        "ru": "v2.8.2 — AI видит шаблоны вашей темы, а не пустоту",
+        "en": "v2.8.2 — the AI sees your theme's templates instead of nothing"
+      },
+      "summary": {
+        "ru": "Генератор шаблонов и CSS работал вообще без шаблонов: код искал их в путях старой структуры, которых в проекте нет, и молча получал пустой массив. Теперь шаблоны берутся из активной темы (ядро — только добор), а лимиты контекста включены по умолчанию: 20 КБ на файл, 60 КБ на все шаблоны, 20 КБ на CSS. Заодно удалён legacy-режим ассистента: он отдавал 222 КБ документации (~74k токенов) в каждый запрос. В настройках появился блок «Сейчас уходит в модель» с реальными цифрами.",
+        "en": "The template and CSS generators ran with no templates at all: the code looked for them in old-structure paths that do not exist in the project and silently got an empty array. Templates now come from the active theme (the core only fills gaps), and context limits are on by default: 20 KB per file, 60 KB for all templates, 20 KB for CSS. The assistant's legacy mode is gone too: it sent 222 KB of documentation (~74k tokens) with every request. Settings now show a \"What goes to the model now\" block with real numbers."
+      },
+      "whats_new": {
+        "ru": "- **Шаблоны из темы**: `base.html.twig` первым, затем корневые шаблоны темы, затем добор из ядра\n- **`catalog.html.twig` и подобные** теперь видны модели — раньше брались только имена из жёсткого списка\n- **Лимиты по умолчанию**: 20 КБ на файл, 60 КБ на шаблоны, 20 КБ на CSS (`0` — встроенный, `-1` — без лимита)\n- **Legacy-режим удалён**: 222 КБ документации в каждый запрос больше не отправляются\n- **Блок «Сейчас уходит в модель»** в настройках: тема, шаблоны, CSS и итог в токенах\n- **`Core\\AIContext`** — сборка контекста отдельным классом, ошибку в путях теперь видно",
+        "en": "- **Templates from the theme**: `base.html.twig` first, then root-level theme templates, then a core fallback\n- **`catalog.html.twig` and the like** are now visible to the model — previously only hardcoded names were taken\n- **Limits on by default**: 20 KB per file, 60 KB for templates, 20 KB for CSS (`0` — built-in, `-1` — no limit)\n- **Legacy mode removed**: 222 KB of documentation per request is no longer sent\n- **\"What goes to the model now\"** block in settings: theme, templates, CSS and the total in tokens\n- **`Core\\AIContext`** — context assembly as a separate class, so a path mistake is visible"
+      },
+      "content_url": "https://raw.githubusercontent.com/Dezajnisto/apidcms-docs/master/changelog/v2-8-2.md",
+      "order": 210
+    },
     {
       "version": "v2.8.1",
       "release_date": "2026-11-27",
@@ -2325,5 +2346,5 @@
       "intro": "Первый стабильный выпуск apidcms. Базовая CMS с ИИ-ассистентом, конструктором таблиц, Twig-шаблонами, файловым менеджером и формами. Исправлены критичные баги первого запуска."
     }
   ],
-  "version": "2.8.1"
+  "version": "2.8.2"
 }

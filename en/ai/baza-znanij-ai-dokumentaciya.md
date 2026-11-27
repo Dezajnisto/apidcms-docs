@@ -97,10 +97,9 @@ documentation but still with the site data tools.
 
 | Key | Default | Purpose |
 |---|---|---|
-| `ai_assistant_tools` | `1` | `0` — bring back the old mode: the whole library and a table dump in the system prompt |
 | `ai_assistant_max_steps` | `6` | how many tool rounds are allowed (1–10) |
 
-Both are edited in the admin panel: Settings → AI.
+The setting is edited in the admin panel: Settings → AI. The old mode (the whole library pasted into the prompt) is gone — it sent ~74k tokens with every request and was removed in 2.8.2.
 
 ---
 
